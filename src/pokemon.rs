@@ -1,6 +1,7 @@
 use crate::enums::*;
 use crate::helper::*;
 use crate::item::Item;
+use crate::moves::Move;
 use crate::species::Species;
 use rand::Rng;
 
@@ -41,6 +42,7 @@ pub struct Pokemon {
     dmax_level: i32,
     tera_type: Type,
     terasallized: bool,
+    move_set: [Move; 4],
 }
 impl Pokemon {
     pub fn new(
@@ -66,6 +68,7 @@ impl Pokemon {
         gmax: bool,
         dmax_level: i32,
         tera_type: Type,
+        move_set: [Move; 4],
     ) -> Self {
         let mut pk = Self {
             species,
@@ -103,6 +106,7 @@ impl Pokemon {
             dmax_level,
             tera_type,
             terasallized: false,
+            move_set,
         };
 
         pk.max_hp = pk.calc_hp();
@@ -147,6 +151,7 @@ impl Pokemon {
             dmax_level: 10,
             tera_type: Type::Normal,
             terasallized: false,
+            move_set: [Move; 4],
         };
 
         pk.max_hp = pk.calc_hp();
@@ -177,7 +182,7 @@ impl Pokemon {
     }
     pub fn take_damage(&mut self, damage: i32) {
         self.hp -= damage;
-        if self.hp - damage < 0 {
+        if self.hp < 0 {
             self.hp = 0;
         }
     }
@@ -196,9 +201,74 @@ impl Pokemon {
             _ => 1.0,
         };
 
-        let atk_stat = base as f64 + 5.0 * nature;
+        let atk_stat = (base as f64 + 5.0) * nature;
 
         let atk: f64 = atk_stat.floor() * get_mod(self.atk_mod);
         return atk.floor() as i32;
+    }
+    pub fn get_def(&self) -> i32 {
+        let base = self.calc_stat(self.species.get_def(), self.def_iv, self.def_ev);
+
+        let nature = match self.nature {
+            Nature::Bold | Nature::Impish | Nature::Lax | Nature::Relaxed => 1.1,
+            Nature::Lonely | Nature::Mild | Nature::Gentle | Nature::Hasty => 0.9,
+            _ => 1.0,
+        };
+
+        let def_stat = (base as f64 + 5.0) * nature;
+
+        let def = def_stat.floor() * get_mod(self.def_mod);
+        def.floor() as i32
+    }
+
+    pub fn get_spa(&self) -> i32 {
+        let base = self.calc_stat(self.species.get_spa(), self.spa_iv, self.spa_ev);
+
+        let nature = match self.nature {
+            Nature::Modest | Nature::Mild | Nature::Rash | Nature::Quiet => 1.1,
+            Nature::Adamant | Nature::Impish | Nature::Careful | Nature::Jolly => 0.9,
+            _ => 1.0,
+        };
+
+        let spa_stat = (base as f64 + 5.0) * nature;
+
+        let spa = spa_stat.floor() * get_mod(self.spa_mod);
+        spa.floor() as i32
+    }
+
+    pub fn get_spd(&self) -> i32 {
+        let base = self.calc_stat(self.species.get_spd(), self.spd_iv, self.spd_ev);
+
+        let nature = match self.nature {
+            Nature::Calm | Nature::Gentle | Nature::Careful | Nature::Sassy => 1.1,
+            Nature::Naughty | Nature::Lax | Nature::Rash | Nature::Naive => 0.9,
+            _ => 1.0,
+        };
+
+        let spd_stat = (base as f64 + 5.0) * nature;
+
+        let spd = spd_stat.floor() * get_mod(self.spd_mod);
+        spd.floor() as i32
+    }
+
+    pub fn get_spe(&self) -> i32 {
+        let base = self.calc_stat(self.species.get_spe(), self.spe_iv, self.spe_ev);
+
+        let nature = match self.nature {
+            Nature::Timid | Nature::Hasty | Nature::Jolly | Nature::Naive => 1.1,
+            Nature::Brave | Nature::Relaxed | Nature::Quiet | Nature::Sassy => 0.9,
+            _ => 1.0,
+        };
+
+        let spe_stat = (base as f64 + 5.0) * nature;
+
+        let spe = spe_stat.floor() * get_mod(self.spe_mod);
+        spe.floor() as i32
+    }
+    pub fn get_acc(&self) -> i32 {
+        self.acc_mod
+    }
+    pub fn get_eva(&self) -> i32 {
+        self.eva_mod
     }
 }

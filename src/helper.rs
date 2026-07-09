@@ -35,8 +35,8 @@ pub fn get_mod_acc(modifier: i32) -> f64 {
         _ => 1.0,
     }
 }
-
-pub fn get_mod_acc(modifier: i32) -> f64 {
+/*
+pub fn get_mod_eva(modifier: i32) -> f64 {
     match modifier {
         -6 => 9.0 / 3.0, // 3.0
         -5 => 8.0 / 3.0, // 2.67
@@ -54,3 +54,4 @@ pub fn get_mod_acc(modifier: i32) -> f64 {
         _ => 1.0,
     }
 }
+*/
