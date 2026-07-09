@@ -1,11 +1,13 @@
 mod enums;
 mod field;
+mod helper;
 mod item;
 mod moves;
 mod pokemon;
 mod species;
 
 use enums::*;
+use helper::*;
 use item::Item;
 use moves::MoveBase;
 use pokemon::Pokemon;
@@ -21,7 +23,9 @@ fn calc_damage(atk: i32, def: i32, power: i32, level: i32) -> i32 {
 
     let random_modifier: f64 = rand::thread_rng().gen_range(0.85..=1.0);
 
-    let type_modifier = 1.0;
+    let effecivness_type1: f64 = 1.0; //Matchup(type1)
+    let effecivness_type2: f64 = 1.0; //Matchup(type2)
+    let type_modifier = effecivness_type1 * effecivness_type2;
 
     let damage = damage_pre_mod.floor() * random_modifier * type_modifier;
 
@@ -34,12 +38,14 @@ fn calc_damage(atk: i32, def: i32, power: i32, level: i32) -> i32 {
     return final_damage;
 }
 
-fn inflict_damage(mon: &mut Pokemon) {
-    let damage = calc_damage(100, 80, 80, 50);
-    mon.hp -= damage;
-    if mon.hp < 0 {
-        mon.hp = 0
-    }
+fn use_move(pk_attacker: &mut Pokemon, pk_defender: &mut Pokemon, _move: i32) {
+    let atk = pk_attacker.get_atk();
+    let def = pk_defender.get_def();
+    let level = pk_attacker.get_level();
+    let power = _move;
+
+    let damage = calc_damage(atk, def, power, level);
+    pk_defender.take_damage(damage);
 }
 
 fn main() {
@@ -47,12 +53,12 @@ fn main() {
         "Pikachu".to_string(),
         Type::Electric,
         Type::None,
-        60,
-        60,
-        80,
-        100,
-        80,
-        80,
+        35,
+        55,
+        40,
+        50,
+        50,
+        90,
         "Lightning Rod".to_string(),
         "Static".to_string(),
         "Hidden".to_string(),
@@ -64,5 +70,7 @@ fn main() {
     );
     let mut pika = Pokemon::new_easy(pika_sp, 50);
 
-    inflict_damage(&mut pika);
+    println!("{}", pika.get_hp());
+    use_move(&mut pika);
+    println!("{}", pika.get_hp());
 }

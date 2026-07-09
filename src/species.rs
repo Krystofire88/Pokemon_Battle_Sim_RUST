@@ -63,6 +63,21 @@ impl Species {
     pub fn get_hp(&self) -> i32 {
         self.hp
     }
+    pub fn get_atk(&self) -> i32 {
+        self.atk
+    }
+    pub fn get_def(&self) -> i32 {
+        self.def
+    }
+    pub fn get_spa(&self) -> i32 {
+        self.spa
+    }
+    pub fn get_spd(&self) -> i32 {
+        self.spd
+    }
+    pub fn get_spe(&self) -> i32 {
+        self.spe
+    }
     pub fn get_m_to_f_ratio(&self) -> i32 {
         self.m_to_f_ratio
     }
