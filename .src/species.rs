@@ -1,19 +1,17 @@
 use crate::enums::*;
-use serde::Deserialize;
-
-#[derive(Clone, Deserialize)]
+#[derive(Clone)]
 pub struct Species {
     name: String,
-    type_1: Type,
-    type_2: Type,
+    type1: Type,
+    type2: Type,
     hp: i32,
     atk: i32,
     def: i32,
     spa: i32,
     spd: i32,
     spe: i32,
-    ability_1: String,
-    ability_2: String,
+    ability1: String,
+    ability2: String,
     ability_h: String,
     genderless: bool,
     m_to_f_ratio: i32,
@@ -24,16 +22,16 @@ pub struct Species {
 impl Species {
     pub fn new(
         name: String,
-        type_1: Type,
-        type_2: Type,
+        type1: Type,
+        type2: Type,
         hp: i32,
         atk: i32,
         def: i32,
         spa: i32,
         spd: i32,
         spe: i32,
-        ability_1: String,
-        ability_2: String,
+        ability1: String,
+        ability2: String,
         ability_h: String,
         genderless: bool,
         m_to_f_ratio: i32,
@@ -43,16 +41,16 @@ impl Species {
     ) -> Species {
         Species {
             name: name,
-            type_1: type_1,
-            type_2: type_2,
+            type1: type1,
+            type2: type2,
             hp: hp,
             atk: atk,
             def: def,
             spa: spa,
             spd: spd,
             spe: spe,
-            ability_1: ability_1,
-            ability_2: ability_2,
+            ability1: ability1,
+            ability2: ability2,
             ability_h: ability_h,
             genderless: genderless,
             m_to_f_ratio: m_to_f_ratio,
@@ -62,9 +60,6 @@ impl Species {
         }
     }
 
-    pub fn get_name(&self) -> String {
-        self.name.clone()
-    }
     pub fn get_hp(&self) -> i32 {
         self.hp
     }

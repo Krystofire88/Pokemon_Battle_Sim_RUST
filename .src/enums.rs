@@ -1,6 +1,4 @@
-use serde::Deserialize;
-
-#[derive(Copy, Clone, Deserialize)]
+#[derive(Copy, Clone)]
 pub enum Type {
     None,
     Normal,

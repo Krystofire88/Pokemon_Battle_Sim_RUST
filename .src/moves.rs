@@ -64,12 +64,12 @@ impl MoveEffect {
 
 #[derive(Clone)]
 pub struct Move {
-    pub move_base: MoveBase,
+    move_id: i32,
     pp: i32,
 }
 impl Move {
-    pub fn new(move_base: MoveBase) -> Self {
-        let mut m = Self { move_base, pp: 0 };
+    pub fn new(move_id: i32) -> Self {
+        let mut m = Self { move_id, pp: 0 };
         m.pp = m.move_base.max_pp;
         return m;
     }
