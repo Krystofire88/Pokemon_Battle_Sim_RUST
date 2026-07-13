@@ -1,3 +1,6 @@
+use crate::consts::*;
+use crate::enums::*;
+
 pub fn get_mod(modifier: i32) -> f64 {
     match modifier {
         6 => 8.0 / 2.0,  // 4.0
@@ -35,23 +38,11 @@ pub fn get_mod_acc(modifier: i32) -> f64 {
         _ => 1.0,
     }
 }
-/*
-pub fn get_mod_eva(modifier: i32) -> f64 {
-    match modifier {
-        -6 => 9.0 / 3.0, // 3.0
-        -5 => 8.0 / 3.0, // 2.67
-        -4 => 7.0 / 3.0, // 2.33
-        -3 => 6.0 / 3.0, // 2.0
-        -2 => 5.0 / 3.0, // 1.67
-        -1 => 4.0 / 3.0, // 1.33
-        0 => 3.0 / 3.0,  // 1.0
-        1 => 3.0 / 4.0,  // 0.75
-        2 => 3.0 / 5.0,  // 0.6
-        3 => 3.0 / 6.0,  // 0.5
-        4 => 3.0 / 7.0,  // 0.42
-        5 => 3.0 / 8.0,  // 0.37
-        6 => 3.0 / 9.0,  // 0.33
-        _ => 1.0,
+
+pub fn matchup(type_atk: Type, type_def: Type) -> f64 {
+    if type_def == Type::None || type_atk == Type::None {
+        return 1.0;
+    } else {
+        return TYPE_CHART[type_atk as usize][type_def as usize];
     }
 }
-*/

@@ -28,6 +28,9 @@ impl ActivePokemon {
     pub fn get_atk(&self) -> i32 {
         self.atk_mod
     }
+    pub fn raise_atk(&mut self, stage: i32) {
+        self.atk_mod += stage;
+    }
     pub fn get_def(&self) -> i32 {
         self.def_mod
     }

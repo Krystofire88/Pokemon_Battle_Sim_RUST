@@ -158,12 +158,11 @@ impl Pokemon {
         self.move_set.push(mv);
     }
     pub fn get_info(&self) {
+        println!("");
         println!("{}", self.species.get_name());
-        println!("{}", self.nickname);
-        println!("{:?}", self.gender);
         println!("{}", self.level);
         println!("{} / {}", self.hp, self.max_hp);
-        println!("{}", self.ability);
+        println!("");
     }
     fn calc_stat(&self, base: i32, iv: i32, ev: i32) -> i32 {
         let mut evs: f64 = ev as f64 / 4.0;
@@ -262,12 +261,10 @@ impl Pokemon {
         let spe = spe_stat.floor() * get_mod(spe_mod);
         spe.floor() as i32
     }
-    /*
-    pub fn get_acc(&self) -> i32 {
-        self.acc_mod
+    pub fn get_name(&self) -> String {
+        self.nickname.clone()
     }
-    pub fn get_eva(&self) -> i32 {
-        self.eva_mod
+    pub fn get_status(&self) -> Status {
+        self.non_volitile_status
     }
-    */
 }

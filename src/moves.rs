@@ -51,6 +51,12 @@ impl MoveBase {
     pub fn get_name(&self) -> String {
         self.name.clone()
     }
+    pub fn get_priority(&self) -> i32 {
+        self.priority
+    }
+    pub fn get_split(&self) -> Split {
+        self.split
+    }
 }
 
 #[derive(Clone, Deserialize)]
@@ -89,5 +95,14 @@ impl Move {
     }
     pub fn get_power(&self) -> i32 {
         ALL_MOVES_VEC[self.move_id as usize].get_power()
+    }
+    pub fn get_priority(&self) -> i32 {
+        ALL_MOVES_VEC[self.move_id as usize].get_priority()
+    }
+    pub fn get_split(&self) -> Split {
+        ALL_MOVES_VEC[self.move_id as usize].get_split()
+    }
+    pub fn get_accuracy(&self) -> i32 {
+        ALL_MOVES_VEC[self.move_id as usize].get_accuracy()
     }
 }

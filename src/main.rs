@@ -35,6 +35,8 @@ fn main() {
 
     let mut battler = Battler::new(pika, char);
     battler.get_info(1);
+    battler.get_info(2);
     battler.start();
     battler.get_info(1);
+    battler.get_info(2);
 }
