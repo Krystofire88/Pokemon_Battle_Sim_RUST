@@ -89,4 +89,10 @@ impl Species {
     pub fn get_genderless(&self) -> bool {
         self.genderless
     }
+    pub fn get_type_1(&self) -> Type {
+        self.type_1
+    }
+    pub fn get_type_2(&self) -> Type {
+        self.type_2
+    }
 }

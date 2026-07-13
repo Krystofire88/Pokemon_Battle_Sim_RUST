@@ -1,6 +1,6 @@
 use serde::Deserialize;
 
-#[derive(Copy, Clone, Deserialize)]
+#[derive(Copy, Clone, Deserialize, PartialEq, Eq, Debug)]
 pub enum Type {
     None,
     Normal,
@@ -41,13 +41,13 @@ pub enum StatusVol {
     Torment,
     Drowsy,
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub enum Gender {
     Male,
     Female,
     Genderless,
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub enum Nature {
     // + attack
     Hardy,   // neutral
@@ -103,7 +103,7 @@ pub enum Terrain {
     Misty,
     Psychic,
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Deserialize)]
 pub enum Split {
     Physical,
     Special,

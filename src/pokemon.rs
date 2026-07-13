@@ -1,3 +1,4 @@
+use crate::consts::*;
 use crate::enums::*;
 use crate::helper::*;
 use crate::item::Item;
@@ -15,7 +16,6 @@ pub struct Pokemon {
     hp: i32,
     ability: i32,
     non_volitile_status: Status,
-    //  volitile_status: Vec<StatusVol>,
     hp_iv: i32,
     hp_ev: i32,
     atk_iv: i32,
@@ -28,21 +28,13 @@ pub struct Pokemon {
     spd_ev: i32,
     spe_iv: i32,
     spe_ev: i32,
-    // atk_mod: i32,
-    // def_mod: i32,
-    // spa_mod: i32,
-    // spd_mod: i32,
-    // spe_mod: i32,
-    // acc_mod: i32,
-    // eva_mod: i32,
     nature: Nature,
     held_item: Item,
     gmax: bool,
-    // is_dmax: bool,
     dmax_level: i32,
     tera_type: Type,
     terasallized: bool,
-    move_set: [Move; 4],
+    pub move_set: Vec<Move>,
 }
 impl Pokemon {
     pub fn new(
@@ -68,7 +60,7 @@ impl Pokemon {
         gmax: bool,
         dmax_level: i32,
         tera_type: Type,
-        move_set: [Move; 4],
+        move_set: Vec<Move>,
     ) -> Self {
         let mut pk = Self {
             species,
@@ -79,7 +71,6 @@ impl Pokemon {
             hp: 0,
             ability,
             non_volitile_status: Status::None,
-            volitile_status: Vec::new(),
             hp_iv,
             hp_ev,
             atk_iv,
@@ -92,17 +83,9 @@ impl Pokemon {
             spd_ev,
             spe_iv,
             spe_ev,
-            atk_mod: 0,
-            def_mod: 0,
-            spa_mod: 0,
-            spd_mod: 0,
-            spe_mod: 0,
-            acc_mod: 0,
-            eva_mod: 0,
             nature,
             held_item,
             gmax,
-            is_dmax: false,
             dmax_level,
             tera_type,
             terasallized: false,
@@ -114,9 +97,9 @@ impl Pokemon {
 
         return pk;
     }
-    pub fn new_easy(species: Species, level: i32) -> Self {
+    pub fn new_easy(species: &Species, level: i32) -> Self {
         let mut pk = Self {
-            species,
+            species: species.clone(),
             nickname: "Placeholder".to_string(),
             gender: Gender::Genderless,
             level,
@@ -124,7 +107,6 @@ impl Pokemon {
             hp: 0,
             ability: rand::thread_rng().gen_range(0..=3),
             non_volitile_status: Status::None,
-            volitile_status: Vec::new(),
             hp_iv: rand::thread_rng().gen_range(0..=31),
             hp_ev: rand::thread_rng().gen_range(0..=88),
             atk_iv: rand::thread_rng().gen_range(0..=31),
@@ -137,23 +119,15 @@ impl Pokemon {
             spd_ev: rand::thread_rng().gen_range(0..=88),
             spe_iv: rand::thread_rng().gen_range(0..=31),
             spe_ev: rand::thread_rng().gen_range(0..=88),
-            atk_mod: 0,
-            def_mod: 0,
-            spa_mod: 0,
-            spd_mod: 0,
-            spe_mod: 0,
-            acc_mod: 0,
-            eva_mod: 0,
             nature: Nature::Serious,
             held_item: Item {},
             gmax: false,
-            is_dmax: false,
             dmax_level: 10,
             tera_type: Type::Normal,
             terasallized: false,
-            move_set: [Move; 4],
+            move_set: Vec::new(),
         };
-
+        pk.nickname = pk.species.get_name();
         pk.max_hp = pk.calc_hp();
         pk.hp = pk.max_hp;
 
@@ -165,8 +139,31 @@ impl Pokemon {
                 pk.gender = Gender::Male;
             }
         }
+        if pk.species.get_type_2() == Type::None {
+            pk.tera_type = pk.species.get_type_1();
+        } else {
+            if rand::thread_rng().gen_bool(0.5) {
+                pk.tera_type = pk.species.get_type_1();
+            } else {
+                pk.tera_type = pk.species.get_type_2();
+            }
+        }
 
         return pk;
+    }
+    pub fn add_move(&mut self, mv: Move) {
+        if self.move_set.len() > 3 {
+            return;
+        }
+        self.move_set.push(mv);
+    }
+    pub fn get_info(&self) {
+        println!("{}", self.species.get_name());
+        println!("{}", self.nickname);
+        println!("{:?}", self.gender);
+        println!("{}", self.level);
+        println!("{} / {}", self.hp, self.max_hp);
+        println!("{}", self.ability);
     }
     fn calc_stat(&self, base: i32, iv: i32, ev: i32) -> i32 {
         let mut evs: f64 = ev as f64 / 4.0;
@@ -192,7 +189,7 @@ impl Pokemon {
     pub fn get_hp(&self) -> i32 {
         self.hp
     }
-    pub fn get_atk(&self) -> i32 {
+    pub fn get_atk(&self, atk_mod: i32) -> i32 {
         let base = self.calc_stat(self.species.get_atk(), self.atk_iv, self.atk_ev);
 
         let nature = match self.nature {
@@ -203,10 +200,10 @@ impl Pokemon {
 
         let atk_stat = (base as f64 + 5.0) * nature;
 
-        let atk: f64 = atk_stat.floor() * get_mod(self.atk_mod);
+        let atk: f64 = atk_stat.floor() * get_mod(atk_mod);
         return atk.floor() as i32;
     }
-    pub fn get_def(&self) -> i32 {
+    pub fn get_def(&self, def_mod: i32) -> i32 {
         let base = self.calc_stat(self.species.get_def(), self.def_iv, self.def_ev);
 
         let nature = match self.nature {
@@ -217,11 +214,11 @@ impl Pokemon {
 
         let def_stat = (base as f64 + 5.0) * nature;
 
-        let def = def_stat.floor() * get_mod(self.def_mod);
+        let def = def_stat.floor() * get_mod(def_mod);
         def.floor() as i32
     }
 
-    pub fn get_spa(&self) -> i32 {
+    pub fn get_spa(&self, spa_mod: i32) -> i32 {
         let base = self.calc_stat(self.species.get_spa(), self.spa_iv, self.spa_ev);
 
         let nature = match self.nature {
@@ -232,11 +229,11 @@ impl Pokemon {
 
         let spa_stat = (base as f64 + 5.0) * nature;
 
-        let spa = spa_stat.floor() * get_mod(self.spa_mod);
+        let spa = spa_stat.floor() * get_mod(spa_mod);
         spa.floor() as i32
     }
 
-    pub fn get_spd(&self) -> i32 {
+    pub fn get_spd(&self, spd_mod: i32) -> i32 {
         let base = self.calc_stat(self.species.get_spd(), self.spd_iv, self.spd_ev);
 
         let nature = match self.nature {
@@ -247,11 +244,11 @@ impl Pokemon {
 
         let spd_stat = (base as f64 + 5.0) * nature;
 
-        let spd = spd_stat.floor() * get_mod(self.spd_mod);
+        let spd = spd_stat.floor() * get_mod(spd_mod);
         spd.floor() as i32
     }
 
-    pub fn get_spe(&self) -> i32 {
+    pub fn get_spe(&self, spe_mod: i32) -> i32 {
         let base = self.calc_stat(self.species.get_spe(), self.spe_iv, self.spe_ev);
 
         let nature = match self.nature {
@@ -262,13 +259,15 @@ impl Pokemon {
 
         let spe_stat = (base as f64 + 5.0) * nature;
 
-        let spe = spe_stat.floor() * get_mod(self.spe_mod);
+        let spe = spe_stat.floor() * get_mod(spe_mod);
         spe.floor() as i32
     }
+    /*
     pub fn get_acc(&self) -> i32 {
         self.acc_mod
     }
     pub fn get_eva(&self) -> i32 {
         self.eva_mod
     }
+    */
 }

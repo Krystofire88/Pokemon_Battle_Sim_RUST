@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Tackle",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": true,
+    "protect": false,
+    "effect_list": []
+  }
+]
