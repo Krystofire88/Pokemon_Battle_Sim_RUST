@@ -14,7 +14,7 @@ pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
     species
         .into_iter()
         .enumerate()
-        .map(|(i, s)| (s.get_name(), i))
+        .map(|(i, s)| (s.get_name().to_string(), i))
         .collect()
 });
 
@@ -26,7 +26,7 @@ pub static ALL_MOVES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
     moves
         .into_iter()
         .enumerate()
-        .map(|(i, m)| (m.get_name(), i))
+        .map(|(i, m)| (m.get_name().to_string(), i))
         .collect()
 });
 

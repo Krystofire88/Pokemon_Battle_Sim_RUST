@@ -15,7 +15,7 @@ pub struct Pokemon {
     max_hp: i32,
     hp: i32,
     ability: i32,
-    non_volitile_status: Status,
+    non_volatile_status: Status,
     hp_iv: i32,
     hp_ev: i32,
     atk_iv: i32,
@@ -33,7 +33,7 @@ pub struct Pokemon {
     gmax: bool,
     dmax_level: i32,
     tera_type: Type,
-    terasallized: bool,
+    terastallized: bool,
     pub move_set: Vec<Move>,
 }
 impl Pokemon {
@@ -70,7 +70,7 @@ impl Pokemon {
             max_hp: 0,
             hp: 0,
             ability,
-            non_volitile_status: Status::None,
+            non_volatile_status: Status::None,
             hp_iv,
             hp_ev,
             atk_iv,
@@ -88,14 +88,14 @@ impl Pokemon {
             gmax,
             dmax_level,
             tera_type,
-            terasallized: false,
+            terastallized: false,
             move_set,
         };
 
         pk.max_hp = pk.calc_hp();
         pk.hp = pk.max_hp;
 
-        return pk;
+        pk
     }
     pub fn new_easy(species_id: usize, level: i32) -> Self {
         let mut pk = Self {
@@ -106,7 +106,7 @@ impl Pokemon {
             max_hp: 0,
             hp: 0,
             ability: rand::thread_rng().gen_range(0..=3),
-            non_volitile_status: Status::None,
+            non_volatile_status: Status::None,
             hp_iv: rand::thread_rng().gen_range(0..=31),
             hp_ev: rand::thread_rng().gen_range(0..=88),
             atk_iv: rand::thread_rng().gen_range(0..=31),
@@ -124,10 +124,10 @@ impl Pokemon {
             gmax: false,
             dmax_level: 10,
             tera_type: Type::Normal,
-            terasallized: false,
+            terastallized: false,
             move_set: Vec::new(),
         };
-        pk.nickname = pk.get_species_name();
+        pk.nickname = pk.get_species_name().to_string();
         pk.max_hp = pk.calc_hp();
         pk.hp = pk.max_hp;
 
@@ -149,13 +149,12 @@ impl Pokemon {
             }
         }
 
-        return pk;
+        pk
     }
     pub fn add_move(&mut self, mv: Move) {
-        if self.move_set.len() > 3 {
-            return;
+        if self.move_set.len() < 4 {
+            self.move_set.push(mv);
         }
-        self.move_set.push(mv);
     }
     pub fn get_info(&self) {
         poke_println!("");
@@ -170,11 +169,11 @@ impl Pokemon {
         let numerator_left: f64 = 2.0 * base as f64 + iv as f64 + evs;
         let numerator: f64 = numerator_left * self.level as f64;
         let floor: f64 = numerator / 100.0;
-        return floor.floor() as i32;
+        floor.floor() as i32
     }
     fn calc_hp(&self) -> i32 {
         let base = self.calc_stat(self.get_base_hp(), self.hp_iv, self.hp_ev);
-        return base + self.level + 10;
+        base + self.level + 10
     }
     pub fn take_damage(&mut self, damage: i32) {
         self.hp -= damage;
@@ -188,7 +187,7 @@ impl Pokemon {
     pub fn get_hp(&self) -> i32 {
         self.hp
     }
-    pub fn get_atk(&self, atk_mod: i32) -> i32 {
+    pub fn get_atk(&self) -> i32 {
         let base = self.calc_stat(self.get_base_atk(), self.atk_iv, self.atk_ev);
 
         let nature = match self.nature {
@@ -199,10 +198,10 @@ impl Pokemon {
 
         let atk_stat = (base as f64 + 5.0) * nature;
 
-        let atk: f64 = atk_stat.floor() * get_mod(atk_mod);
-        return atk.floor() as i32;
+        let atk: f64 = atk_stat.floor();
+        atk.floor() as i32
     }
-    pub fn get_def(&self, def_mod: i32) -> i32 {
+    pub fn get_def(&self) -> i32 {
         let base = self.calc_stat(self.get_base_def(), self.def_iv, self.def_ev);
 
         let nature = match self.nature {
@@ -213,11 +212,11 @@ impl Pokemon {
 
         let def_stat = (base as f64 + 5.0) * nature;
 
-        let def = def_stat.floor() * get_mod(def_mod);
+        let def = def_stat.floor();
         def.floor() as i32
     }
 
-    pub fn get_spa(&self, spa_mod: i32) -> i32 {
+    pub fn get_spa(&self) -> i32 {
         let base = self.calc_stat(self.get_base_spa(), self.spa_iv, self.spa_ev);
 
         let nature = match self.nature {
@@ -228,11 +227,11 @@ impl Pokemon {
 
         let spa_stat = (base as f64 + 5.0) * nature;
 
-        let spa = spa_stat.floor() * get_mod(spa_mod);
+        let spa = spa_stat.floor();
         spa.floor() as i32
     }
 
-    pub fn get_spd(&self, spd_mod: i32) -> i32 {
+    pub fn get_spd(&self) -> i32 {
         let base = self.calc_stat(self.get_base_spd(), self.spd_iv, self.spd_ev);
 
         let nature = match self.nature {
@@ -243,11 +242,11 @@ impl Pokemon {
 
         let spd_stat = (base as f64 + 5.0) * nature;
 
-        let spd = spd_stat.floor() * get_mod(spd_mod);
+        let spd = spd_stat.floor();
         spd.floor() as i32
     }
 
-    pub fn get_spe(&self, spe_mod: i32) -> i32 {
+    pub fn get_spe(&self) -> i32 {
         let base = self.calc_stat(self.get_base_spe(), self.spe_iv, self.spe_ev);
 
         let nature = match self.nature {
@@ -258,14 +257,14 @@ impl Pokemon {
 
         let spe_stat = (base as f64 + 5.0) * nature;
 
-        let spe = spe_stat.floor() * get_mod(spe_mod);
+        let spe = spe_stat.floor();
         spe.floor() as i32
     }
-    pub fn get_nickname(&self) -> String {
-        self.nickname.clone()
+    pub fn get_nickname(&self) -> &str {
+        &self.nickname
     }
     pub fn get_status(&self) -> Status {
-        self.non_volitile_status
+        self.non_volatile_status
     }
     fn get_base_hp(&self) -> i32 {
         ALL_SPECIES_VEC[self.species_id as usize].get_hp()
@@ -291,26 +290,26 @@ impl Pokemon {
     fn get_m_to_f_ratio(&self) -> i32 {
         ALL_SPECIES_VEC[self.species_id as usize].get_m_to_f_ratio()
     }
-    pub fn get_species_name(&self) -> String {
+    pub fn get_species_name(&self) -> &str {
         ALL_SPECIES_VEC[self.species_id as usize].get_name()
     }
     pub fn get_type_1(&self) -> Type {
-        if self.terasallized {
-            return self.tera_type;
+        if self.terastallized {
+            self.tera_type
         } else {
             ALL_SPECIES_VEC[self.species_id as usize].get_type_1()
         }
     }
     pub fn get_type_2(&self) -> Type {
-        if self.terasallized {
-            return Type::None;
+        if self.terastallized {
+            Type::None
         } else {
             ALL_SPECIES_VEC[self.species_id as usize].get_type_2()
         }
     }
     pub fn inflict_status(&mut self, status: Status) {
-        if self.non_volitile_status == Status::None {
-            let _ = self.non_volitile_status == status;
+        if self.non_volatile_status == Status::None {
+            self.non_volatile_status = status
         }
     }
 }

@@ -48,8 +48,8 @@ impl MoveBase {
     pub fn get_accuracy(&self) -> i32 {
         self.accuracy
     }
-    pub fn get_name(&self) -> String {
-        self.name.clone()
+    pub fn get_name(&self) -> &str {
+        &self.name
     }
     pub fn get_priority(&self) -> i32 {
         self.priority
@@ -102,7 +102,7 @@ impl Move {
     pub fn new(move_id: usize) -> Self {
         let mut m = Self { move_id, pp: 0 };
         m.pp = ALL_MOVES_VEC[move_id].get_max_pp();
-        return m;
+        m
     }
     pub fn lose_pp(&mut self, i: i32) {
         self.pp -= i;
@@ -113,7 +113,7 @@ impl Move {
     pub fn get_pp(&self) -> i32 {
         self.pp
     }
-    pub fn get_name(&self) -> String {
+    pub fn get_name(&self) -> &str {
         ALL_MOVES_VEC[self.move_id].get_name()
     }
     pub fn get_power(&self) -> i32 {

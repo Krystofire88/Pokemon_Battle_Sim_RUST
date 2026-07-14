@@ -10,6 +10,7 @@ pub struct ActivePokemon {
     acc_mod: i32,
     eva_mod: i32,
     is_dmax: bool,
+    crit_stage: i32,
 }
 impl ActivePokemon {
     pub fn new() -> Self {
@@ -23,6 +24,7 @@ impl ActivePokemon {
             acc_mod: 0,
             eva_mod: 0,
             is_dmax: false,
+            crit_stage: 0,
         }
     }
     pub fn get_atk(&self) -> i32 {
@@ -79,5 +81,17 @@ impl ActivePokemon {
     }
     pub fn inflict_status(&mut self, status: StatusVol) {
         self.volitile_status.push(status);
+    }
+    pub fn get_crit_stage(&self) -> i32 {
+        self.crit_stage
+    }
+    pub fn reset_crit_stage(&mut self) {
+        self.crit_stage = 0
+    }
+    pub fn raise_crit_stage(&mut self, stage: i32) {
+        let mut stg = stage;
+        stg = stg.clamp(0, 2); // +3 is only achivable in gen 5 with the wonder launcher
+        self.crit_stage += stg;
+        self.eva_mod = self.eva_mod.clamp(0, 3); // 4+ is achievable but has no effect above gen VI
     }
 }

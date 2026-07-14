@@ -39,12 +39,15 @@ impl FieldSide {
             mist_timer: 0,
         }
     }
+    pub fn is_tailwind(&self) -> bool {
+        self.tailwind
+    }
 }
 
 #[derive(Clone)]
 pub struct Field {
-    field_side_a: FieldSide,
-    field_side_b: FieldSide,
+    pub field_side_a: FieldSide,
+    pub field_side_b: FieldSide,
     weather: Weather,
     weather_timer: i32,
     terrain: Terrain,
@@ -77,5 +80,14 @@ impl Field {
             magic_room: false,
             magic_room_timer: 0,
         }
+    }
+    pub fn is_trick_room(&self) -> bool {
+        self.trick_room
+    }
+    pub fn get_weather(&self) -> Weather {
+        self.weather
+    }
+    pub fn get_terrain(&self) -> Terrain {
+        self.terrain
     }
 }

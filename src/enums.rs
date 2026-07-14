@@ -84,7 +84,7 @@ pub enum Nature {
     Naive,   // - sp defense
     Serious, // neutral
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum Weather {
     None,
     Sun,
@@ -95,7 +95,7 @@ pub enum Weather {
     HeavyRain,
     StrongWinds,
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum Terrain {
     None,
     Electric,

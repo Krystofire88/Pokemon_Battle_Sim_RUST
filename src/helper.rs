@@ -55,8 +55,8 @@ pub fn get_mod_acc(modifier: i32) -> f64 {
 
 pub fn matchup(type_atk: Type, type_def: Type) -> f64 {
     if type_def == Type::None || type_atk == Type::None {
-        return 1.0;
+        1.0
     } else {
-        return TYPE_CHART[type_atk as usize - 1][type_def as usize - 1];
+        TYPE_CHART[type_atk as usize - 1][type_def as usize - 1]
     }
 }

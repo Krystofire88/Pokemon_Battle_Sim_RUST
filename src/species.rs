@@ -62,8 +62,8 @@ impl Species {
         }
     }
 
-    pub fn get_name(&self) -> String {
-        self.name.clone()
+    pub fn get_name(&self) -> &str {
+        &self.name
     }
     pub fn get_hp(&self) -> i32 {
         self.hp
