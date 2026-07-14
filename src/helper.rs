@@ -1,6 +1,20 @@
 use crate::consts::*;
 use crate::enums::*;
 
+#[cfg(debug_assertions)]
+#[macro_export]
+macro_rules! poke_println {
+    ($($arg:tt)*) => {
+        println!($($arg)*)
+    };
+}
+
+#[cfg(not(debug_assertions))]
+#[macro_export]
+macro_rules! poke_println {
+    ($($arg:tt)*) => {};
+}
+
 pub fn get_mod(modifier: i32) -> f64 {
     match modifier {
         6 => 8.0 / 2.0,  // 4.0
@@ -43,6 +57,6 @@ pub fn matchup(type_atk: Type, type_def: Type) -> f64 {
     if type_def == Type::None || type_atk == Type::None {
         return 1.0;
     } else {
-        return TYPE_CHART[type_atk as usize][type_def as usize];
+        return TYPE_CHART[type_atk as usize - 1][type_def as usize - 1];
     }
 }

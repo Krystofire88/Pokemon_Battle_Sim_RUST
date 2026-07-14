@@ -1,6 +1,6 @@
 use crate::consts::*;
 use crate::enums::*;
-use crate::move_effects::MoveEffects;
+use crate::move_effects::*;
 use serde::Deserialize;
 
 #[derive(Clone, Deserialize)]
@@ -57,28 +57,51 @@ impl MoveBase {
     pub fn get_split(&self) -> Split {
         self.split
     }
+    pub fn get_max_pp(&self) -> i32 {
+        self.max_pp
+    }
+    pub fn get_type(&self) -> Type {
+        self.move_type
+    }
+    pub fn get_effects(&self) -> Vec<MoveEffect> {
+        self.effect_list.clone()
+    }
 }
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Copy, Deserialize)]
 pub struct MoveEffect {
     effect: MoveEffects,
     chance: i32,
+    target: Target,
 }
 impl MoveEffect {
-    pub fn new(effect: MoveEffects, chance: i32) -> Self {
-        Self { effect, chance }
+    pub fn new(effect: MoveEffects, chance: i32, target: Target) -> Self {
+        Self {
+            effect,
+            chance,
+            target,
+        }
+    }
+    pub fn get_effect(&self) -> MoveEffects {
+        self.effect
+    }
+    pub fn get_effect_chance(&self) -> i32 {
+        self.chance
+    }
+    pub fn get_target(&self) -> Target {
+        self.target
     }
 }
 
 #[derive(Copy, Clone)]
 pub struct Move {
-    pub move_id: i32,
+    pub move_id: usize,
     pub pp: i32,
 }
 impl Move {
-    pub fn new(move_id: i32) -> Self {
+    pub fn new(move_id: usize) -> Self {
         let mut m = Self { move_id, pp: 0 };
-        m.pp = ALL_MOVES_VEC[move_id as usize].max_pp;
+        m.pp = ALL_MOVES_VEC[move_id].get_max_pp();
         return m;
     }
     pub fn lose_pp(&mut self, i: i32) {
@@ -91,18 +114,24 @@ impl Move {
         self.pp
     }
     pub fn get_name(&self) -> String {
-        ALL_MOVES_VEC[self.move_id as usize].get_name()
+        ALL_MOVES_VEC[self.move_id].get_name()
     }
     pub fn get_power(&self) -> i32 {
-        ALL_MOVES_VEC[self.move_id as usize].get_power()
+        ALL_MOVES_VEC[self.move_id].get_power()
     }
     pub fn get_priority(&self) -> i32 {
-        ALL_MOVES_VEC[self.move_id as usize].get_priority()
+        ALL_MOVES_VEC[self.move_id].get_priority()
     }
     pub fn get_split(&self) -> Split {
-        ALL_MOVES_VEC[self.move_id as usize].get_split()
+        ALL_MOVES_VEC[self.move_id].get_split()
     }
     pub fn get_accuracy(&self) -> i32 {
-        ALL_MOVES_VEC[self.move_id as usize].get_accuracy()
+        ALL_MOVES_VEC[self.move_id].get_accuracy()
+    }
+    pub fn get_type(&self) -> Type {
+        ALL_MOVES_VEC[self.move_id].get_type()
+    }
+    pub fn get_effects(&self) -> Vec<MoveEffect> {
+        ALL_MOVES_VEC[self.move_id].get_effects()
     }
 }

@@ -4,20 +4,30 @@ use std::collections::HashMap;
 use std::fs;
 use std::sync::LazyLock;
 
-pub static ALL_SPECIES: LazyLock<HashMap<String, Species>> = LazyLock::new(|| {
+pub const CANNOT_MISS: i32 = 101;
+
+pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
     let species: Vec<Species> =
         serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllPokemon.json").unwrap())
             .unwrap();
 
-    species.into_iter().map(|s| (s.get_name(), s)).collect()
+    species
+        .into_iter()
+        .enumerate()
+        .map(|(i, s)| (s.get_name(), i))
+        .collect()
 });
 
-pub static ALL_MOVES: LazyLock<HashMap<String, MoveBase>> = LazyLock::new(|| {
-    let species: Vec<MoveBase> =
-        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllPokemon.json").unwrap())
+pub static ALL_MOVES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
+    let moves: Vec<MoveBase> =
+        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllMovesjson").unwrap())
             .unwrap();
 
-    species.into_iter().map(|s| (s.get_name(), s)).collect()
+    moves
+        .into_iter()
+        .enumerate()
+        .map(|(i, m)| (m.get_name(), i))
+        .collect()
 });
 
 pub static ALL_SPECIES_VEC: LazyLock<Vec<Species>> = LazyLock::new(|| {

@@ -9,3 +9,10 @@ pub enum MoveEffects {
     DropAtkTwice,
     DropAtkFull,
 }
+
+#[derive(Copy, Clone, Deserialize, PartialEq, Eq)]
+pub enum Target {
+    User,
+    Opponent,
+    All,
+}

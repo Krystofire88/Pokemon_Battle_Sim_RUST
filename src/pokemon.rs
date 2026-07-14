@@ -3,12 +3,12 @@ use crate::enums::*;
 use crate::helper::*;
 use crate::item::Item;
 use crate::moves::Move;
-use crate::species::Species;
+use crate::poke_println;
 use rand::Rng;
 
 #[derive(Clone)]
 pub struct Pokemon {
-    pub species: Species,
+    species_id: usize,
     nickname: String,
     gender: Gender,
     level: i32,
@@ -38,7 +38,7 @@ pub struct Pokemon {
 }
 impl Pokemon {
     pub fn new(
-        species: Species,
+        species_id: usize,
         nickname: String,
         gender: Gender,
         level: i32,
@@ -63,7 +63,7 @@ impl Pokemon {
         move_set: Vec<Move>,
     ) -> Self {
         let mut pk = Self {
-            species,
+            species_id,
             nickname,
             gender,
             level,
@@ -97,9 +97,9 @@ impl Pokemon {
 
         return pk;
     }
-    pub fn new_easy(species: &Species, level: i32) -> Self {
+    pub fn new_easy(species_id: usize, level: i32) -> Self {
         let mut pk = Self {
-            species: species.clone(),
+            species_id,
             nickname: "Placeholder".to_string(),
             gender: Gender::Genderless,
             level,
@@ -127,25 +127,25 @@ impl Pokemon {
             terasallized: false,
             move_set: Vec::new(),
         };
-        pk.nickname = pk.species.get_name();
+        pk.nickname = pk.get_species_name();
         pk.max_hp = pk.calc_hp();
         pk.hp = pk.max_hp;
 
-        if !pk.species.get_genderless() {
+        if !pk.get_genderless() {
             let flip = rand::thread_rng().gen_range(0..100);
-            if flip > pk.species.get_m_to_f_ratio() {
+            if flip > pk.get_m_to_f_ratio() {
                 pk.gender = Gender::Female;
             } else {
                 pk.gender = Gender::Male;
             }
         }
-        if pk.species.get_type_2() == Type::None {
-            pk.tera_type = pk.species.get_type_1();
+        if pk.get_type_2() == Type::None {
+            pk.tera_type = pk.get_type_1();
         } else {
             if rand::thread_rng().gen_bool(0.5) {
-                pk.tera_type = pk.species.get_type_1();
+                pk.tera_type = pk.get_type_1();
             } else {
-                pk.tera_type = pk.species.get_type_2();
+                pk.tera_type = pk.get_type_2();
             }
         }
 
@@ -158,11 +158,11 @@ impl Pokemon {
         self.move_set.push(mv);
     }
     pub fn get_info(&self) {
-        println!("");
-        println!("{}", self.species.get_name());
-        println!("{}", self.level);
-        println!("{} / {}", self.hp, self.max_hp);
-        println!("");
+        poke_println!("");
+        poke_println!("{}", self.get_nickname());
+        poke_println!("{}", self.level);
+        poke_println!("{} / {}", self.hp, self.max_hp);
+        poke_println!("");
     }
     fn calc_stat(&self, base: i32, iv: i32, ev: i32) -> i32 {
         let mut evs: f64 = ev as f64 / 4.0;
@@ -173,7 +173,7 @@ impl Pokemon {
         return floor.floor() as i32;
     }
     fn calc_hp(&self) -> i32 {
-        let base = self.calc_stat(self.species.get_hp(), self.hp_iv, self.hp_ev);
+        let base = self.calc_stat(self.get_base_hp(), self.hp_iv, self.hp_ev);
         return base + self.level + 10;
     }
     pub fn take_damage(&mut self, damage: i32) {
@@ -189,7 +189,7 @@ impl Pokemon {
         self.hp
     }
     pub fn get_atk(&self, atk_mod: i32) -> i32 {
-        let base = self.calc_stat(self.species.get_atk(), self.atk_iv, self.atk_ev);
+        let base = self.calc_stat(self.get_base_atk(), self.atk_iv, self.atk_ev);
 
         let nature = match self.nature {
             Nature::Lonely | Nature::Adamant | Nature::Naughty | Nature::Brave => 1.1,
@@ -203,7 +203,7 @@ impl Pokemon {
         return atk.floor() as i32;
     }
     pub fn get_def(&self, def_mod: i32) -> i32 {
-        let base = self.calc_stat(self.species.get_def(), self.def_iv, self.def_ev);
+        let base = self.calc_stat(self.get_base_def(), self.def_iv, self.def_ev);
 
         let nature = match self.nature {
             Nature::Bold | Nature::Impish | Nature::Lax | Nature::Relaxed => 1.1,
@@ -218,7 +218,7 @@ impl Pokemon {
     }
 
     pub fn get_spa(&self, spa_mod: i32) -> i32 {
-        let base = self.calc_stat(self.species.get_spa(), self.spa_iv, self.spa_ev);
+        let base = self.calc_stat(self.get_base_spa(), self.spa_iv, self.spa_ev);
 
         let nature = match self.nature {
             Nature::Modest | Nature::Mild | Nature::Rash | Nature::Quiet => 1.1,
@@ -233,7 +233,7 @@ impl Pokemon {
     }
 
     pub fn get_spd(&self, spd_mod: i32) -> i32 {
-        let base = self.calc_stat(self.species.get_spd(), self.spd_iv, self.spd_ev);
+        let base = self.calc_stat(self.get_base_spd(), self.spd_iv, self.spd_ev);
 
         let nature = match self.nature {
             Nature::Calm | Nature::Gentle | Nature::Careful | Nature::Sassy => 1.1,
@@ -248,7 +248,7 @@ impl Pokemon {
     }
 
     pub fn get_spe(&self, spe_mod: i32) -> i32 {
-        let base = self.calc_stat(self.species.get_spe(), self.spe_iv, self.spe_ev);
+        let base = self.calc_stat(self.get_base_spe(), self.spe_iv, self.spe_ev);
 
         let nature = match self.nature {
             Nature::Timid | Nature::Hasty | Nature::Jolly | Nature::Naive => 1.1,
@@ -261,10 +261,56 @@ impl Pokemon {
         let spe = spe_stat.floor() * get_mod(spe_mod);
         spe.floor() as i32
     }
-    pub fn get_name(&self) -> String {
+    pub fn get_nickname(&self) -> String {
         self.nickname.clone()
     }
     pub fn get_status(&self) -> Status {
         self.non_volitile_status
+    }
+    fn get_base_hp(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_hp()
+    }
+    fn get_base_atk(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_atk()
+    }
+    fn get_base_def(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_def()
+    }
+    fn get_base_spa(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_spa()
+    }
+    fn get_base_spd(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_spd()
+    }
+    fn get_base_spe(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_spe()
+    }
+    fn get_genderless(&self) -> bool {
+        ALL_SPECIES_VEC[self.species_id as usize].get_genderless()
+    }
+    fn get_m_to_f_ratio(&self) -> i32 {
+        ALL_SPECIES_VEC[self.species_id as usize].get_m_to_f_ratio()
+    }
+    pub fn get_species_name(&self) -> String {
+        ALL_SPECIES_VEC[self.species_id as usize].get_name()
+    }
+    pub fn get_type_1(&self) -> Type {
+        if self.terasallized {
+            return self.tera_type;
+        } else {
+            ALL_SPECIES_VEC[self.species_id as usize].get_type_1()
+        }
+    }
+    pub fn get_type_2(&self) -> Type {
+        if self.terasallized {
+            return Type::None;
+        } else {
+            ALL_SPECIES_VEC[self.species_id as usize].get_type_2()
+        }
+    }
+    pub fn inflict_status(&mut self, status: Status) {
+        if self.non_volitile_status == Status::None {
+            let _ = self.non_volitile_status == status;
+        }
     }
 }
