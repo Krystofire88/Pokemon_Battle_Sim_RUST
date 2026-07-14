@@ -6,6 +6,58 @@ use crate::pokemon::Pokemon;
 use rand::Rng;
 use rand::rngs::ThreadRng;
 
+pub struct DamageModeifers {
+    random: f64,
+    type_eff: f64,
+    weather: f64,
+    terrain: f64,
+    stab: f64,
+    crit: f64,
+    other: f64,
+}
+impl DamageModeifers {
+    pub fn new(
+        random: f64,
+        type_eff: f64,
+        weather: f64,
+        terrain: f64,
+        stab: f64,
+        crit: f64,
+        other: f64,
+    ) -> Self {
+        Self {
+            random,
+            type_eff,
+            weather,
+            terrain,
+            stab,
+            crit,
+            other,
+        }
+    }
+    pub fn get_random_mod(&self) -> f64 {
+        self.random
+    }
+    pub fn get_type_mod(&self) -> f64 {
+        self.type_eff
+    }
+    pub fn get_weather_mod(&self) -> f64 {
+        self.weather
+    }
+    pub fn get_terrain_mod(&self) -> f64 {
+        self.terrain
+    }
+    pub fn get_stab_mod(&self) -> f64 {
+        self.stab
+    }
+    pub fn get_crit_mod(&self) -> f64 {
+        self.crit
+    }
+    pub fn get_other_mod(&self) -> f64 {
+        self.other
+    }
+}
+
 pub fn damage_calc(
     rng: &mut ThreadRng,
     pokemon_atk: &Pokemon,
@@ -30,7 +82,7 @@ pub fn damage_calc(
     let effectiveness_type2: f64 = matchup(type_move, type_def_2);
     let type_modifier = effectiveness_type1 * effectiveness_type2;
 
-    let weather_modifer = calc_weather(weather, type_move);
+    let weather_modifier = calc_weather(weather, type_move);
 
     let terrain_modifier = calc_terrain(terrain, type_move);
 
@@ -52,13 +104,15 @@ pub fn damage_calc(
         def,
         level,
         power,
-        random_modifier,
-        type_modifier,
-        weather_modifer,
-        terrain_modifier,
-        stab,
-        crit,
-        1.0,
+        DamageModeifers::new(
+            random_modifier,
+            type_modifier,
+            weather_modifier,
+            terrain_modifier,
+            stab,
+            crit,
+            1.0,
+        ),
         pokemon_def.get_hp(),
     )
 }
@@ -67,13 +121,7 @@ pub fn damage(
     def: i32,
     level: i32,
     power: i32,
-    random_modifier: f64,
-    type_modifier: f64,
-    weather_modifer: f64,
-    terrain_modifer: f64,
-    stab: f64,
-    crit: f64,
-    other: f64,
+    mods: DamageModeifers,
     max_damage: i32,
 ) -> i32 {
     //magic numbers from official formula
@@ -83,17 +131,17 @@ pub fn damage(
     let damage_pre_mod = numerator / 50.0 + 2.0;
 
     let damage = damage_pre_mod.floor()
-        * random_modifier
-        * type_modifier
-        * weather_modifer
-        * terrain_modifer
-        * stab
-        * crit
-        * other;
+        * mods.get_random_mod()
+        * mods.get_type_mod()
+        * mods.get_weather_mod()
+        * mods.get_terrain_mod()
+        * mods.get_stab_mod()
+        * mods.get_crit_mod()
+        * mods.get_other_mod();
 
     let mut final_damage = damage.round() as i32;
 
-    if final_damage == 0 && type_modifier > 0.0 {
+    if final_damage == 0 && mods.get_type_mod() > 0.0 {
         return 1;
     }
     if max_damage < final_damage {
@@ -148,19 +196,8 @@ fn omit_stat_changes(
     crit: f64,
 ) -> (i32, i32, f64) {
     if crit > 1.0 {
-        let atk_pos_mod;
-        let def_neg_mod;
-
-        if atk_mod > 0 {
-            atk_pos_mod = get_mod(atk_mod);
-        } else {
-            atk_pos_mod = 1.0;
-        }
-        if def_mod < 0 {
-            def_neg_mod = get_mod(def_mod);
-        } else {
-            def_neg_mod = 1.0;
-        }
+        let atk_pos_mod = if atk_mod > 0 { get_mod(atk_mod) } else { 1.0 };
+        let def_neg_mod = if def_mod < 0 { get_mod(def_mod) } else { 1.0 };
 
         let atk = (atk_base as f64 * atk_pos_mod) as i32;
         let def = (def_base as f64 * def_neg_mod) as i32;
@@ -172,24 +209,17 @@ fn omit_stat_changes(
     }
 }
 fn calc_weather(weather: Weather, type_move: Type) -> f64 {
-    if type_move == Type::Fire && weather == Weather::Sun {
-        return 1.5;
-    } else if type_move == Type::Water && weather == Weather::Rain {
-        return 1.5;
-    } else {
-        1.0
+    match (type_move, weather) {
+        (Type::Fire, Weather::Sun) | (Type::Water, Weather::Rain) => 1.5,
+        _ => 1.0,
     }
 }
 fn calc_terrain(terrain: Terrain, type_move: Type) -> f64 {
-    if type_move == Type::Electric && terrain == Terrain::Electric {
-        return 1.3;
-    } else if type_move == Type::Grass && terrain == Terrain::Grassy {
-        return 1.3;
-    } else if type_move == Type::Psychic && terrain == Terrain::Psychic {
-        return 1.3;
-    } else if type_move == Type::Dragon && terrain == Terrain::Misty {
-        return 0.5;
-    } else {
-        1.0
+    match (type_move, terrain) {
+        (Type::Electric, Terrain::Electric)
+        | (Type::Grass, Terrain::Grassy)
+        | (Type::Psychic, Terrain::Psychic) => 1.3,
+        (Type::Dragon, Terrain::Misty) => 0.5,
+        _ => 1.0,
     }
 }

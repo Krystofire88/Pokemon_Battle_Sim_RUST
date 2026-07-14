@@ -1,6 +1,5 @@
 use crate::consts::*;
 use crate::enums::*;
-use crate::helper::*;
 use crate::item::Item;
 use crate::moves::Move;
 use crate::poke_println;
@@ -267,44 +266,44 @@ impl Pokemon {
         self.non_volatile_status
     }
     fn get_base_hp(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_hp()
+        ALL_SPECIES_VEC[self.species_id].get_hp()
     }
     fn get_base_atk(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_atk()
+        ALL_SPECIES_VEC[self.species_id].get_atk()
     }
     fn get_base_def(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_def()
+        ALL_SPECIES_VEC[self.species_id].get_def()
     }
     fn get_base_spa(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_spa()
+        ALL_SPECIES_VEC[self.species_id].get_spa()
     }
     fn get_base_spd(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_spd()
+        ALL_SPECIES_VEC[self.species_id].get_spd()
     }
     fn get_base_spe(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_spe()
+        ALL_SPECIES_VEC[self.species_id].get_spe()
     }
     fn get_genderless(&self) -> bool {
-        ALL_SPECIES_VEC[self.species_id as usize].get_genderless()
+        ALL_SPECIES_VEC[self.species_id].get_genderless()
     }
     fn get_m_to_f_ratio(&self) -> i32 {
-        ALL_SPECIES_VEC[self.species_id as usize].get_m_to_f_ratio()
+        ALL_SPECIES_VEC[self.species_id].get_m_to_f_ratio()
     }
     pub fn get_species_name(&self) -> &str {
-        ALL_SPECIES_VEC[self.species_id as usize].get_name()
+        ALL_SPECIES_VEC[self.species_id].get_name()
     }
     pub fn get_type_1(&self) -> Type {
         if self.terastallized {
             self.tera_type
         } else {
-            ALL_SPECIES_VEC[self.species_id as usize].get_type_1()
+            ALL_SPECIES_VEC[self.species_id].get_type_1()
         }
     }
     pub fn get_type_2(&self) -> Type {
         if self.terastallized {
             Type::None
         } else {
-            ALL_SPECIES_VEC[self.species_id as usize].get_type_2()
+            ALL_SPECIES_VEC[self.species_id].get_type_2()
         }
     }
     pub fn inflict_status(&mut self, status: Status) {

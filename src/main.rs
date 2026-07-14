@@ -15,6 +15,7 @@ use battler::Battler;
 use consts::*;
 use moves::*;
 use pokemon::Pokemon;
+
 fn main() {
     poke_println!("Welcome to pokemon battle sim");
 

@@ -5,7 +5,6 @@ use crate::enums::*;
 use crate::field::*;
 use crate::helper::*;
 use crate::move_effects::*;
-use crate::moves::*;
 use crate::poke_println;
 use crate::pokemon::Pokemon;
 use rand::Rng;
@@ -50,10 +49,7 @@ impl Battler {
         let mut i = 0;
         while self.pokemon_1.get_hp() > 0 && self.pokemon_2.get_hp() > 0 {
             i += 1;
-            let speed_1: f64;
-            let speed_2: f64;
-            let move_index_1: usize;
-            let move_index_2: usize;
+
             let mut paralysis: f64 = 1.0;
             let mut tailwind: f64 = 1.0;
             let mut trick_room: f64 = 1.0;
@@ -64,7 +60,7 @@ impl Battler {
             }
 
             // pokemon 1
-            move_index_1 = self.rng.gen_range(0..self.pokemon_1.move_set.len());
+            let move_index_1 = self.rng.gen_range(0..self.pokemon_1.move_set.len());
             if self.pokemon_1.get_status() == Status::Paralysis {
                 paralysis = 0.5;
             }
@@ -72,7 +68,7 @@ impl Battler {
                 tailwind = 0.5;
             }
 
-            speed_1 = self.pokemon_1.get_spe() as f64
+            let speed_1 = self.pokemon_1.get_spe() as f64
                 * get_mod(self.active_pokemon_1.get_spe())
                 * paralysis
                 * tailwind
@@ -82,14 +78,14 @@ impl Battler {
             tailwind = 1.0;
 
             // pokemon 2
-            move_index_2 = self.rng.gen_range(0..self.pokemon_2.move_set.len());
+            let move_index_2 = self.rng.gen_range(0..self.pokemon_2.move_set.len());
             if self.pokemon_2.get_status() == Status::Paralysis {
                 paralysis = 0.5
             }
             if self.field.field_side_b.is_tailwind() {
                 tailwind = 0.5;
             }
-            speed_2 = self.pokemon_2.get_spe() as f64
+            let speed_2 = self.pokemon_2.get_spe() as f64
                 * get_mod(self.active_pokemon_2.get_spe())
                 * paralysis
                 * tailwind
@@ -148,13 +144,7 @@ impl Battler {
                 (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
                 pokemon_atk.get_level(),
                 50,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
+                DamageModeifers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
                 pokemon_def.get_hp(),
             ));
             //Recoil
@@ -198,10 +188,10 @@ impl Battler {
 
         let damage = damage_calc(
             &mut self.rng,
-            &pokemon_atk,
-            &pokemon_def,
-            &active_pokemon_atk,
-            &active_pokemon_def,
+            pokemon_atk,
+            pokemon_def,
+            active_pokemon_atk,
+            active_pokemon_def,
             &pokemon_atk.move_set[move_index],
             self.field.get_weather(),
             self.field.get_terrain(),
