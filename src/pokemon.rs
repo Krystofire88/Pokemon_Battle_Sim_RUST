@@ -5,6 +5,7 @@ use crate::item::Item;
 use crate::moves::Move;
 use crate::poke_println;
 use rand::Rng;
+use rand::rngs::ThreadRng;
 
 #[derive(Clone)]
 pub struct Pokemon {
@@ -96,7 +97,7 @@ impl Pokemon {
 
         pk
     }
-    pub fn new_easy(species_id: usize, level: i32) -> Self {
+    pub fn new_easy(species_id: usize, level: i32, rng: &mut ThreadRng) -> Self {
         let mut pk = Self {
             species_id,
             nickname: "Placeholder".to_string(),
@@ -104,20 +105,20 @@ impl Pokemon {
             level,
             max_hp: 0,
             hp: 0,
-            ability: rand::thread_rng().gen_range(0..=3),
+            ability: rng.gen_range(0..=3),
             non_volatile_status: Status::None,
-            hp_iv: rand::thread_rng().gen_range(0..=31),
-            hp_ev: rand::thread_rng().gen_range(0..=88),
-            atk_iv: rand::thread_rng().gen_range(0..=31),
-            atk_ev: rand::thread_rng().gen_range(0..=88),
-            def_iv: rand::thread_rng().gen_range(0..=31),
-            def_ev: rand::thread_rng().gen_range(0..=88),
-            spa_iv: rand::thread_rng().gen_range(0..=31),
-            spa_ev: rand::thread_rng().gen_range(0..=88),
-            spd_iv: rand::thread_rng().gen_range(0..=31),
-            spd_ev: rand::thread_rng().gen_range(0..=88),
-            spe_iv: rand::thread_rng().gen_range(0..=31),
-            spe_ev: rand::thread_rng().gen_range(0..=88),
+            hp_iv: rng.gen_range(0..=31),
+            hp_ev: rng.gen_range(0..=88),
+            atk_iv: rng.gen_range(0..=31),
+            atk_ev: rng.gen_range(0..=88),
+            def_iv: rng.gen_range(0..=31),
+            def_ev: rng.gen_range(0..=88),
+            spa_iv: rng.gen_range(0..=31),
+            spa_ev: rng.gen_range(0..=88),
+            spd_iv: rng.gen_range(0..=31),
+            spd_ev: rng.gen_range(0..=88),
+            spe_iv: rng.gen_range(0..=31),
+            spe_ev: rng.gen_range(0..=88),
             nature: Nature::Serious,
             held_item: Item {},
             gmax: false,
@@ -131,7 +132,7 @@ impl Pokemon {
         pk.hp = pk.max_hp;
 
         if !pk.get_genderless() {
-            let flip = rand::thread_rng().gen_range(0..100);
+            let flip = rng.gen_range(0..100);
             if flip > pk.get_m_to_f_ratio() {
                 pk.gender = Gender::Female;
             } else {
@@ -141,7 +142,7 @@ impl Pokemon {
         if pk.get_type_2() == Type::None {
             pk.tera_type = pk.get_type_1();
         } else {
-            if rand::thread_rng().gen_bool(0.5) {
+            if rng.gen_bool(0.5) {
                 pk.tera_type = pk.get_type_1();
             } else {
                 pk.tera_type = pk.get_type_2();
@@ -173,6 +174,15 @@ impl Pokemon {
         if self.hp < 0 {
             self.hp = 0;
         }
+    }
+    pub fn take_chip_damage(&mut self, fraction: i32) {
+        let damage = (self.max_hp as f64 / fraction as f64).floor() as i32;
+        self.take_damage(damage);
+    }
+    pub fn take_toxic_damage(&mut self, timer: i32) {
+        let base_damage = self.max_hp as f64 / 16.0;
+        let damage = (base_damage * timer as f64).floor() as i32;
+        self.take_damage(damage);
     }
     fn calc_stat(&self, base: i32, iv: i32, ev: i32) -> i32 {
         let mut evs: f64 = ev as f64 / 4.0;

@@ -15,6 +15,7 @@ pub struct ActivePokemon {
     crit_stage: i32,
     is_protected: bool,
     protect_times: i32,
+    toxic_timer: i32,
 }
 impl ActivePokemon {
     pub fn new() -> Self {
@@ -31,6 +32,7 @@ impl ActivePokemon {
             crit_stage: 0,
             is_protected: false,
             protect_times: 0,
+            toxic_timer: 0,
         }
     }
     pub fn change_stat(&mut self, stat: Stat, stage: i32) {
@@ -99,6 +101,9 @@ impl ActivePokemon {
     pub fn inflict_status(&mut self, status: StatusVol) {
         self.volitile_status.push(status);
     }
+    pub fn get_statuses(&self) -> &Vec<StatusVol> {
+        &self.volitile_status
+    }
     pub fn get_crit_stage(&self) -> i32 {
         self.crit_stage
     }
@@ -116,13 +121,29 @@ impl ActivePokemon {
             let three: i32 = 3;
             let chance = three.pow(self.protect_times as u32);
             if rng.gen_range(1..=chance) == 1 {
-                self.is_protected = true
+                self.is_protected = true;
+                self.protect_times += 1;
             }
         } else {
-            self.is_protected = true
+            self.is_protected = true;
+            self.protect_times += 1;
+        }
+    }
+    pub fn drop_protect(&mut self) {
+        if self.is_protected {
+            self.is_protected = false
         }
     }
     pub fn is_protected(&self) -> bool {
         self.is_protected
+    }
+    pub fn get_toxic_timer(&self) -> i32 {
+        self.toxic_timer
+    }
+    pub fn step_timers(&mut self) {
+        if self.toxic_timer > 0 {
+            self.toxic_timer += 1
+        }
+        // more timers
     }
 }

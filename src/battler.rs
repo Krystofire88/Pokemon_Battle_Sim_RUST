@@ -5,7 +5,6 @@ use crate::enums::*;
 use crate::field::*;
 use crate::helper::*;
 use crate::move_effects::*;
-use crate::moves::*;
 use crate::poke_println;
 use crate::pokemon::Pokemon;
 use rand::Rng;
@@ -20,14 +19,14 @@ pub struct Battler {
     rng: ThreadRng,
 }
 impl Battler {
-    pub fn new(pokemon_1: Pokemon, pokemon_2: Pokemon) -> Self {
+    pub fn new(pokemon_1: Pokemon, pokemon_2: Pokemon, rng: ThreadRng) -> Self {
         Self {
             pokemon_1,
             pokemon_2,
             active_pokemon_1: ActivePokemon::new(),
             active_pokemon_2: ActivePokemon::new(),
             field: Field::new(),
-            rng: rand::thread_rng(),
+            rng,
         }
     }
     pub fn start(&mut self) {
@@ -120,7 +119,27 @@ impl Battler {
                 }
                 self.use_move(!first_moves, move_index_1);
             }
+
+            Self::post_turn_check(&mut self.pokemon_1, &mut self.active_pokemon_1);
+            Self::post_turn_check(&mut self.pokemon_2, &mut self.active_pokemon_2);
+            self.field.step_timers();
         }
+    }
+    fn post_turn_check(pokemon: &mut Pokemon, active_pokemon: &mut ActivePokemon) {
+        match pokemon.get_status() {
+            Status::Burn => pokemon.take_chip_damage(16),
+            Status::Poison => pokemon.take_chip_damage(8),
+            Status::Toxic => pokemon.take_toxic_damage(active_pokemon.get_toxic_timer()),
+            _ => (),
+        }
+        /*
+        for status in active_pokemon.get_statuses() {
+            match status {
+                _ => (),
+            }
+        }*/
+        active_pokemon.drop_protect();
+        active_pokemon.step_timers();
     }
     fn use_move(&mut self, is_attacker_1: bool, move_index: usize) {
         let (pokemon_atk, pokemon_def, active_pokemon_atk, active_pokemon_def) = if is_attacker_1 {
@@ -238,17 +257,17 @@ impl Battler {
                 if r > effect.get_effect_chance() {
                     continue;
                 }
-                if effect.get_target() == Target::User {
-                    Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
-                } else if effect.get_target() == Target::Opponent {
-                    if !active_pokemon_def.is_protected() {
-                        Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
-                    }
-                } else if effect.get_target() == Target::All {
-                    Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
-                    if !active_pokemon_def.is_protected() {
-                        Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
-                    }
+            }
+            if effect.get_target() == Target::User {
+                Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+            } else if effect.get_target() == Target::Opponent {
+                if !active_pokemon_def.is_protected() {
+                    Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
+                }
+            } else if effect.get_target() == Target::All {
+                Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+                if !active_pokemon_def.is_protected() {
+                    Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
                 }
             }
         }
