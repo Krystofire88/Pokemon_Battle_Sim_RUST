@@ -23,7 +23,12 @@
     "protect": false,
     "effect_list": [
       {
-        "effect": "RaiseAtkTwice",
+        "effect":{
+          "ChangeStat": {
+            "stat":"Atk",
+            "stages": 2
+          }
+        },
         "chance": 100,
         "target": "User"
       }

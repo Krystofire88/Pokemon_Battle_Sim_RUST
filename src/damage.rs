@@ -6,7 +6,7 @@ use crate::pokemon::Pokemon;
 use rand::Rng;
 use rand::rngs::ThreadRng;
 
-pub struct DamageModeifers {
+pub struct DamageModifiers {
     random: f64,
     type_eff: f64,
     weather: f64,
@@ -15,7 +15,7 @@ pub struct DamageModeifers {
     crit: f64,
     other: f64,
 }
-impl DamageModeifers {
+impl DamageModifiers {
     pub fn new(
         random: f64,
         type_eff: f64,
@@ -105,7 +105,7 @@ pub fn damage_calc(
         def,
         level,
         power,
-        DamageModeifers::new(
+        DamageModifiers::new(
             random_modifier,
             type_modifier,
             weather_modifier,
@@ -122,7 +122,7 @@ pub fn damage(
     def: i32,
     level: i32,
     power: i32,
-    mods: DamageModeifers,
+    mods: DamageModifiers,
     max_damage: i32,
 ) -> i32 {
     //magic numbers from official formula

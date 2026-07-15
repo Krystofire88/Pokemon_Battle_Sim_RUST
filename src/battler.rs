@@ -5,6 +5,7 @@ use crate::enums::*;
 use crate::field::*;
 use crate::helper::*;
 use crate::move_effects::*;
+use crate::moves::*;
 use crate::poke_println;
 use crate::pokemon::Pokemon;
 use rand::Rng;
@@ -65,7 +66,7 @@ impl Battler {
                 paralysis = 0.5;
             }
             if self.field.field_side_a.is_tailwind() {
-                tailwind = 0.5;
+                tailwind = 2.0;
             }
 
             let speed_1 = self.pokemon_1.get_spe() as f64
@@ -83,7 +84,7 @@ impl Battler {
                 paralysis = 0.5
             }
             if self.field.field_side_b.is_tailwind() {
-                tailwind = 0.5;
+                tailwind = 2.0;
             }
             let speed_2 = self.pokemon_2.get_spe() as f64
                 * get_mod(self.active_pokemon_2.get_spe())
@@ -144,7 +145,7 @@ impl Battler {
                 (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
                 pokemon_atk.get_level(),
                 50,
-                DamageModeifers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
+                DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
                 pokemon_def.get_hp(),
             ));
             //Recoil
@@ -168,46 +169,14 @@ impl Battler {
                 pokemon_atk.get_nickname(),
                 pokemon_atk.move_set[move_index].get_name()
             );
-            for effect in pokemon_atk.move_set[move_index].get_effects().clone() {
-                if effect.get_effect_chance() != CANNOT_MISS {
-                    let r = self.rng.gen_range(1..=100);
-                    if r > effect.get_effect_chance() {
-                        continue;
-                    }
-                }
-                if effect.get_target() == Target::User {
-                    Self::use_status_move(
-                        effect.get_effect(),
-                        active_pokemon_atk,
-                        pokemon_atk,
-                        &mut self.rng,
-                    );
-                } else if effect.get_target() == Target::Opponent {
-                    if !active_pokemon_def.is_protected() {
-                        Self::use_status_move(
-                            effect.get_effect(),
-                            active_pokemon_def,
-                            pokemon_def,
-                            &mut self.rng,
-                        );
-                    }
-                } else if effect.get_target() == Target::All {
-                    Self::use_status_move(
-                        effect.get_effect(),
-                        active_pokemon_atk,
-                        pokemon_atk,
-                        &mut self.rng,
-                    );
-                    if !active_pokemon_def.is_protected() {
-                        Self::use_status_move(
-                            effect.get_effect(),
-                            active_pokemon_def,
-                            pokemon_def,
-                            &mut self.rng,
-                        );
-                    }
-                }
-            }
+            Self::use_status_moves(
+                active_pokemon_atk,
+                active_pokemon_def,
+                pokemon_atk,
+                pokemon_def,
+                &mut self.rng,
+                move_index,
+            );
             return;
         }
 
@@ -224,6 +193,15 @@ impl Battler {
                     &pokemon_atk.move_set[move_index],
                     self.field.get_weather(),
                     self.field.get_terrain(),
+                );
+
+                Self::use_status_moves(
+                    active_pokemon_atk,
+                    active_pokemon_def,
+                    pokemon_atk,
+                    pokemon_def,
+                    &mut self.rng,
+                    move_index,
                 );
 
                 poke_println!(
@@ -246,7 +224,36 @@ impl Battler {
             }
         }
     }
-    fn use_status_move(
+    fn use_status_moves(
+        active_pokemon_atk: &mut ActivePokemon,
+        active_pokemon_def: &mut ActivePokemon,
+        pokemon_atk: &mut Pokemon,
+        pokemon_def: &mut Pokemon,
+        rng: &mut ThreadRng,
+        move_index: usize,
+    ) {
+        for effect in pokemon_atk.move_set[move_index].get_effects().clone() {
+            if effect.get_effect_chance() != CANNOT_MISS {
+                let r = rng.gen_range(1..=100);
+                if r > effect.get_effect_chance() {
+                    continue;
+                }
+                if effect.get_target() == Target::User {
+                    Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+                } else if effect.get_target() == Target::Opponent {
+                    if !active_pokemon_def.is_protected() {
+                        Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
+                    }
+                } else if effect.get_target() == Target::All {
+                    Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+                    if !active_pokemon_def.is_protected() {
+                        Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
+                    }
+                }
+            }
+        }
+    }
+    fn use_status(
         effect: Effect,
         active_pokemon: &mut ActivePokemon,
         pokemon: &mut Pokemon,
@@ -265,14 +272,14 @@ impl Battler {
         if flip == CANNOT_MISS {
             return true;
         }
-        let modifier = acc_stage - eva_stage;
+        let mut modifier = acc_stage - eva_stage;
+        modifier = modifier.clamp(-6, 6);
         let accuracy = flip as f64 * get_mod_acc(modifier);
         let r = rng.gen_range(1.0..=100.0);
 
         if r <= accuracy {
             return true;
         }
-
         false
     }
 }
