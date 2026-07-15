@@ -1,6 +1,9 @@
+#![allow(clippy::too_many_arguments)]
 use crate::consts::*;
 use crate::enums::*;
 use crate::move_effects::*;
+use rand::Rng;
+use rand::rngs::ThreadRng;
 use serde::Deserialize;
 
 #[derive(Clone, Deserialize)]
@@ -63,26 +66,26 @@ impl MoveBase {
     pub fn get_type(&self) -> Type {
         self.move_type
     }
-    pub fn get_effects(&self) -> Vec<MoveEffect> {
-        self.effect_list.clone()
+    pub fn get_effects(&self) -> &Vec<MoveEffect> {
+        &self.effect_list
     }
 }
 
 #[derive(Clone, Copy, Deserialize)]
 pub struct MoveEffect {
-    effect: MoveEffects,
+    effect: Effect,
     chance: i32,
     target: Target,
 }
 impl MoveEffect {
-    pub fn new(effect: MoveEffects, chance: i32, target: Target) -> Self {
+    pub fn new(effect: Effect, chance: i32, target: Target) -> Self {
         Self {
             effect,
             chance,
             target,
         }
     }
-    pub fn get_effect(&self) -> MoveEffects {
+    pub fn get_effect(&self) -> Effect {
         self.effect
     }
     pub fn get_effect_chance(&self) -> i32 {
@@ -113,6 +116,9 @@ impl Move {
     pub fn get_pp(&self) -> i32 {
         self.pp
     }
+    pub fn get_max_pp(&self) -> i32 {
+        ALL_MOVES_VEC[self.move_id].get_max_pp()
+    }
     pub fn get_name(&self) -> &str {
         ALL_MOVES_VEC[self.move_id].get_name()
     }
@@ -131,7 +137,27 @@ impl Move {
     pub fn get_type(&self) -> Type {
         ALL_MOVES_VEC[self.move_id].get_type()
     }
-    pub fn get_effects(&self) -> Vec<MoveEffect> {
+    pub fn get_effects(&self) -> &Vec<MoveEffect> {
         ALL_MOVES_VEC[self.move_id].get_effects()
+    }
+    pub fn get_hits(&self, rng: &mut ThreadRng) -> usize {
+        for i in ALL_MOVES_VEC[self.move_id].get_effects() {
+            if let Effect::MultiHit { min, max } = i.get_effect() {
+                if min == max {
+                    return min as usize;
+                }
+                let flip = rng.gen_range(1..=100);
+                if flip < 16 {
+                    return 5;
+                } else if flip < 31 {
+                    return 4;
+                } else if flip < 66 {
+                    return 3;
+                } else {
+                    return 2;
+                }
+            }
+        }
+        1
     }
 }

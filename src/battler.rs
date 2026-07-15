@@ -148,6 +148,7 @@ impl Battler {
                 pokemon_def.get_hp(),
             ));
             //Recoil
+            return;
         }
 
         pokemon_atk.move_set[move_index].lose_pp(1);
@@ -167,7 +168,7 @@ impl Battler {
                 pokemon_atk.get_nickname(),
                 pokemon_atk.move_set[move_index].get_name()
             );
-            for effect in pokemon_atk.move_set[move_index].get_effects() {
+            for effect in pokemon_atk.move_set[move_index].get_effects().clone() {
                 if effect.get_effect_chance() != CANNOT_MISS {
                     let r = self.rng.gen_range(1..=100);
                     if r > effect.get_effect_chance() {
@@ -175,41 +176,88 @@ impl Battler {
                     }
                 }
                 if effect.get_target() == Target::User {
-                    Self::use_status_move(effect.get_effect(), active_pokemon_atk);
+                    Self::use_status_move(
+                        effect.get_effect(),
+                        active_pokemon_atk,
+                        pokemon_atk,
+                        &mut self.rng,
+                    );
                 } else if effect.get_target() == Target::Opponent {
-                    Self::use_status_move(effect.get_effect(), active_pokemon_def);
+                    if !active_pokemon_def.is_protected() {
+                        Self::use_status_move(
+                            effect.get_effect(),
+                            active_pokemon_def,
+                            pokemon_def,
+                            &mut self.rng,
+                        );
+                    }
                 } else if effect.get_target() == Target::All {
-                    Self::use_status_move(effect.get_effect(), active_pokemon_atk);
-                    Self::use_status_move(effect.get_effect(), active_pokemon_def);
+                    Self::use_status_move(
+                        effect.get_effect(),
+                        active_pokemon_atk,
+                        pokemon_atk,
+                        &mut self.rng,
+                    );
+                    if !active_pokemon_def.is_protected() {
+                        Self::use_status_move(
+                            effect.get_effect(),
+                            active_pokemon_def,
+                            pokemon_def,
+                            &mut self.rng,
+                        );
+                    }
                 }
             }
             return;
         }
 
-        let damage = damage_calc(
-            &mut self.rng,
-            pokemon_atk,
-            pokemon_def,
-            active_pokemon_atk,
-            active_pokemon_def,
-            &pokemon_atk.move_set[move_index],
-            self.field.get_weather(),
-            self.field.get_terrain(),
-        );
+        let hits = pokemon_atk.move_set[move_index].get_hits(&mut self.rng);
 
-        poke_println!(
-            "{} used {} against {} it did {} damage!",
-            pokemon_atk.get_nickname(),
-            pokemon_atk.move_set[move_index].get_name(),
-            pokemon_def.get_nickname(),
-            damage
-        );
+        for _ in 0..hits {
+            if !active_pokemon_def.is_protected() {
+                let damage = damage_calc(
+                    &mut self.rng,
+                    pokemon_atk,
+                    pokemon_def,
+                    active_pokemon_atk,
+                    active_pokemon_def,
+                    &pokemon_atk.move_set[move_index],
+                    self.field.get_weather(),
+                    self.field.get_terrain(),
+                );
 
-        pokemon_def.take_damage(damage);
+                poke_println!(
+                    "{} used {} against {} it did {} damage!",
+                    pokemon_atk.get_nickname(),
+                    pokemon_atk.move_set[move_index].get_name(),
+                    pokemon_def.get_nickname(),
+                    damage
+                );
+
+                pokemon_def.take_damage(damage);
+            } else {
+                poke_println!(
+                    "{} used {} against {} but {} was protected!",
+                    pokemon_atk.get_nickname(),
+                    pokemon_atk.move_set[move_index].get_name(),
+                    pokemon_def.get_nickname(),
+                    pokemon_def.get_nickname()
+                );
+            }
+        }
     }
-    fn use_status_move(effect: MoveEffects, active_pokemon: &mut ActivePokemon) {
+    fn use_status_move(
+        effect: Effect,
+        active_pokemon: &mut ActivePokemon,
+        pokemon: &mut Pokemon,
+        rng: &mut ThreadRng,
+    ) {
         match effect {
-            MoveEffects::RaiseAtkTwice => active_pokemon.change_atk(2),
+            Effect::ChangeStat { stat, stages } => active_pokemon.change_stat(stat, stages),
+            Effect::InflictStatus { status } => pokemon.inflict_status(status),
+            Effect::InflictStatusVol { status } => active_pokemon.inflict_status(status),
+            Effect::Heal { fraction } => pokemon.heal(fraction),
+            Effect::Protect => active_pokemon.protect(rng),
             _ => (),
         };
     }

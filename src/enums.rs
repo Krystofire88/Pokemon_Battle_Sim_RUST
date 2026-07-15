@@ -22,7 +22,7 @@ pub enum Type {
     Steel = 17,
     Fairy = 18,
 }
-#[derive(Copy, Clone, PartialEq, Eq)]
+#[derive(Copy, Clone, PartialEq, Eq, Deserialize)]
 pub enum Status {
     None,
     Burn,
@@ -32,7 +32,7 @@ pub enum Status {
     Toxic,
     Sleep,
 }
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq, Eq, Deserialize)]
 pub enum StatusVol {
     None,
     Confusion,
@@ -108,4 +108,14 @@ pub enum Split {
     Physical,
     Special,
     Status,
+}
+#[derive(Copy, Clone, Deserialize, PartialEq, Eq)]
+pub enum Stat {
+    Atk,
+    Def,
+    Spa,
+    Spd,
+    Spe,
+    Acc,
+    Eva,
 }

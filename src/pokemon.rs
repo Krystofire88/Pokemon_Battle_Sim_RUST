@@ -1,3 +1,4 @@
+#![allow(clippy::too_many_arguments)]
 use crate::consts::*;
 use crate::enums::*;
 use crate::item::Item;
@@ -59,7 +60,6 @@ impl Pokemon {
         gmax: bool,
         dmax_level: i32,
         tera_type: Type,
-        move_set: Vec<Move>,
     ) -> Self {
         let mut pk = Self {
             species_id,
@@ -88,7 +88,7 @@ impl Pokemon {
             dmax_level,
             tera_type,
             terastallized: false,
-            move_set,
+            move_set: Vec::new(),
         };
 
         pk.max_hp = pk.calc_hp();
@@ -162,6 +162,18 @@ impl Pokemon {
         poke_println!("{} / {}", self.hp, self.max_hp);
         poke_println!("");
     }
+    pub fn heal(&mut self, fraction: i32) {
+        self.hp += (self.max_hp as f64 / fraction as f64).floor() as i32;
+        if self.hp > self.max_hp {
+            self.hp = self.max_hp
+        }
+    }
+    pub fn take_damage(&mut self, damage: i32) {
+        self.hp -= damage;
+        if self.hp < 0 {
+            self.hp = 0;
+        }
+    }
     fn calc_stat(&self, base: i32, iv: i32, ev: i32) -> i32 {
         let mut evs: f64 = ev as f64 / 4.0;
         evs = evs.floor();
@@ -173,12 +185,6 @@ impl Pokemon {
     fn calc_hp(&self) -> i32 {
         let base = self.calc_stat(self.get_base_hp(), self.hp_iv, self.hp_ev);
         base + self.level + 10
-    }
-    pub fn take_damage(&mut self, damage: i32) {
-        self.hp -= damage;
-        if self.hp < 0 {
-            self.hp = 0;
-        }
     }
     pub fn get_level(&self) -> i32 {
         self.level

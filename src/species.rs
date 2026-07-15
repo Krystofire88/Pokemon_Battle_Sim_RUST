@@ -1,3 +1,4 @@
+#![allow(clippy::too_many_arguments)]
 use crate::enums::*;
 use serde::Deserialize;
 

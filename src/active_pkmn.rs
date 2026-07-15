@@ -1,4 +1,6 @@
-use crate::enums::StatusVol;
+use crate::enums::*;
+use rand::Rng;
+use rand::rngs::ThreadRng;
 
 pub struct ActivePokemon {
     volitile_status: Vec<StatusVol>,
@@ -11,6 +13,8 @@ pub struct ActivePokemon {
     eva_mod: i32,
     is_dmax: bool,
     crit_stage: i32,
+    is_protected: bool,
+    protect_times: i32,
 }
 impl ActivePokemon {
     pub fn new() -> Self {
@@ -25,54 +29,67 @@ impl ActivePokemon {
             eva_mod: 0,
             is_dmax: false,
             crit_stage: 0,
+            is_protected: false,
+            protect_times: 0,
+        }
+    }
+    pub fn change_stat(&mut self, stat: Stat, stage: i32) {
+        match stat {
+            Stat::Atk => self.change_atk(stage),
+            Stat::Def => self.change_def(stage),
+            Stat::Spa => self.change_spa(stage),
+            Stat::Spd => self.change_spd(stage),
+            Stat::Spe => self.change_spe(stage),
+            Stat::Acc => self.change_acc(stage),
+            Stat::Eva => self.change_eva(stage),
         }
     }
     pub fn get_atk(&self) -> i32 {
         self.atk_mod
     }
-    pub fn change_atk(&mut self, stage: i32) {
+    fn change_atk(&mut self, stage: i32) {
         self.atk_mod += stage;
         self.atk_mod = self.atk_mod.clamp(-6, 6);
     }
     pub fn get_def(&self) -> i32 {
         self.def_mod
     }
-    pub fn change_def(&mut self, stage: i32) {
+    fn change_def(&mut self, stage: i32) {
         self.def_mod += stage;
         self.def_mod = self.def_mod.clamp(-6, 6);
     }
     pub fn get_spa(&self) -> i32 {
         self.spa_mod
     }
-    pub fn change_spa(&mut self, stage: i32) {
+    fn change_spa(&mut self, stage: i32) {
         self.spa_mod += stage;
         self.spa_mod = self.spa_mod.clamp(-6, 6);
     }
     pub fn get_spd(&self) -> i32 {
         self.spd_mod
     }
-    pub fn change_spd(&mut self, stage: i32) {
+    fn change_spd(&mut self, stage: i32) {
         self.spd_mod += stage;
         self.spd_mod = self.spd_mod.clamp(-6, 6);
     }
     pub fn get_spe(&self) -> i32 {
         self.spe_mod
     }
-    pub fn change_spe(&mut self, stage: i32) {
+    fn change_spe(&mut self, stage: i32) {
         self.spe_mod += stage;
         self.spe_mod = self.spe_mod.clamp(-6, 6);
     }
     pub fn get_acc(&self) -> i32 {
         self.acc_mod
     }
-    pub fn change_acc(&mut self, stage: i32) {
+    fn change_acc(&mut self, stage: i32) {
         self.acc_mod += stage;
         self.acc_mod = self.acc_mod.clamp(-6, 6);
     }
     pub fn get_eva(&self) -> i32 {
         self.eva_mod
     }
-    pub fn change_eva(&mut self, stage: i32) {
+    fn change_eva(&mut self, stage: i32) {
         self.eva_mod += stage;
         self.eva_mod = self.eva_mod.clamp(-6, 6);
     }
@@ -92,6 +109,20 @@ impl ActivePokemon {
         let mut stg = stage;
         stg = stg.clamp(0, 2); // +3 is only achivable in gen 5 with the wonder launcher
         self.crit_stage += stg;
-        self.eva_mod = self.eva_mod.clamp(0, 3); // 4+ is achievable but has no effect above gen VI
+        self.crit_stage = self.crit_stage.clamp(0, 3); // 4+ is achievable but has no effect above gen VI
+    }
+    pub fn protect(&mut self, rng: &mut ThreadRng) {
+        if self.protect_times > 0 {
+            let three: i32 = 3;
+            let chance = three.pow(self.protect_times as u32);
+            if rng.gen_range(1..=chance) == 1 {
+                self.is_protected = true
+            }
+        } else {
+            self.is_protected = true
+        }
+    }
+    pub fn is_protected(&self) -> bool {
+        self.is_protected
     }
 }

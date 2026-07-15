@@ -20,7 +20,7 @@ pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
 
 pub static ALL_MOVES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
     let moves: Vec<MoveBase> =
-        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllMovesjson").unwrap())
+        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllMoves.json").unwrap())
             .unwrap();
 
     moves

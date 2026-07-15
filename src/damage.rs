@@ -92,6 +92,7 @@ pub fn damage_calc(
     }
 
     let (atk, def, crit) = calc_atk_def(
+        rng,
         pokemon_atk,
         pokemon_def,
         active_pokemon_atk,
@@ -151,6 +152,7 @@ pub fn damage(
     final_damage
 }
 fn calc_atk_def(
+    rng: &mut ThreadRng,
     pokemon_atk: &Pokemon,
     pokemon_def: &Pokemon,
     active_pokemon_atk: &ActivePokemon,
@@ -165,7 +167,7 @@ fn calc_atk_def(
         _ => 1,
     };
 
-    if 1 == rand::thread_rng().gen_range(1..=crit_chance) {
+    if 1 == rng.gen_range(1..=crit_chance) {
         crit = 1.5;
     }
 
@@ -186,9 +188,9 @@ fn calc_atk_def(
         def_mod = active_pokemon_def.get_spd();
     }
 
-    omit_stat_changes(atk_base, def_base, atk_mod, def_mod, crit)
+    crit_modifer_rules(atk_base, def_base, atk_mod, def_mod, crit)
 }
-fn omit_stat_changes(
+fn crit_modifer_rules(
     atk_base: i32,
     def_base: i32,
     atk_mod: i32,
@@ -210,7 +212,8 @@ fn omit_stat_changes(
 }
 fn calc_weather(weather: Weather, type_move: Type) -> f64 {
     match (type_move, weather) {
-        (Type::Fire, Weather::Sun) | (Type::Water, Weather::Rain) => 1.5,
+        (Type::Fire, Weather::Sun | Weather::HarshSun)
+        | (Type::Water, Weather::Rain | Weather::HeavyRain) => 1.5,
         _ => 1.0,
     }
 }
