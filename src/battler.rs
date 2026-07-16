@@ -55,6 +55,7 @@ impl Battler {
             let mut trick_room: f64 = 1.0;
 
             poke_println!("\nRound {i}");
+
             if self.field.is_trick_room() {
                 trick_room = -1.0;
             }
@@ -120,26 +121,38 @@ impl Battler {
                 self.use_move(!first_moves, move_index_1);
             }
 
-            Self::post_turn_check(&mut self.pokemon_1, &mut self.active_pokemon_1);
-            Self::post_turn_check(&mut self.pokemon_2, &mut self.active_pokemon_2);
+            Self::post_turn_check(&mut self.pokemon_1, &mut self.active_pokemon_1, &self.field);
+            Self::post_turn_check(&mut self.pokemon_2, &mut self.active_pokemon_2, &self.field);
             self.field.step_timers();
         }
     }
-    fn post_turn_check(pokemon: &mut Pokemon, active_pokemon: &mut ActivePokemon) {
+    fn post_turn_check(pokemon: &mut Pokemon, active_pokemon: &mut ActivePokemon, field: &Field) {
         match pokemon.get_status() {
             Status::Burn => pokemon.take_chip_damage(16),
             Status::Poison => pokemon.take_chip_damage(8),
             Status::Toxic => pokemon.take_toxic_damage(active_pokemon.get_toxic_timer()),
             _ => (),
         }
-        /*
         for status in active_pokemon.get_statuses() {
             match status {
+                StatusVol::Drowsy { asleep_next } => {
+                    if *asleep_next {
+                        pokemon.inflict_status(Status::Sleep)
+                    }
+                }
                 _ => (),
             }
-        }*/
+        }
+        if pokemon.get_status() == Status::Sleep {
+            active_pokemon.remove_status(StatusVol::Drowsy { asleep_next: true });
+        }
+
         active_pokemon.drop_protect();
         active_pokemon.step_timers();
+        match field.get_terrain() {
+            Terrain::Grassy => pokemon.heal(16),
+            _ => (),
+        }
     }
     fn use_move(&mut self, is_attacker_1: bool, move_index: usize) {
         let (pokemon_atk, pokemon_def, active_pokemon_atk, active_pokemon_def) = if is_attacker_1 {
@@ -159,16 +172,36 @@ impl Battler {
         };
 
         if pokemon_atk.move_set[move_index].get_pp() <= 0 {
-            pokemon_def.take_damage(damage(
-                (pokemon_atk.get_atk() as f64 * get_mod(active_pokemon_atk.get_atk())) as i32,
-                (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
-                pokemon_atk.get_level(),
-                50,
-                DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
-                pokemon_def.get_hp(),
-            ));
-            //Recoil
-            return;
+            if !active_pokemon_def.is_protected() {
+                let damage = damage(
+                    (pokemon_atk.get_atk() as f64 * get_mod(active_pokemon_atk.get_atk())) as i32,
+                    (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
+                    pokemon_atk.get_level(),
+                    50,
+                    DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
+                    pokemon_def.get_hp(),
+                );
+
+                poke_println!(
+                    "{} used struggle against {} it did {} damage!",
+                    pokemon_atk.get_nickname(),
+                    pokemon_def.get_nickname(),
+                    damage
+                );
+
+                pokemon_def.take_damage(damage);
+                pokemon_atk.take_chip_damage(4);
+                return;
+            } else {
+                poke_println!(
+                    "{} used {} against {} but {} was protected!",
+                    pokemon_atk.get_nickname(),
+                    pokemon_atk.move_set[move_index].get_name(),
+                    pokemon_def.get_nickname(),
+                    pokemon_def.get_nickname()
+                );
+                return;
+            }
         }
 
         pokemon_atk.move_set[move_index].lose_pp(1);
@@ -232,6 +265,9 @@ impl Battler {
                 );
 
                 pokemon_def.take_damage(damage);
+                if pokemon_def.get_hp() <= 0 {
+                    break;
+                }
             } else {
                 poke_println!(
                     "{} used {} against {} but {} was protected!",

@@ -27,8 +27,10 @@ fn main() {
     pika.add_move(swr);
 
     let mut char = Pokemon::new_easy(*ALL_SPECIES.get("Charizard").unwrap(), 50, &mut rng);
-    let tak = Move::new(0);
-    let swd = Move::new(1);
+    let mut tak = Move::new(0);
+    let mut swd = Move::new(1);
+    tak.pp = 0;
+    swd.pp = 0;
     char.add_move(tak);
     char.add_move(swd);
 

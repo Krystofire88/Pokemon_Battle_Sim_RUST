@@ -12,6 +12,7 @@ pub struct FieldSide {
     aurora_veil_timer: i32,
     tailwind_timer: i32,
     mist_timer: i32,
+    safeguard_timer: i32,
 }
 
 impl FieldSide {
@@ -27,6 +28,7 @@ impl FieldSide {
             aurora_veil_timer: 0,
             tailwind_timer: 0,
             mist_timer: 0,
+            safeguard_timer: 0,
         }
     }
     pub fn is_tailwind(&self) -> bool {
@@ -47,6 +49,9 @@ impl FieldSide {
         }
         if self.mist_timer > 0 {
             self.mist_timer -= 1;
+        }
+        if self.safeguard_timer > 0 {
+            self.safeguard_timer -= 1;
         }
     }
     pub fn clear_screens(&mut self) {

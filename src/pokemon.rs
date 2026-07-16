@@ -281,6 +281,9 @@ impl Pokemon {
     pub fn get_status(&self) -> Status {
         self.non_volatile_status
     }
+    pub fn get_status_mut(&mut self) -> &mut Status {
+        &mut self.non_volatile_status
+    }
     fn get_base_hp(&self) -> i32 {
         ALL_SPECIES_VEC[self.species_id].get_hp()
     }

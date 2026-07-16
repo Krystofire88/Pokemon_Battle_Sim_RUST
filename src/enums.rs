@@ -32,14 +32,14 @@ pub enum Status {
     Toxic,
     Sleep,
 }
-#[derive(Copy, Clone, PartialEq, Eq, Deserialize)]
+#[derive(Copy, Clone, PartialEq, Eq, Deserialize, Hash)]
 pub enum StatusVol {
     None,
     Confusion,
     Infatuation,
     Flinch,
     Torment,
-    Drowsy,
+    Drowsy { asleep_next: bool },
 }
 #[derive(Copy, Clone, Debug)]
 pub enum Gender {

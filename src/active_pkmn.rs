@@ -1,9 +1,10 @@
 use crate::enums::*;
 use rand::Rng;
 use rand::rngs::ThreadRng;
+use std::collections::HashSet;
 
 pub struct ActivePokemon {
-    volitile_status: Vec<StatusVol>,
+    volitile_status: HashSet<StatusVol>,
     atk_mod: i32,
     def_mod: i32,
     spa_mod: i32,
@@ -20,7 +21,7 @@ pub struct ActivePokemon {
 impl ActivePokemon {
     pub fn new() -> Self {
         Self {
-            volitile_status: Vec::new(),
+            volitile_status: HashSet::new(),
             atk_mod: 0,
             def_mod: 0,
             spa_mod: 0,
@@ -99,10 +100,16 @@ impl ActivePokemon {
         self.is_dmax
     }
     pub fn inflict_status(&mut self, status: StatusVol) {
-        self.volitile_status.push(status);
+        self.volitile_status.insert(status);
     }
-    pub fn get_statuses(&self) -> &Vec<StatusVol> {
+    pub fn remove_status(&mut self, status: StatusVol) {
+        self.volitile_status.remove(&status);
+    }
+    pub fn get_statuses(&self) -> &HashSet<StatusVol> {
         &self.volitile_status
+    }
+    pub fn get_status(&self, status: StatusVol) -> bool {
+        self.volitile_status.contains(&status)
     }
     pub fn get_crit_stage(&self) -> i32 {
         self.crit_stage
