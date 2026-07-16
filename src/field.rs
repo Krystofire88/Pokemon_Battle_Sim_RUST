@@ -110,6 +110,9 @@ impl Field {
     pub fn is_trick_room(&self) -> bool {
         self.trick_room_timer > 0
     }
+    pub fn is_gravity(&self) -> bool {
+        self.gravity_timer > 0
+    }
     pub fn get_weather(&self) -> Weather {
         self.weather
     }

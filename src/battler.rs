@@ -1,3 +1,4 @@
+use crate::active_pkmn;
 use crate::active_pkmn::ActivePokemon;
 use crate::consts::*;
 use crate::damage::*;
@@ -211,6 +212,7 @@ impl Battler {
             pokemon_atk.move_set[move_index].get_accuracy(),
             active_pokemon_atk.get_acc(),
             active_pokemon_def.get_eva(),
+            &self.field,
         ) {
             return;
         }
@@ -268,6 +270,14 @@ impl Battler {
                 if pokemon_def.get_hp() <= 0 {
                     break;
                 }
+                if pokemon_atk.move_set[move_index].has_recoil_hp() > 0 {
+                    pokemon_atk.take_chip_damage(pokemon_atk.move_set[move_index].has_recoil_hp());
+                } else if pokemon_atk.move_set[move_index].has_recoil_move() > 0 {
+                    pokemon_atk.take_damage(
+                        (damage as f64 / pokemon_atk.move_set[move_index].has_recoil_move() as f64)
+                            .floor() as i32,
+                    );
+                }
             } else {
                 poke_println!(
                     "{} used {} against {} but {} was protected!",
@@ -318,18 +328,29 @@ impl Battler {
             Effect::ChangeStat { stat, stages } => active_pokemon.change_stat(stat, stages),
             Effect::InflictStatus { status } => pokemon.inflict_status(status),
             Effect::InflictStatusVol { status } => active_pokemon.inflict_status(status),
-            Effect::Heal { fraction } => pokemon.heal(fraction),
+            Effect::Heal_Hp { fraction } => pokemon.heal(fraction),
             Effect::Protect => active_pokemon.protect(rng),
             _ => (),
         };
     }
-    fn check_acc(rng: &mut ThreadRng, flip: i32, acc_stage: i32, eva_stage: i32) -> bool {
+    fn check_acc(
+        rng: &mut ThreadRng,
+        flip: i32,
+        acc_stage: i32,
+        eva_stage: i32,
+        field: &Field,
+    ) -> bool {
         if flip == CANNOT_MISS {
             return true;
         }
+        let gravity = if field.is_gravity() {
+            6840.0 / 4096.0
+        } else {
+            1.0
+        };
         let mut modifier = acc_stage - eva_stage;
         modifier = modifier.clamp(-6, 6);
-        let accuracy = flip as f64 * get_mod_acc(modifier);
+        let accuracy = flip as f64 * get_mod_acc(modifier) * gravity;
         let r = rng.gen_range(1.0..=100.0);
 
         if r <= accuracy {
