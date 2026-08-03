@@ -1,6 +1,7 @@
 #![allow(clippy::too_many_arguments)]
 use crate::consts::*;
 use crate::enums::*;
+use crate::field::*;
 use crate::item::Item;
 use crate::moves::Move;
 use crate::poke_println;
@@ -325,7 +326,12 @@ impl Pokemon {
             ALL_SPECIES_VEC[self.species_id].get_type_2()
         }
     }
-    pub fn inflict_status(&mut self, status: Status) {
+    pub fn inflict_status(&mut self, status: Status, field: &Field) {
+        match (status, field.get_terrain()) {
+            (_, Terrain::Misty) => return,
+            (Status::Sleep, Terrain::Electric) => return,
+            _ => (),
+        }
         if self.non_volatile_status == Status::None {
             self.non_volatile_status = status
         }

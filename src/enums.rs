@@ -35,7 +35,7 @@ pub enum Status {
 #[derive(Copy, Clone, PartialEq, Eq, Deserialize, Hash)]
 pub enum StatusVol {
     None,
-    Confusion,
+    Confusion { turns: i32 },
     Infatuation,
     Flinch,
     Torment,

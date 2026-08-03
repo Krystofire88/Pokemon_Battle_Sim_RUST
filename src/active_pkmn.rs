@@ -1,10 +1,10 @@
 use crate::enums::*;
+use crate::field::Field;
 use rand::Rng;
 use rand::rngs::ThreadRng;
-use std::collections::HashSet;
 
 pub struct ActivePokemon {
-    volitile_status: HashSet<StatusVol>,
+    volitile_status: Vec<StatusVol>,
     atk_mod: i32,
     def_mod: i32,
     spa_mod: i32,
@@ -21,7 +21,7 @@ pub struct ActivePokemon {
 impl ActivePokemon {
     pub fn new() -> Self {
         Self {
-            volitile_status: HashSet::new(),
+            volitile_status: Vec::new(),
             atk_mod: 0,
             def_mod: 0,
             spa_mod: 0,
@@ -99,13 +99,19 @@ impl ActivePokemon {
     pub fn get_dmax(&self) -> bool {
         self.is_dmax
     }
-    pub fn inflict_status(&mut self, status: StatusVol) {
-        self.volitile_status.insert(status);
+    pub fn inflict_status(&mut self, status: StatusVol, field: &Field) {
+        match (status, field.get_terrain()) {
+            (StatusVol::Confusion { .. }, Terrain::Misty) => return,
+            (StatusVol::Drowsy { .. }, Terrain::Electric) => return,
+            _ => (),
+        }
+
+        self.volitile_status.push(status);
     }
     pub fn remove_status(&mut self, status: StatusVol) {
-        self.volitile_status.remove(&status);
+        self.volitile_status.retain(|s| *s != status)
     }
-    pub fn get_statuses(&self) -> &HashSet<StatusVol> {
+    pub fn get_statuses(&self) -> &Vec<StatusVol> {
         &self.volitile_status
     }
     pub fn get_status(&self, status: StatusVol) -> bool {
@@ -152,5 +158,22 @@ impl ActivePokemon {
             self.toxic_timer += 1
         }
         // more timers
+    }
+    pub fn step_drowsy(&mut self) -> bool {
+        let mut fell_asleep = false;
+        for s in self.volitile_status.iter_mut() {
+            if let StatusVol::Drowsy { asleep_next } = s {
+                if *asleep_next {
+                    fell_asleep = true;
+                } else {
+                    *asleep_next = true;
+                }
+            }
+        }
+        if fell_asleep {
+            self.volitile_status
+                .retain(|s| !matches!(s, StatusVol::Drowsy { .. }));
+        }
+        fell_asleep
     }
 }

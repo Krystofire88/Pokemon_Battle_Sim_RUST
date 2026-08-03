@@ -218,6 +218,7 @@ fn calc_weather(weather: Weather, type_move: Type) -> f64 {
     }
 }
 fn calc_terrain(terrain: Terrain, type_move: Type) -> f64 {
+    //add grassy terain halving of bulldoze, eq and magnitude
     match (type_move, terrain) {
         (Type::Electric, Terrain::Electric)
         | (Type::Grass, Terrain::Grassy)

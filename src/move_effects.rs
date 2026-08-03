@@ -13,13 +13,13 @@ pub enum Effect {
 
     MultiHit { min: i32, max: i32 },
 
-    Heal_Hp { fraction: i32 },
+    HealHp { fraction: i32 },
 
-    Heal_Move { fraction: i32 },
+    HealMove { fraction: i32 },
 
-    Recoil_Hp { fraction: i32 },
+    RecoilHp { fraction: i32 },
 
-    Recoil_Move { fraction: i32 },
+    RecoilMove { fraction: i32 },
 }
 
 #[derive(Copy, Clone, Deserialize, PartialEq, Eq)]

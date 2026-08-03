@@ -162,7 +162,7 @@ impl Move {
     }
     pub fn has_recoil_hp(&self) -> i32 {
         for i in ALL_MOVES_VEC[self.move_id].get_effects() {
-            if let Effect::Recoil_Hp { fraction } = i.get_effect() {
+            if let Effect::RecoilHp { fraction } = i.get_effect() {
                 return fraction;
             }
         }
@@ -170,7 +170,7 @@ impl Move {
     }
     pub fn has_recoil_move(&self) -> i32 {
         for i in ALL_MOVES_VEC[self.move_id].get_effects() {
-            if let Effect::Recoil_Move { fraction } = i.get_effect() {
+            if let Effect::RecoilMove { fraction } = i.get_effect() {
                 return fraction;
             }
         }

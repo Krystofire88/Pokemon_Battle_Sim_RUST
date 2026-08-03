@@ -1,8 +1,9 @@
-use crate::active_pkmn;
 use crate::active_pkmn::ActivePokemon;
 use crate::consts::*;
 use crate::damage::*;
+use crate::enums::StatusVol::Flinch;
 use crate::enums::*;
+use crate::field;
 use crate::field::*;
 use crate::helper::*;
 use crate::move_effects::*;
@@ -109,17 +110,49 @@ impl Battler {
             };
 
             if first_moves {
-                self.use_move(first_moves, move_index_1);
+                if Self::can_move(
+                    &self.pokemon_1,
+                    &mut self.active_pokemon_1,
+                    move_index_1,
+                    &self.field,
+                ) {
+                    self.use_move(first_moves, move_index_1);
+                }
+
                 if self.pokemon_2.get_hp() <= 0 {
                     break;
                 }
-                self.use_move(!first_moves, move_index_2);
+
+                if Self::can_move(
+                    &self.pokemon_2,
+                    &mut self.active_pokemon_2,
+                    move_index_2,
+                    &self.field,
+                ) {
+                    self.use_move(!first_moves, move_index_2);
+                }
             } else {
-                self.use_move(first_moves, move_index_2);
+                if Self::can_move(
+                    &self.pokemon_2,
+                    &mut self.active_pokemon_2,
+                    move_index_2,
+                    &self.field,
+                ) {
+                    self.use_move(first_moves, move_index_2);
+                }
+
                 if self.pokemon_1.get_hp() <= 0 {
                     break;
                 }
-                self.use_move(!first_moves, move_index_1);
+
+                if Self::can_move(
+                    &self.pokemon_1,
+                    &mut self.active_pokemon_1,
+                    move_index_1,
+                    &self.field,
+                ) {
+                    self.use_move(!first_moves, move_index_1);
+                }
             }
 
             Self::post_turn_check(&mut self.pokemon_1, &mut self.active_pokemon_1, &self.field);
@@ -134,25 +167,15 @@ impl Battler {
             Status::Toxic => pokemon.take_toxic_damage(active_pokemon.get_toxic_timer()),
             _ => (),
         }
-        for status in active_pokemon.get_statuses() {
-            match status {
-                StatusVol::Drowsy { asleep_next } => {
-                    if *asleep_next {
-                        pokemon.inflict_status(Status::Sleep)
-                    }
-                }
-                _ => (),
-            }
-        }
-        if pokemon.get_status() == Status::Sleep {
-            active_pokemon.remove_status(StatusVol::Drowsy { asleep_next: true });
+        if active_pokemon.step_drowsy() {
+            pokemon.inflict_status(Status::Sleep, field);
         }
 
         active_pokemon.drop_protect();
         active_pokemon.step_timers();
-        match field.get_terrain() {
-            Terrain::Grassy => pokemon.heal(16),
-            _ => (),
+
+        if field.get_terrain() == Terrain::Grassy {
+            pokemon.heal(16)
         }
     }
     fn use_move(&mut self, is_attacker_1: bool, move_index: usize) {
@@ -228,6 +251,7 @@ impl Battler {
                 active_pokemon_def,
                 pokemon_atk,
                 pokemon_def,
+                &self.field,
                 &mut self.rng,
                 move_index,
             );
@@ -254,6 +278,7 @@ impl Battler {
                     active_pokemon_def,
                     pokemon_atk,
                     pokemon_def,
+                    &self.field,
                     &mut self.rng,
                     move_index,
                 );
@@ -294,6 +319,7 @@ impl Battler {
         active_pokemon_def: &mut ActivePokemon,
         pokemon_atk: &mut Pokemon,
         pokemon_def: &mut Pokemon,
+        field: &Field,
         rng: &mut ThreadRng,
         move_index: usize,
     ) {
@@ -305,15 +331,39 @@ impl Battler {
                 }
             }
             if effect.get_target() == Target::User {
-                Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+                Self::use_status(
+                    effect.get_effect(),
+                    active_pokemon_atk,
+                    pokemon_atk,
+                    field,
+                    rng,
+                );
             } else if effect.get_target() == Target::Opponent {
                 if !active_pokemon_def.is_protected() {
-                    Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
+                    Self::use_status(
+                        effect.get_effect(),
+                        active_pokemon_def,
+                        pokemon_def,
+                        field,
+                        rng,
+                    );
                 }
             } else if effect.get_target() == Target::All {
-                Self::use_status(effect.get_effect(), active_pokemon_atk, pokemon_atk, rng);
+                Self::use_status(
+                    effect.get_effect(),
+                    active_pokemon_atk,
+                    pokemon_atk,
+                    field,
+                    rng,
+                );
                 if !active_pokemon_def.is_protected() {
-                    Self::use_status(effect.get_effect(), active_pokemon_def, pokemon_def, rng);
+                    Self::use_status(
+                        effect.get_effect(),
+                        active_pokemon_def,
+                        pokemon_def,
+                        field,
+                        rng,
+                    );
                 }
             }
         }
@@ -322,16 +372,34 @@ impl Battler {
         effect: Effect,
         active_pokemon: &mut ActivePokemon,
         pokemon: &mut Pokemon,
+        field: &Field,
         rng: &mut ThreadRng,
     ) {
         match effect {
             Effect::ChangeStat { stat, stages } => active_pokemon.change_stat(stat, stages),
-            Effect::InflictStatus { status } => pokemon.inflict_status(status),
-            Effect::InflictStatusVol { status } => active_pokemon.inflict_status(status),
-            Effect::Heal_Hp { fraction } => pokemon.heal(fraction),
+            Effect::InflictStatus { status } => pokemon.inflict_status(status, field),
+            Effect::InflictStatusVol { status } => active_pokemon.inflict_status(status, field),
+            Effect::HealHp { fraction } => pokemon.heal(fraction),
             Effect::Protect => active_pokemon.protect(rng),
             _ => (),
         };
+    }
+    fn can_move(
+        pokemon: &Pokemon,
+        active_pokemon: &mut ActivePokemon,
+        move_index: usize,
+        field: &Field,
+    ) -> bool {
+        if pokemon.move_set[move_index].get_priority() > 0
+            && field.get_terrain() == Terrain::Psychic
+        {
+            false
+        } else if active_pokemon.get_status(StatusVol::Flinch) {
+            active_pokemon.remove_status(StatusVol::Flinch);
+            false
+        } else {
+            true
+        }
     }
     fn check_acc(
         rng: &mut ThreadRng,
