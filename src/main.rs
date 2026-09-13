@@ -29,10 +29,10 @@ fn main() {
     let mut char = Pokemon::new_easy(*ALL_SPECIES.get("Charizard").unwrap(), 50, &mut rng);
     let mut tak = Move::new(0);
     let mut swd = Move::new(1);
-    tak.pp = 0;
-    swd.pp = 0;
+    let mut drw = Move::new(2);
     char.add_move(tak);
     char.add_move(swd);
+    char.add_move(drw);
 
     let mut battler = Battler::new(pika, char, rng);
     battler.get_info(1);

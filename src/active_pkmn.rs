@@ -1,10 +1,10 @@
-use crate::enums::*;
 use crate::field::Field;
+use crate::{enums::*, poke_println};
 use rand::Rng;
 use rand::rngs::ThreadRng;
 
 pub struct ActivePokemon {
-    volitile_status: Vec<StatusVol>,
+    volatile_status: Vec<StatusVol>,
     atk_mod: i32,
     def_mod: i32,
     spa_mod: i32,
@@ -21,7 +21,7 @@ pub struct ActivePokemon {
 impl ActivePokemon {
     pub fn new() -> Self {
         Self {
-            volitile_status: Vec::new(),
+            volatile_status: Vec::new(),
             atk_mod: 0,
             def_mod: 0,
             spa_mod: 0,
@@ -99,23 +99,31 @@ impl ActivePokemon {
     pub fn get_dmax(&self) -> bool {
         self.is_dmax
     }
-    pub fn inflict_status(&mut self, status: StatusVol, field: &Field) {
-        match (status, field.get_terrain()) {
-            (StatusVol::Confusion { .. }, Terrain::Misty) => return,
-            (StatusVol::Drowsy { .. }, Terrain::Electric) => return,
+    pub fn inflict_status(&mut self, status_vol: StatusVol, field: &Field, status: Status) {
+        match (status_vol, field.get_terrain(), status) {
+            (StatusVol::Confusion { .. }, Terrain::Misty, _) => return,
+            (StatusVol::Drowsy { .. }, Terrain::Electric, _) => return,
+            (StatusVol::Drowsy { .. }, _, Status::Sleep) => return,
             _ => (),
         }
 
-        self.volitile_status.push(status);
+        let already_has = self
+            .volatile_status
+            .iter()
+            .any(|s| std::mem::discriminant(s) == std::mem::discriminant(&status_vol));
+
+        if !already_has {
+            self.volatile_status.push(status_vol);
+        }
     }
     pub fn remove_status(&mut self, status: StatusVol) {
-        self.volitile_status.retain(|s| *s != status)
+        self.volatile_status.retain(|s| *s != status)
     }
     pub fn get_statuses(&self) -> &Vec<StatusVol> {
-        &self.volitile_status
+        &self.volatile_status
     }
     pub fn get_status(&self, status: StatusVol) -> bool {
-        self.volitile_status.contains(&status)
+        self.volatile_status.contains(&status)
     }
     pub fn get_crit_stage(&self) -> i32 {
         self.crit_stage
@@ -161,7 +169,7 @@ impl ActivePokemon {
     }
     pub fn step_drowsy(&mut self) -> bool {
         let mut fell_asleep = false;
-        for s in self.volitile_status.iter_mut() {
+        for s in self.volatile_status.iter_mut() {
             if let StatusVol::Drowsy { asleep_next } = s {
                 if *asleep_next {
                     fell_asleep = true;
@@ -171,7 +179,7 @@ impl ActivePokemon {
             }
         }
         if fell_asleep {
-            self.volitile_status
+            self.volatile_status
                 .retain(|s| !matches!(s, StatusVol::Drowsy { .. }));
         }
         fell_asleep

@@ -37,6 +37,7 @@ pub struct Pokemon {
     tera_type: Type,
     terastallized: bool,
     pub move_set: Vec<Move>,
+    sleep_counter: i32,
 }
 impl Pokemon {
     pub fn new(
@@ -91,6 +92,7 @@ impl Pokemon {
             tera_type,
             terastallized: false,
             move_set: Vec::new(),
+            sleep_counter: 0,
         };
 
         pk.max_hp = pk.calc_hp();
@@ -127,6 +129,7 @@ impl Pokemon {
             tera_type: Type::Normal,
             terastallized: false,
             move_set: Vec::new(),
+            sleep_counter: 0,
         };
         pk.nickname = pk.get_species_name().to_string();
         pk.max_hp = pk.calc_hp();
@@ -326,14 +329,35 @@ impl Pokemon {
             ALL_SPECIES_VEC[self.species_id].get_type_2()
         }
     }
-    pub fn inflict_status(&mut self, status: Status, field: &Field) {
+    pub fn inflict_status(
+        &mut self,
+        status: Status,
+        field: &Field,
+        rest: bool,
+        rng: &mut ThreadRng,
+    ) {
         match (status, field.get_terrain()) {
             (_, Terrain::Misty) => return,
             (Status::Sleep, Terrain::Electric) => return,
             _ => (),
         }
         if self.non_volatile_status == Status::None {
+            if status == Status::Sleep {
+                if rest {
+                    self.sleep_counter = 3;
+                }
+                self.sleep_counter = rng.gen_range(2..=4);
+            }
             self.non_volatile_status = status
         }
+    }
+    pub fn clear_status(&mut self) {
+        self.non_volatile_status = Status::None
+    }
+    pub fn get_sleep_counter(&self) -> i32 {
+        self.sleep_counter
+    }
+    pub fn lower_sleep_counter(&mut self) {
+        self.sleep_counter -= 1
     }
 }

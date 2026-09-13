@@ -171,22 +171,21 @@ fn calc_atk_def(
         crit = 1.5;
     }
 
-    let atk_base;
-    let def_base;
-    let atk_mod;
-    let def_mod;
-
-    if mv.get_split() == Split::Physical {
-        atk_base = pokemon_atk.get_atk();
-        def_base = pokemon_def.get_def();
-        atk_mod = active_pokemon_atk.get_atk();
-        def_mod = active_pokemon_def.get_def();
+    let (atk_base, def_base, atk_mod, def_mod) = if mv.get_split() == Split::Physical {
+        (
+            pokemon_atk.get_atk(),
+            pokemon_def.get_def(),
+            active_pokemon_atk.get_atk(),
+            active_pokemon_def.get_def(),
+        )
     } else {
-        atk_base = pokemon_atk.get_spa();
-        def_base = pokemon_def.get_spd();
-        atk_mod = active_pokemon_atk.get_spa();
-        def_mod = active_pokemon_def.get_spd();
-    }
+        (
+            pokemon_atk.get_spa(),
+            pokemon_def.get_spd(),
+            active_pokemon_atk.get_spa(),
+            active_pokemon_def.get_spd(),
+        )
+    };
 
     crit_modifer_rules(atk_base, def_base, atk_mod, def_mod, crit)
 }

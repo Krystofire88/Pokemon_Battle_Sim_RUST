@@ -33,5 +33,31 @@
         "target": "User"
       }
     ]
+  },
+  {
+    "name": "Yawn",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "protect": false,
+    "effect_list": [
+      {
+        "effect":{
+          "InflictStatusVol": {
+            "status": {
+              "Drowsy": {
+                "asleep_next": false
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
   }
 ]
