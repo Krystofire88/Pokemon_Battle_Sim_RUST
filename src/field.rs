@@ -34,6 +34,15 @@ impl FieldSide {
     pub fn is_tailwind(&self) -> bool {
         self.tailwind_timer > 0
     }
+    pub fn is_reflect(&self) -> bool {
+        self.reflect_timer > 0
+    }
+    pub fn is_light_screen(&self) -> bool {
+        self.light_screen_timer > 0
+    }
+    pub fn is_aurora_veil(&self) -> bool {
+        self.aurora_veil_timer > 0
+    }
     pub fn step_timer(&mut self) {
         if self.reflect_timer > 0 {
             self.reflect_timer -= 1;

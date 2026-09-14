@@ -1,5 +1,8 @@
 use crate::active_pkmn::ActivePokemon;
 use crate::enums::*;
+use crate::field;
+use crate::field::Field;
+use crate::field::FieldSide;
 use crate::helper::*;
 use crate::moves::*;
 use crate::pokemon::Pokemon;
@@ -13,6 +16,7 @@ pub struct DamageModifiers {
     terrain: f64,
     stab: f64,
     crit: f64,
+    screen_mod: f64,
     other: f64,
 }
 impl DamageModifiers {
@@ -23,6 +27,7 @@ impl DamageModifiers {
         terrain: f64,
         stab: f64,
         crit: f64,
+        screen_mod: f64,
         other: f64,
     ) -> Self {
         Self {
@@ -32,6 +37,7 @@ impl DamageModifiers {
             terrain,
             stab,
             crit,
+            screen_mod,
             other,
         }
     }
@@ -53,6 +59,9 @@ impl DamageModifiers {
     pub fn get_crit_mod(&self) -> f64 {
         self.crit
     }
+    pub fn get_screen_mod(&self) -> f64 {
+        self.screen_mod
+    }
     pub fn get_other_mod(&self) -> f64 {
         self.other
     }
@@ -65,8 +74,8 @@ pub fn damage_calc(
     active_pokemon_atk: &ActivePokemon,
     active_pokemon_def: &ActivePokemon,
     mv: &Move,
-    weather: Weather,
-    terrain: Terrain,
+    field: &Field,
+    field_side: &FieldSide,
 ) -> i32 {
     let level = pokemon_atk.get_level();
     let power = mv.get_power();
@@ -82,9 +91,9 @@ pub fn damage_calc(
     let effectiveness_type2: f64 = matchup(type_move, type_def_2);
     let type_modifier = effectiveness_type1 * effectiveness_type2;
 
-    let weather_modifier = calc_weather(weather, type_move);
+    let weather_modifier = calc_weather(field.get_weather(), type_move);
 
-    let terrain_modifier = calc_terrain(terrain, type_move);
+    let terrain_modifier = calc_terrain(field.get_terrain(), type_move);
 
     let mut stab: f64 = 1.0;
     if (type_move == type_atk_1 || type_move == type_atk_2) && type_move != Type::None {
@@ -100,6 +109,8 @@ pub fn damage_calc(
         mv,
     );
 
+    let screen_modifier = calc_screens(mv, field_side);
+
     damage(
         atk,
         def,
@@ -112,6 +123,7 @@ pub fn damage_calc(
             terrain_modifier,
             stab,
             crit,
+            screen_modifier,
             1.0,
         ),
         pokemon_def.get_hp(),
@@ -138,7 +150,8 @@ pub fn damage(
         * mods.get_terrain_mod()
         * mods.get_stab_mod()
         * mods.get_crit_mod()
-        * mods.get_other_mod();
+        * mods.get_other_mod()
+        * mods.get_screen_mod();
 
     let mut final_damage = damage.round() as i32;
 
@@ -224,5 +237,25 @@ fn calc_terrain(terrain: Terrain, type_move: Type) -> f64 {
         | (Type::Psychic, Terrain::Psychic) => 1.3,
         (Type::Dragon, Terrain::Misty) => 0.5,
         _ => 1.0,
+    }
+}
+fn calc_screens(mv: &Move, field_side: &FieldSide) -> f64 {
+    match (mv.get_split(), field_side.is_aurora_veil()) {
+        (_, true) => 2732.0 / 4096.0,
+        (Split::Physical, _) => {
+            if field_side.is_reflect() {
+                return 2732.0 / 4096.0;
+            } else {
+                1.0
+            }
+        }
+        (Split::Special, _) => {
+            if field_side.is_light_screen() {
+                return 2732.0 / 4096.0;
+            } else {
+                1.0
+            }
+        }
+        (_, _) => 1.0,
     }
 }

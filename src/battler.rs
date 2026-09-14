@@ -192,21 +192,24 @@ impl Battler {
         }
     }
     fn use_move(&mut self, is_attacker_1: bool, move_index: usize) {
-        let (pokemon_atk, pokemon_def, active_pokemon_atk, active_pokemon_def) = if is_attacker_1 {
-            (
-                &mut self.pokemon_1,
-                &mut self.pokemon_2,
-                &mut self.active_pokemon_1,
-                &mut self.active_pokemon_2,
-            )
-        } else {
-            (
-                &mut self.pokemon_2,
-                &mut self.pokemon_1,
-                &mut self.active_pokemon_2,
-                &mut self.active_pokemon_1,
-            )
-        };
+        let (pokemon_atk, pokemon_def, active_pokemon_atk, active_pokemon_def, is_opponent_side_a) =
+            if is_attacker_1 {
+                (
+                    &mut self.pokemon_1,
+                    &mut self.pokemon_2,
+                    &mut self.active_pokemon_1,
+                    &mut self.active_pokemon_2,
+                    false,
+                )
+            } else {
+                (
+                    &mut self.pokemon_2,
+                    &mut self.pokemon_1,
+                    &mut self.active_pokemon_2,
+                    &mut self.active_pokemon_1,
+                    true,
+                )
+            };
 
         if pokemon_atk.move_set[move_index].get_pp() <= 0 {
             if !active_pokemon_def.is_protected() {
@@ -215,7 +218,7 @@ impl Battler {
                     (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
                     pokemon_atk.get_level(),
                     50,
-                    DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
+                    DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
                     pokemon_def.get_hp(),
                 );
 
@@ -275,6 +278,12 @@ impl Battler {
 
         for _ in 0..hits {
             if !active_pokemon_def.is_protected() {
+                let field_side = if is_opponent_side_a {
+                    &self.field.field_side_a
+                } else {
+                    &self.field.field_side_b
+                };
+
                 let damage = damage_calc(
                     &mut self.rng,
                     pokemon_atk,
@@ -282,8 +291,8 @@ impl Battler {
                     active_pokemon_atk,
                     active_pokemon_def,
                     &pokemon_atk.move_set[move_index],
-                    self.field.get_weather(),
-                    self.field.get_terrain(),
+                    &self.field,
+                    field_side,
                 );
 
                 Self::use_status_moves(
