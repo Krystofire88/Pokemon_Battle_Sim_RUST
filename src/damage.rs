@@ -130,7 +130,7 @@ pub fn damage(atk: u32, def: u32, level: u8, power: u32, mods: DamageModifiers) 
     //magic numbers from official formula
     let top_left_bracket = ((2.0 * level as f64) / 5.0).floor() + 2.0;
     let atk_over_def: f64 = atk as f64 / def as f64;
-    let numerator: f64 = top_left_bracket as f64 * power as f64 * atk_over_def;
+    let numerator: f64 = top_left_bracket * power as f64 * atk_over_def;
     let damage_pre_mod = (numerator.floor() / 50.0).floor() + 2.0;
 
     let damage = damage_pre_mod.floor()
