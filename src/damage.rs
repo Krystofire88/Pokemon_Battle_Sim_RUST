@@ -74,7 +74,7 @@ pub fn damage_calc(
     mv: &Move,
     field: &Field,
     field_side: &FieldSide,
-) -> u32 {
+) -> u16 {
     let level = pokemon_atk.get_level();
     let power = mv.get_power();
     let type_move = mv.get_type();
@@ -124,22 +124,14 @@ pub fn damage_calc(
             screen_modifier,
             1.0,
         ),
-        pokemon_def.get_hp(),
     )
 }
-pub fn damage(
-    atk: u32,
-    def: u32,
-    level: u8,
-    power: u32,
-    mods: DamageModifiers,
-    max_damage: u32,
-) -> u32 {
+pub fn damage(atk: u32, def: u32, level: u8, power: u32, mods: DamageModifiers) -> u16 {
     //magic numbers from official formula
-    let top_left_bracket = (2 * level) / 5 + 2;
+    let top_left_bracket = ((2.0 * level as f64) / 5.0).floor() + 2.0;
     let atk_over_def: f64 = atk as f64 / def as f64;
     let numerator: f64 = top_left_bracket as f64 * power as f64 * atk_over_def;
-    let damage_pre_mod = numerator / 50.0 + 2.0;
+    let damage_pre_mod = (numerator.floor() / 50.0).floor() + 2.0;
 
     let damage = damage_pre_mod.floor()
         * mods.get_random_mod()
@@ -151,13 +143,10 @@ pub fn damage(
         * mods.get_other_mod()
         * mods.get_screen_mod();
 
-    let mut final_damage = damage.round() as u32;
+    let final_damage = damage.round() as u16;
 
     if final_damage == 0 && mods.get_type_mod() > 0.0 {
         return 1;
-    }
-    if max_damage < final_damage {
-        final_damage = max_damage;
     }
 
     final_damage
@@ -220,6 +209,14 @@ fn crit_modifer_rules(
         (atk, def, crit)
     }
 }
+fn poke_round(num: f64) -> f64 {
+    let int = num.floor();
+    if num >= int + 0.5 {
+        num.floor()
+    } else {
+        num.floor() + 1.0
+    }
+}
 fn calc_weather(weather: Weather, type_move: Type) -> f64 {
     match (type_move, weather) {
         (Type::Fire, Weather::Sun | Weather::HarshSun)
@@ -242,14 +239,14 @@ fn calc_screens(mv: &Move, field_side: &FieldSide) -> f64 {
         (_, true) => 2732.0 / 4096.0,
         (Split::Physical, _) => {
             if field_side.is_reflect() {
-                return 2732.0 / 4096.0;
+                2732.0 / 4096.0
             } else {
                 1.0
             }
         }
         (Split::Special, _) => {
             if field_side.is_light_screen() {
-                return 2732.0 / 4096.0;
+                2732.0 / 4096.0
             } else {
                 1.0
             }

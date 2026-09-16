@@ -55,6 +55,7 @@ impl Battler {
             let mut trick_room: f64 = 1.0;
 
             poke_println!("\nRound {i}");
+            poke_println!("{} to {}", self.pokemon_1.get_hp(), self.pokemon_2.get_hp());
 
             if self.field.is_trick_room() {
                 trick_room = -1.0;
@@ -117,7 +118,7 @@ impl Battler {
                     self.use_move(first_moves, move_index_1);
                 }
 
-                if self.pokemon_2.get_hp() <= 0 {
+                if self.pokemon_2.get_hp() == 0 {
                     break;
                 }
 
@@ -139,7 +140,7 @@ impl Battler {
                     self.use_move(first_moves, move_index_2);
                 }
 
-                if self.pokemon_1.get_hp() <= 0 {
+                if self.pokemon_1.get_hp() == 0 {
                     break;
                 }
 
@@ -211,7 +212,8 @@ impl Battler {
                 )
             };
 
-        if pokemon_atk.move_set[move_index].get_pp() <= 0 {
+        if pokemon_atk.move_set[move_index].get_pp() == 0 {
+            // struggle is when no moves have pp. fix, also make picking unableto pick 0 pp moves in the first place
             if !active_pokemon_def.is_protected() {
                 let damage = damage(
                     (pokemon_atk.get_atk() as f64 * get_mod(active_pokemon_atk.get_atk())) as u32,
@@ -219,7 +221,6 @@ impl Battler {
                     pokemon_atk.get_level(),
                     50,
                     DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
-                    pokemon_def.get_hp(),
                 );
 
                 poke_println!(
@@ -314,7 +315,7 @@ impl Battler {
                 );
 
                 pokemon_def.take_damage(damage);
-                if pokemon_def.get_hp() <= 0 {
+                if pokemon_def.get_hp() == 0 {
                     break;
                 }
                 if pokemon_atk.move_set[move_index].has_recoil_hp() > 0 {
@@ -322,7 +323,7 @@ impl Battler {
                 } else if pokemon_atk.move_set[move_index].has_recoil_move() > 0 {
                     pokemon_atk.take_damage(
                         (damage as f64 / pokemon_atk.move_set[move_index].has_recoil_move() as f64)
-                            .floor() as u32,
+                            .floor() as u16,
                     );
                 }
             } else {

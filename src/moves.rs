@@ -108,10 +108,7 @@ impl Move {
         m
     }
     pub fn lose_pp(&mut self, i: u8) {
-        self.pp -= i;
-        if self.pp < 0 {
-            self.pp = 0;
-        }
+        self.pp = self.pp.saturating_sub(i);
     }
     pub fn get_pp(&self) -> u8 {
         self.pp

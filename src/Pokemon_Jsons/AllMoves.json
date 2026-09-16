@@ -59,5 +59,27 @@
         "target": "Opponent"
       }
     ]
+  },
+  {
+    "name": "Recover",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "protect": false,
+    "effect_list": [
+      {
+        "effect":{
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
   }
 ]

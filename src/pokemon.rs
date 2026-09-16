@@ -168,24 +168,22 @@ impl Pokemon {
         poke_println!("");
     }
     pub fn heal(&mut self, fraction: u8) {
-        self.hp += (self.max_hp as f64 / fraction as f64).floor() as u32;
+        let heal = (self.max_hp as f64 / fraction as f64).floor() as u16;
+        self.hp = self.hp.saturating_add(heal as u32);
         if self.hp > self.max_hp {
             self.hp = self.max_hp
         }
     }
-    pub fn take_damage(&mut self, damage: u32) {
-        self.hp -= damage;
-        if self.hp < 0 {
-            self.hp = 0;
-        }
+    pub fn take_damage(&mut self, damage: u16) {
+        self.hp = self.hp.saturating_sub(damage as u32);
     }
     pub fn take_chip_damage(&mut self, fraction: u8) {
-        let damage = (self.max_hp as f64 / fraction as f64).floor() as u32;
+        let damage = (self.max_hp as f64 / fraction as f64).floor() as u16;
         self.take_damage(damage);
     }
     pub fn take_toxic_damage(&mut self, timer: u32) {
         let base_damage = self.max_hp as f64 / 16.0;
-        let damage = (base_damage * timer as f64).floor() as u32;
+        let damage = (base_damage * timer as f64).floor() as u16;
         self.take_damage(damage);
     }
     fn calc_stat(&self, base: u8, iv: u8, ev: u8) -> u32 {
@@ -198,7 +196,7 @@ impl Pokemon {
     }
     fn calc_hp(&self) -> u32 {
         let base = self.calc_stat(self.get_base_hp(), self.hp_iv, self.hp_ev);
-        base as u32 + self.level as u32 + 10
+        base + self.level as u32 + 10
     }
     pub fn get_level(&self) -> u8 {
         self.level
