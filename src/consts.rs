@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::fs;
 use std::sync::LazyLock;
 
-pub const CANNOT_MISS: i32 = 101;
+pub const CANNOT_MISS: u8 = 101;
 
 pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
     let species: Vec<Species> =

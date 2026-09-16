@@ -214,8 +214,8 @@ impl Battler {
         if pokemon_atk.move_set[move_index].get_pp() <= 0 {
             if !active_pokemon_def.is_protected() {
                 let damage = damage(
-                    (pokemon_atk.get_atk() as f64 * get_mod(active_pokemon_atk.get_atk())) as i32,
-                    (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as i32,
+                    (pokemon_atk.get_atk() as f64 * get_mod(active_pokemon_atk.get_atk())) as u32,
+                    (pokemon_def.get_def() as f64 * get_mod(active_pokemon_def.get_def())) as u32,
                     pokemon_atk.get_level(),
                     50,
                     DamageModifiers::new(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0),
@@ -322,7 +322,7 @@ impl Battler {
                 } else if pokemon_atk.move_set[move_index].has_recoil_move() > 0 {
                     pokemon_atk.take_damage(
                         (damage as f64 / pokemon_atk.move_set[move_index].has_recoil_move() as f64)
-                            .floor() as i32,
+                            .floor() as u32,
                     );
                 }
             } else {
@@ -417,9 +417,9 @@ impl Battler {
     }
     fn check_acc(
         rng: &mut ThreadRng,
-        flip: i32,
-        acc_stage: i32,
-        eva_stage: i32,
+        flip: u8,
+        acc_stage: i8,
+        eva_stage: i8,
         field: &Field,
     ) -> bool {
         if flip == CANNOT_MISS {

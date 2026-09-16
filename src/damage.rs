@@ -1,8 +1,6 @@
 use crate::active_pkmn::ActivePokemon;
 use crate::enums::*;
-use crate::field;
-use crate::field::Field;
-use crate::field::FieldSide;
+use crate::field::*;
 use crate::helper::*;
 use crate::moves::*;
 use crate::pokemon::Pokemon;
@@ -76,7 +74,7 @@ pub fn damage_calc(
     mv: &Move,
     field: &Field,
     field_side: &FieldSide,
-) -> i32 {
+) -> u32 {
     let level = pokemon_atk.get_level();
     let power = mv.get_power();
     let type_move = mv.get_type();
@@ -130,13 +128,13 @@ pub fn damage_calc(
     )
 }
 pub fn damage(
-    atk: i32,
-    def: i32,
-    level: i32,
-    power: i32,
+    atk: u32,
+    def: u32,
+    level: u8,
+    power: u32,
     mods: DamageModifiers,
-    max_damage: i32,
-) -> i32 {
+    max_damage: u32,
+) -> u32 {
     //magic numbers from official formula
     let top_left_bracket = (2 * level) / 5 + 2;
     let atk_over_def: f64 = atk as f64 / def as f64;
@@ -153,7 +151,7 @@ pub fn damage(
         * mods.get_other_mod()
         * mods.get_screen_mod();
 
-    let mut final_damage = damage.round() as i32;
+    let mut final_damage = damage.round() as u32;
 
     if final_damage == 0 && mods.get_type_mod() > 0.0 {
         return 1;
@@ -171,7 +169,7 @@ fn calc_atk_def(
     active_pokemon_atk: &ActivePokemon,
     active_pokemon_def: &ActivePokemon,
     mv: &Move,
-) -> (i32, i32, f64) {
+) -> (u32, u32, f64) {
     let mut crit: f64 = 1.0;
     let crit_chance = match active_pokemon_atk.get_crit_stage() {
         0 => 24,
@@ -203,22 +201,22 @@ fn calc_atk_def(
     crit_modifer_rules(atk_base, def_base, atk_mod, def_mod, crit)
 }
 fn crit_modifer_rules(
-    atk_base: i32,
-    def_base: i32,
-    atk_mod: i32,
-    def_mod: i32,
+    atk_base: u32,
+    def_base: u32,
+    atk_mod: i8,
+    def_mod: i8,
     crit: f64,
-) -> (i32, i32, f64) {
+) -> (u32, u32, f64) {
     if crit > 1.0 {
         let atk_pos_mod = if atk_mod > 0 { get_mod(atk_mod) } else { 1.0 };
         let def_neg_mod = if def_mod < 0 { get_mod(def_mod) } else { 1.0 };
 
-        let atk = (atk_base as f64 * atk_pos_mod) as i32;
-        let def = (def_base as f64 * def_neg_mod) as i32;
+        let atk = (atk_base as f64 * atk_pos_mod) as u32;
+        let def = (def_base as f64 * def_neg_mod) as u32;
         (atk, def, crit)
     } else {
-        let atk = (atk_base as f64 * get_mod(atk_mod)) as i32;
-        let def = (def_base as f64 * get_mod(def_mod)) as i32;
+        let atk = (atk_base as f64 * get_mod(atk_mod)) as u32;
+        let def = (def_base as f64 * get_mod(def_mod)) as u32;
         (atk, def, crit)
     }
 }

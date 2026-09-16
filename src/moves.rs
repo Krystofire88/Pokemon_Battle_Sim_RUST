@@ -10,11 +10,11 @@ use serde::Deserialize;
 pub struct MoveBase {
     name: String,
     move_type: Type,
-    power: i32,
+    power: u32,
     split: Split,
-    accuracy: i32,
-    max_pp: i32,
-    priority: i32,
+    accuracy: u8,
+    max_pp: u8,
+    priority: u8,
     contact: bool,
     protect: bool,
     effect_list: Vec<MoveEffect>,
@@ -23,11 +23,11 @@ impl MoveBase {
     pub fn new(
         name: String,
         move_type: Type,
-        power: i32,
+        power: u32,
         split: Split,
-        accuracy: i32,
-        max_pp: i32,
-        priority: i32,
+        accuracy: u8,
+        max_pp: u8,
+        priority: u8,
         contact: bool,
         protect: bool,
         effect_list: Vec<MoveEffect>,
@@ -45,22 +45,22 @@ impl MoveBase {
             effect_list,
         }
     }
-    pub fn get_power(&self) -> i32 {
+    pub fn get_power(&self) -> u32 {
         self.power
     }
-    pub fn get_accuracy(&self) -> i32 {
+    pub fn get_accuracy(&self) -> u8 {
         self.accuracy
     }
     pub fn get_name(&self) -> &str {
         &self.name
     }
-    pub fn get_priority(&self) -> i32 {
+    pub fn get_priority(&self) -> u8 {
         self.priority
     }
     pub fn get_split(&self) -> Split {
         self.split
     }
-    pub fn get_max_pp(&self) -> i32 {
+    pub fn get_max_pp(&self) -> u8 {
         self.max_pp
     }
     pub fn get_type(&self) -> Type {
@@ -74,11 +74,11 @@ impl MoveBase {
 #[derive(Clone, Copy, Deserialize)]
 pub struct MoveEffect {
     effect: Effect,
-    chance: i32,
+    chance: u8,
     target: Target,
 }
 impl MoveEffect {
-    pub fn new(effect: Effect, chance: i32, target: Target) -> Self {
+    pub fn new(effect: Effect, chance: u8, target: Target) -> Self {
         Self {
             effect,
             chance,
@@ -88,7 +88,7 @@ impl MoveEffect {
     pub fn get_effect(&self) -> Effect {
         self.effect
     }
-    pub fn get_effect_chance(&self) -> i32 {
+    pub fn get_effect_chance(&self) -> u8 {
         self.chance
     }
     pub fn get_target(&self) -> Target {
@@ -99,7 +99,7 @@ impl MoveEffect {
 #[derive(Copy, Clone)]
 pub struct Move {
     pub move_id: usize,
-    pub pp: i32,
+    pub pp: u8,
 }
 impl Move {
     pub fn new(move_id: usize) -> Self {
@@ -107,31 +107,31 @@ impl Move {
         m.pp = ALL_MOVES_VEC[move_id].get_max_pp();
         m
     }
-    pub fn lose_pp(&mut self, i: i32) {
+    pub fn lose_pp(&mut self, i: u8) {
         self.pp -= i;
         if self.pp < 0 {
             self.pp = 0;
         }
     }
-    pub fn get_pp(&self) -> i32 {
+    pub fn get_pp(&self) -> u8 {
         self.pp
     }
-    pub fn get_max_pp(&self) -> i32 {
+    pub fn get_max_pp(&self) -> u8 {
         ALL_MOVES_VEC[self.move_id].get_max_pp()
     }
     pub fn get_name(&self) -> &str {
         ALL_MOVES_VEC[self.move_id].get_name()
     }
-    pub fn get_power(&self) -> i32 {
+    pub fn get_power(&self) -> u32 {
         ALL_MOVES_VEC[self.move_id].get_power()
     }
-    pub fn get_priority(&self) -> i32 {
+    pub fn get_priority(&self) -> u8 {
         ALL_MOVES_VEC[self.move_id].get_priority()
     }
     pub fn get_split(&self) -> Split {
         ALL_MOVES_VEC[self.move_id].get_split()
     }
-    pub fn get_accuracy(&self) -> i32 {
+    pub fn get_accuracy(&self) -> u8 {
         ALL_MOVES_VEC[self.move_id].get_accuracy()
     }
     pub fn get_type(&self) -> Type {
@@ -160,7 +160,7 @@ impl Move {
         }
         1
     }
-    pub fn has_recoil_hp(&self) -> i32 {
+    pub fn has_recoil_hp(&self) -> u8 {
         for i in ALL_MOVES_VEC[self.move_id].get_effects() {
             if let Effect::RecoilHp { fraction } = i.get_effect() {
                 return fraction;
@@ -168,7 +168,7 @@ impl Move {
         }
         0
     }
-    pub fn has_recoil_move(&self) -> i32 {
+    pub fn has_recoil_move(&self) -> u8 {
         for i in ALL_MOVES_VEC[self.move_id].get_effects() {
             if let Effect::RecoilMove { fraction } = i.get_effect() {
                 return fraction;

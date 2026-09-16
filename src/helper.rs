@@ -15,7 +15,7 @@ macro_rules! poke_println {
     ($($arg:tt)*) => {};
 }
 
-pub fn get_mod(modifier: i32) -> f64 {
+pub fn get_mod(modifier: i8) -> f64 {
     match modifier {
         6 => 8.0 / 2.0,  // 4.0
         5 => 7.0 / 2.0,  // 3.5
@@ -34,7 +34,7 @@ pub fn get_mod(modifier: i32) -> f64 {
     }
 }
 
-pub fn get_mod_acc(modifier: i32) -> f64 {
+pub fn get_mod_acc(modifier: i8) -> f64 {
     match modifier {
         6 => 9.0 / 3.0,  // 3.0
         5 => 8.0 / 3.0,  // 2.67

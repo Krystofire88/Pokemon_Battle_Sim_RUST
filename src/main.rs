@@ -26,12 +26,6 @@ fn main() {
     pika.add_move(tck);
     pika.add_move(swr);
 
-    /*
-    ===================
-    Screens
-    ===================
-    */
-
     let mut char = Pokemon::new_easy(*ALL_SPECIES.get("Charizard").unwrap(), 50, &mut rng);
     let mut tak = Move::new(0);
     let mut swd = Move::new(1);

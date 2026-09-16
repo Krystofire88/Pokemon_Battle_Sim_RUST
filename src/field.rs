@@ -5,14 +5,14 @@ pub struct FieldSide {
     stealth_rock: bool,
     sharp_steel: bool,
     sticky_web: bool,
-    spikes: i32,
-    toxic_spikes: i32,
-    reflect_timer: i32,
-    light_screen_timer: i32,
-    aurora_veil_timer: i32,
-    tailwind_timer: i32,
-    mist_timer: i32,
-    safeguard_timer: i32,
+    spikes: u8,
+    toxic_spikes: u8,
+    reflect_timer: u8,
+    light_screen_timer: u8,
+    aurora_veil_timer: u8,
+    tailwind_timer: u8,
+    mist_timer: u8,
+    safeguard_timer: u8,
 }
 
 impl FieldSide {
@@ -92,13 +92,13 @@ pub struct Field {
     pub field_side_a: FieldSide,
     pub field_side_b: FieldSide,
     weather: Weather,
-    weather_timer: i32,
+    weather_timer: u8,
     terrain: Terrain,
-    terrain_timer: i32,
-    gravity_timer: i32,
-    trick_room_timer: i32,
-    wonder_room_timer: i32,
-    magic_room_timer: i32,
+    terrain_timer: u8,
+    gravity_timer: u8,
+    trick_room_timer: u8,
+    wonder_room_timer: u8,
+    magic_room_timer: u8,
 }
 
 impl Field {

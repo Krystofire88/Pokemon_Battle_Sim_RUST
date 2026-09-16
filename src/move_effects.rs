@@ -3,7 +3,7 @@ use serde::Deserialize;
 
 #[derive(Copy, Clone, Deserialize)]
 pub enum Effect {
-    ChangeStat { stat: Stat, stages: i32 },
+    ChangeStat { stat: Stat, stages: i8 },
 
     InflictStatus { status: Status },
 
@@ -11,15 +11,15 @@ pub enum Effect {
 
     Protect,
 
-    MultiHit { min: i32, max: i32 },
+    MultiHit { min: u8, max: u8 },
 
-    HealHp { fraction: i32 },
+    HealHp { fraction: u8 },
 
-    HealMove { fraction: i32 },
+    HealMove { fraction: u8 },
 
-    RecoilHp { fraction: i32 },
+    RecoilHp { fraction: u8 },
 
-    RecoilMove { fraction: i32 },
+    RecoilMove { fraction: u8 },
 }
 
 #[derive(Copy, Clone, Deserialize, PartialEq, Eq)]
