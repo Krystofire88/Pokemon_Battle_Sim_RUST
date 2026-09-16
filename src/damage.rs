@@ -1,3 +1,5 @@
+use std::num;
+
 use crate::active_pkmn::ActivePokemon;
 use crate::enums::*;
 use crate::field::*;
@@ -15,7 +17,7 @@ pub struct DamageModifiers {
     stab: f64,
     crit: f64,
     screen_mod: f64,
-    other: f64,
+    burn: f64,
 }
 impl DamageModifiers {
     pub fn new(
@@ -26,7 +28,7 @@ impl DamageModifiers {
         stab: f64,
         crit: f64,
         screen_mod: f64,
-        other: f64,
+        burn: f64,
     ) -> Self {
         Self {
             random,
@@ -36,7 +38,7 @@ impl DamageModifiers {
             stab,
             crit,
             screen_mod,
-            other,
+            burn,
         }
     }
     pub fn get_random_mod(&self) -> f64 {
@@ -57,11 +59,19 @@ impl DamageModifiers {
     pub fn get_crit_mod(&self) -> f64 {
         self.crit
     }
-    pub fn get_screen_mod(&self) -> f64 {
+    fn get_screen_mod(&self) -> f64 {
         self.screen_mod
     }
+    fn get_burn_mod(&self) -> f64 {
+        self.burn
+    }
     pub fn get_other_mod(&self) -> f64 {
-        self.other
+        let mut numerator = 4096.0;
+        let denominator = 4096.0;
+
+        numerator *= self.get_screen_mod();
+
+        numerator / denominator
     }
 }
 
@@ -88,6 +98,16 @@ pub fn damage_calc(
     let effectiveness_type1: f64 = matchup(type_move, type_def_1);
     let effectiveness_type2: f64 = matchup(type_move, type_def_2);
     let type_modifier = effectiveness_type1 * effectiveness_type2;
+
+    if type_modifier <= 0.0 {
+        return 0;
+    }
+
+    let burn = if pokemon_atk.get_status() == Status::Burn {
+        0.5
+    } else {
+        1.0
+    };
 
     let weather_modifier = calc_weather(field.get_weather(), type_move);
 
@@ -122,34 +142,34 @@ pub fn damage_calc(
             stab,
             crit,
             screen_modifier,
-            1.0,
+            burn,
         ),
     )
 }
-pub fn damage(atk: u32, def: u32, level: u8, power: u32, mods: DamageModifiers) -> u16 {
+pub fn damage(atk: u32, def: u32, level: u8, base_power: u32, mods: DamageModifiers) -> u16 {
     //magic numbers from official formula
     let top_left_bracket = ((2.0 * level as f64) / 5.0).floor() + 2.0;
     let atk_over_def: f64 = atk as f64 / def as f64;
-    let numerator: f64 = top_left_bracket * power as f64 * atk_over_def;
-    let damage_pre_mod = (numerator.floor() / 50.0).floor() + 2.0;
+    let power = base_power as f64 * mods.get_terrain_mod();
+    let numerator: f64 = top_left_bracket * power * poke_round(atk_over_def);
+    let mut damage = (numerator.floor() / 50.0).floor() + 2.0;
 
-    let damage = damage_pre_mod.floor()
-        * mods.get_random_mod()
-        * mods.get_type_mod()
-        * mods.get_weather_mod()
-        * mods.get_terrain_mod()
-        * mods.get_stab_mod()
-        * mods.get_crit_mod()
-        * mods.get_other_mod()
-        * mods.get_screen_mod();
-
-    let final_damage = damage.round() as u16;
-
-    if final_damage == 0 && mods.get_type_mod() > 0.0 {
-        return 1;
+    for m in [
+        //target
+        //parental bond
+        mods.get_weather_mod(),
+        //glaive rush
+        mods.get_crit_mod(),
+        mods.get_random_mod(),
+        mods.get_stab_mod(),
+        mods.get_type_mod(),
+        mods.get_burn_mod(),
+        mods.get_other_mod(),
+    ] {
+        damage = poke_round(damage * m);
     }
 
-    final_damage
+    damage.max(1.0) as u16
 }
 fn calc_atk_def(
     rng: &mut ThreadRng,
@@ -210,11 +230,10 @@ fn crit_modifer_rules(
     }
 }
 fn poke_round(num: f64) -> f64 {
-    let int = num.floor();
-    if num >= int + 0.5 {
-        num.floor()
+    if num.fract() > 0.5 {
+        num.ceil()
     } else {
-        num.floor() + 1.0
+        num.floor()
     }
 }
 fn calc_weather(weather: Weather, type_move: Type) -> f64 {
@@ -236,6 +255,27 @@ fn calc_terrain(terrain: Terrain, type_move: Type) -> f64 {
 }
 fn calc_screens(mv: &Move, field_side: &FieldSide) -> f64 {
     match (mv.get_split(), field_side.is_aurora_veil()) {
+        (_, true) => 0.5,
+        (Split::Physical, _) => {
+            if field_side.is_reflect() {
+                0.5
+            } else {
+                1.0
+            }
+        }
+        (Split::Special, _) => {
+            if field_side.is_light_screen() {
+                0.5
+            } else {
+                1.0
+            }
+        }
+        (_, _) => 1.0,
+    }
+}
+/* this is for doubles
+fn calc_screens(mv: &Move, field_side: &FieldSide) -> f64 {
+    match (mv.get_split(), field_side.is_aurora_veil()) {
         (_, true) => 2732.0 / 4096.0,
         (Split::Physical, _) => {
             if field_side.is_reflect() {
@@ -254,3 +294,4 @@ fn calc_screens(mv: &Move, field_side: &FieldSide) -> f64 {
         (_, _) => 1.0,
     }
 }
+*/
