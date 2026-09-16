@@ -224,9 +224,10 @@ impl Battler {
                 );
 
                 poke_println!(
-                    "{} used struggle against {} it did {} damage!",
+                    "{} used struggle against {} it did {} ({}) damage!",
                     pokemon_atk.get_nickname(),
                     pokemon_def.get_nickname(),
+                    damage.min(pokemon_def.get_hp() as u16),
                     damage
                 );
 
@@ -307,10 +308,11 @@ impl Battler {
                 );
 
                 poke_println!(
-                    "{} used {} against {} it did {} damage!",
+                    "{} used {} against {} it did {} ({}) damage!",
                     pokemon_atk.get_nickname(),
                     pokemon_atk.move_set[move_index].get_name(),
                     pokemon_def.get_nickname(),
+                    damage.min(pokemon_def.get_hp() as u16),
                     damage
                 );
 
