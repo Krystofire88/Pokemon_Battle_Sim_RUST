@@ -1,5 +1,3 @@
-use std::num;
-
 use crate::active_pkmn::ActivePokemon;
 use crate::enums::*;
 use crate::field::*;
@@ -230,7 +228,7 @@ fn crit_modifer_rules(
     }
 }
 fn poke_round(num: f64) -> f64 {
-    if num.fract() > 0.5 {
+    if num.fract() >= 0.5 {
         num.ceil()
     } else {
         num.floor()
