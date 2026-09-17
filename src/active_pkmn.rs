@@ -167,6 +167,9 @@ impl ActivePokemon {
     pub fn get_toxic_timer(&self) -> u32 {
         self.toxic_timer
     }
+    pub fn apply_toxic(&mut self) {
+        self.toxic_timer += 1
+    }
     pub fn step_timers(&mut self) {
         if self.toxic_timer > 0 {
             self.toxic_timer += 1

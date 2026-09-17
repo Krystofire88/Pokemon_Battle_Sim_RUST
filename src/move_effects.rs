@@ -20,6 +20,10 @@ pub enum Effect {
     RecoilHp { fraction: u8 },
 
     RecoilMove { fraction: u8 },
+
+    Weather { weather: Weather },
+
+    Terrain { terrain: Terrain },
 }
 
 #[derive(Copy, Clone, Deserialize, PartialEq, Eq)]

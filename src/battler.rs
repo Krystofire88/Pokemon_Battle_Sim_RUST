@@ -294,7 +294,7 @@ impl Battler {
                 active_pokemon_def,
                 pokemon_atk,
                 pokemon_def,
-                &self.field,
+                &mut self.field,
                 &mut self.rng,
                 move_index,
             );
@@ -327,7 +327,7 @@ impl Battler {
                     active_pokemon_def,
                     pokemon_atk,
                     pokemon_def,
-                    &self.field,
+                    &mut self.field,
                     &mut self.rng,
                     move_index,
                 );
@@ -370,7 +370,7 @@ impl Battler {
         active_pokemon_def: &mut ActivePokemon,
         pokemon_atk: &mut Pokemon,
         pokemon_def: &mut Pokemon,
-        field: &Field,
+        field: &mut Field,
         rng: &mut ThreadRng,
         move_index: usize,
     ) {
@@ -407,17 +407,24 @@ impl Battler {
         effect: Effect,
         active_pokemon: &mut ActivePokemon,
         pokemon: &mut Pokemon,
-        field: &Field,
+        field: &mut Field,
         rng: &mut ThreadRng,
     ) {
         match effect {
             Effect::ChangeStat { stat, stages } => active_pokemon.change_stat(stat, stages),
-            Effect::InflictStatus { status } => pokemon.inflict_status(status, field, false, rng), // remove false whn move REST is intorduced
+            Effect::InflictStatus { status } => {
+                if status == Status::Toxic {
+                    active_pokemon.apply_toxic();
+                }
+                pokemon.inflict_status(status, field, false, rng)
+            } // remove false when move REST is intorduced
             Effect::InflictStatusVol { status } => {
                 active_pokemon.inflict_status(status, field, pokemon.get_status())
             }
             Effect::HealHp { fraction } => pokemon.heal(fraction),
             Effect::Protect => active_pokemon.protect(rng),
+            Effect::Weather { weather } => field.set_weather(weather),
+            Effect::Terrain { terrain } => field.set_terrain(terrain),
             _ => (),
         };
     }

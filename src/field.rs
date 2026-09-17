@@ -1,3 +1,5 @@
+use std::rc::Weak;
+
 use crate::enums::*;
 
 #[derive(Clone)]
@@ -151,9 +153,21 @@ impl Field {
             self.magic_room_timer -= 1;
         }
     }
+    pub fn set_weather(&mut self, weather: Weather) {
+        if self.weather != weather {
+            self.weather = weather;
+            self.weather_timer = 5 //change to be variable
+        }
+    }
     pub fn clear_weather(&mut self) {
         if self.weather != Weather::None {
             self.weather = Weather::None
+        }
+    }
+    pub fn set_terrain(&mut self, terrain: Terrain) {
+        if self.terrain != terrain {
+            self.terrain = terrain;
+            self.terrain_timer = 5 //change to be variable
         }
     }
     pub fn clear_terrain(&mut self) {

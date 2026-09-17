@@ -61,15 +61,16 @@ impl DamageModifiers {
     fn get_screen_mod(&self) -> f64 {
         self.screen_mod
     }
-    fn get_burn_mod(&self) -> f64 {
+    pub fn get_burn_mod(&self) -> f64 {
         self.burn
     }
     pub fn get_other_mod(&self) -> f64 {
         let mut numerator = 4096.0;
         let denominator = 4096.0;
 
-        numerator *= self.get_screen_mod();
-
+        if self.get_crit_mod() == 1.0 {
+            numerator *= self.get_screen_mod();
+        }
         numerator / denominator
     }
 }
