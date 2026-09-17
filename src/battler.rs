@@ -30,13 +30,27 @@ impl Battler {
         }
     }
     pub fn start(&mut self) {
-        self.battle();
+        if self.is_valid_pokemon(&self.pokemon_1) && self.is_valid_pokemon(&self.pokemon_2) {
+            self.battle();
+        } else {
+            poke_println!("Invalid Pokemon");
+        }
     }
     pub fn get_info(&self, pkmn: i32) {
         if pkmn == 1 {
             self.pokemon_1.get_info();
         } else {
             self.pokemon_2.get_info();
+        }
+    }
+    fn is_valid_pokemon(&self, pokemon: &Pokemon) -> bool {
+        if pokemon.get_species_name() == "r#3Q$[V9}aG2%uZx!oT&m4`W<^L|jY]8I@sA*B1?c(E)F+" {
+            // placholder pokemon for dex offset is invalid in gameplay
+            false
+        } else if pokemon.get_level() > 100 {
+            false
+        } else {
+            !pokemon.move_set.is_empty()
         }
     }
     fn battle(&mut self) {
@@ -130,6 +144,10 @@ impl Battler {
                 ) {
                     self.use_move(!first_moves, move_index_2);
                 }
+
+                if self.pokemon_1.get_hp() == 0 {
+                    break;
+                }
             } else {
                 if Self::can_move(
                     &mut self.pokemon_2,
@@ -151,6 +169,10 @@ impl Battler {
                     &self.field,
                 ) {
                     self.use_move(!first_moves, move_index_1);
+                }
+
+                if self.pokemon_2.get_hp() == 0 {
+                    break;
                 }
             }
 
@@ -183,6 +205,9 @@ impl Battler {
         }
         if active_pokemon.step_drowsy() {
             pokemon.inflict_status(Status::Sleep, field, false, rng);
+        }
+        if active_pokemon.get_status(StatusVol::Flinch) {
+            active_pokemon.remove_status(StatusVol::Flinch);
         }
 
         active_pokemon.drop_protect();
@@ -316,10 +341,6 @@ impl Battler {
                     damage
                 );
 
-                pokemon_def.take_damage(damage);
-                if pokemon_def.get_hp() == 0 {
-                    break;
-                }
                 if pokemon_atk.move_set[move_index].has_recoil_hp() > 0 {
                     pokemon_atk.take_chip_damage(pokemon_atk.move_set[move_index].has_recoil_hp());
                 } else if pokemon_atk.move_set[move_index].has_recoil_move() > 0 {
@@ -327,6 +348,11 @@ impl Battler {
                         (damage as f64 / pokemon_atk.move_set[move_index].has_recoil_move() as f64)
                             .floor() as u16,
                     );
+                }
+
+                pokemon_def.take_damage(damage);
+                if pokemon_def.get_hp() == 0 {
+                    break;
                 }
             } else {
                 poke_println!(

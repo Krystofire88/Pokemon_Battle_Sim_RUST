@@ -1,4 +1,5 @@
 use crate::active_pkmn::ActivePokemon;
+use crate::enums::Split::Physical;
 use crate::enums::*;
 use crate::field::*;
 use crate::helper::*;
@@ -91,7 +92,7 @@ pub fn damage_calc(
     let type_def_1 = pokemon_def.get_type_1();
     let type_def_2 = pokemon_def.get_type_2();
 
-    let random_modifier: f64 = rng.gen_range(0.85..=1.0);
+    let random_modifier: f64 = rng.gen_range(85..=100) as f64 / 100.0;
 
     let effectiveness_type1: f64 = matchup(type_move, type_def_1);
     let effectiveness_type2: f64 = matchup(type_move, type_def_2);
@@ -101,7 +102,7 @@ pub fn damage_calc(
         return 0;
     }
 
-    let burn = if pokemon_atk.get_status() == Status::Burn {
+    let burn = if pokemon_atk.get_status() == Status::Burn && mv.get_split() == Split::Physical {
         0.5
     } else {
         1.0
@@ -149,7 +150,7 @@ pub fn damage(atk: u32, def: u32, level: u8, base_power: u32, mods: DamageModifi
     let top_left_bracket = ((2.0 * level as f64) / 5.0).floor() + 2.0;
     let atk_over_def: f64 = atk as f64 / def as f64;
     let power = base_power as f64 * mods.get_terrain_mod();
-    let numerator: f64 = top_left_bracket * power * poke_round(atk_over_def);
+    let numerator: f64 = top_left_bracket * power * atk_over_def;
     let mut damage = (numerator.floor() / 50.0).floor() + 2.0;
 
     for m in [

@@ -14,7 +14,7 @@ pub struct MoveBase {
     split: Split,
     accuracy: u8,
     max_pp: u8,
-    priority: u8,
+    priority: i8,
     contact: bool,
     protect: bool,
     effect_list: Vec<MoveEffect>,
@@ -27,7 +27,7 @@ impl MoveBase {
         split: Split,
         accuracy: u8,
         max_pp: u8,
-        priority: u8,
+        priority: i8,
         contact: bool,
         protect: bool,
         effect_list: Vec<MoveEffect>,
@@ -54,7 +54,7 @@ impl MoveBase {
     pub fn get_name(&self) -> &str {
         &self.name
     }
-    pub fn get_priority(&self) -> u8 {
+    pub fn get_priority(&self) -> i8 {
         self.priority
     }
     pub fn get_split(&self) -> Split {
@@ -122,7 +122,7 @@ impl Move {
     pub fn get_power(&self) -> u32 {
         ALL_MOVES_VEC[self.move_id].get_power()
     }
-    pub fn get_priority(&self) -> u8 {
+    pub fn get_priority(&self) -> i8 {
         ALL_MOVES_VEC[self.move_id].get_priority()
     }
     pub fn get_split(&self) -> Split {

@@ -343,8 +343,9 @@ impl Pokemon {
             if status == Status::Sleep {
                 if rest {
                     self.sleep_counter = 3;
+                } else {
+                    self.sleep_counter = rng.gen_range(2..=4);
                 }
-                self.sleep_counter = rng.gen_range(2..=4);
             }
             self.non_volatile_status = status
         }

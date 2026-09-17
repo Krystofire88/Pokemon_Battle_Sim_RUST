@@ -1,3 +1,5 @@
+use std::io::SeekFrom;
+
 use crate::enums::*;
 use crate::field::Field;
 use rand::Rng;
@@ -139,11 +141,13 @@ impl ActivePokemon {
     }
     pub fn protect(&mut self, rng: &mut ThreadRng) {
         if self.protect_times > 0 {
-            let three: i32 = 3;
-            let chance = three.pow(self.protect_times);
+            let three: u32 = 3;
+            let chance = three.saturating_pow(self.protect_times);
             if rng.gen_range(1..=chance) == 1 {
                 self.is_protected = true;
                 self.protect_times += 1;
+            } else {
+                self.drop_protect();
             }
         } else {
             self.is_protected = true;
@@ -153,6 +157,8 @@ impl ActivePokemon {
     pub fn drop_protect(&mut self) {
         if self.is_protected {
             self.is_protected = false
+        } else {
+            self.protect_times = 0;
         }
     }
     pub fn is_protected(&self) -> bool {
