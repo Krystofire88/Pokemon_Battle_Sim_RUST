@@ -21,18 +21,16 @@ fn main() {
     let mut rng = rand::thread_rng(); // init global rng for later seeding
 
     let mut pika = Pokemon::new_easy(*ALL_SPECIES.get("Pikachu").unwrap(), 50, &mut rng);
-    let tck = Move::new(0);
-    let swr = Move::new(1);
-    let hl = Move::new(3);
-    pika.add_move(tck);
-    pika.add_move(swr);
-    pika.add_move(hl);
+    let quick = Move::new(*ALL_MOVES.get("Quick Attack").unwrap());
+    let bolt = Move::new(*ALL_MOVES.get("Thunderbolt").unwrap());
+    pika.add_move(quick);
+    pika.add_move(bolt);
 
     let mut char = Pokemon::new_easy(*ALL_SPECIES.get("Charizard").unwrap(), 50, &mut rng);
-    let tak = Move::new(0);
-    let swd = Move::new(1);
-    char.add_move(tak);
-    char.add_move(swd);
+    let flare = Move::new(*ALL_MOVES.get("Flare Blitz").unwrap());
+    let air = Move::new(*ALL_MOVES.get("Air Slash").unwrap());
+    char.add_move(flare);
+    char.add_move(air);
 
     let mut battler = Battler::new(pika, char, rng);
     battler.get_info(1);

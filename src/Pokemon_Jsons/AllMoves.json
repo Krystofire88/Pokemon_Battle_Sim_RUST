@@ -1,14 +1,143 @@
 [
   {
-    "name": "Tackle",
+    "name": "Pound",
     "move_type": "Normal",
     "power": 40,
     "split": "Physical",
     "accuracy": 100,
-    "max_pp": 40,
+    "max_pp": 35,
     "priority": 0,
     "contact": true,
-    "protect": false,
+
+    "effect_list": []
+  },
+  {
+    "name": "Karate Chop",
+    "move_type": "Fighting",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Mega Punch",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Pay Day",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Fire Punch",
+    "move_type": "Fire",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ice Punch",
+    "move_type": "Ice",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunder Punch",
+    "move_type": "Electric",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Scratch",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Vise Grip",
+    "move_type": "Normal",
+    "power": 55,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Guillotine",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 30,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
     "effect_list": []
   },
   {
@@ -20,12 +149,11 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
-    "protect": false,
     "effect_list": [
       {
-        "effect":{
+        "effect": {
           "ChangeStat": {
-            "stat":"Atk",
+            "stat": "Atk",
             "stages": 2
           }
         },
@@ -35,7 +163,795 @@
     ]
   },
   {
-    "name": "Yawn",
+    "name": "Cut",
+    "move_type": "Normal",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Gust",
+    "move_type": "Flying",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Wing Attack",
+    "move_type": "Flying",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Whirlwind",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": -6,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Fly",
+    "move_type": "Flying",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Bind",
+    "move_type": "Normal",
+    "power": 15,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [],
+    "comment": "Bind, trap and chip"
+  },
+  {
+    "name": "Slam",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 75,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Vine Whip",
+    "move_type": "Grass",
+    "power": 45,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Stomp",
+    "move_type": "Normal",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Double Kick",
+    "move_type": "Fighting",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mega Kick",
+    "move_type": "Normal",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 75,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sand Attack",
+    "move_type": "Ground",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Headbutt",
+    "move_type": "Normal",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Horn Attack",
+    "move_type": "Normal",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Horn Drill",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 30,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Tackle",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Body Slam",
+    "move_type": "Normal",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Wrap",
+    "move_type": "Normal",
+    "power": 15,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [],
+    "comment": "Wrap, trap and chip"
+  },
+  {
+    "name": "Take Down",
+    "move_type": "Normal",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 4
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Thrash",
+    "move_type": "Normal",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Double-Edge",
+    "move_type": "Normal",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Tail Whip",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Poison Sting",
+    "move_type": "Poison",
+    "power": 15,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Leer",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Bite",
+    "move_type": "Dark",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Growl",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Roar",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": -6,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Sing",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 55,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Supersonic",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 55,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion seems wierd with the time"
+  },
+  {
+    "name": "Acid",
+    "move_type": "Poison",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ember",
+    "move_type": "Fire",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Flamethrower",
+    "move_type": "Fire",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mist",
+    "move_type": "Ice",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Water Gun",
+    "move_type": "Water",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Hydro Pump",
+    "move_type": "Water",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Surf",
+    "move_type": "Water",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Ice Beam",
+    "move_type": "Ice",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Blizzard",
+    "move_type": "Ice",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 70,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Psybeam",
+    "move_type": "Psychic",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confsion seems ierd to impleemnt"
+  },
+  {
+    "name": "Bubble Beam",
+    "move_type": "Water",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Aurora Beam",
+    "move_type": "Ice",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Hyper Beam",
+    "move_type": "Normal",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Peck",
+    "move_type": "Flying",
+    "power": 35,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Drill Peck",
+    "move_type": "Flying",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Seismic Toss",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Strength",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Absorb",
+    "move_type": "Grass",
+    "power": 20,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Mega Drain",
+    "move_type": "Grass",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Growth",
     "move_type": "Normal",
     "power": 0,
     "split": "Status",
@@ -43,10 +959,2444 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
-    "protect": false,
     "effect_list": [
       {
-        "effect":{
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Razor Leaf",
+    "move_type": "Grass",
+    "power": 55,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Solar Beam",
+    "move_type": "Grass",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Poison Powder",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 75,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Stun Spore",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 75,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Sleep Powder",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 75,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Petal Dance",
+    "move_type": "Grass",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "String Shot",
+    "move_type": "Bug",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 95,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fire Spin",
+    "move_type": "Fire",
+    "power": 35,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "Fire spin, trap and chip"
+  },
+  {
+    "name": "Thunder Shock",
+    "move_type": "Electric",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunderbolt",
+    "move_type": "Electric",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunder Wave",
+    "move_type": "Electric",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 90,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunder",
+    "move_type": "Electric",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 70,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Rock Throw",
+    "move_type": "Rock",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Earthquake",
+    "move_type": "Ground",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Fissure",
+    "move_type": "Ground",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 30,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dig",
+    "move_type": "Ground",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Toxic",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Toxic"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Confusion",
+    "move_type": "Psychic",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Psychic",
+    "move_type": "Psychic",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Hypnosis",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 60,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Agility",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Quick Attack",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Night Shade",
+    "move_type": "Ghost",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Screech",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 85,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Double Team",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Eva",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Recover",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Harden",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Minimize",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Eva",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Smokescreen",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Confuse Ray",
+    "move_type": "Ghost",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Withdraw",
+    "move_type": "Water",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Defense Curl",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Light Screen",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Haze",
+    "move_type": "Ice",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Reflect",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Metronome",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Self-Destruct",
+    "move_type": "Normal",
+    "power": 200,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Lick",
+    "move_type": "Ghost",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Smog",
+    "move_type": "Poison",
+    "power": 30,
+    "split": "Special",
+    "accuracy": 70,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 40,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Sludge",
+    "move_type": "Poison",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fire Blast",
+    "move_type": "Fire",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Waterfall",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Swift",
+    "move_type": "Normal",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Skull Bash",
+    "move_type": "Normal",
+    "power": 130,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Amnesia",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Kinesis",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 80,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Soft-Boiled",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "High Jump Kick",
+    "move_type": "Fighting",
+    "power": 130,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Glare",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dream Eater",
+    "move_type": "Psychic",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Poison Gas",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 90,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Leech Life",
+    "move_type": "Bug",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Sky Attack",
+    "move_type": "Flying",
+    "power": 140,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Spore",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Splash",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Acid Armor",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Crabhammer",
+    "move_type": "Water",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Explosion",
+    "move_type": "Normal",
+    "power": 250,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Bonemerang",
+    "move_type": "Ground",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Rest",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Rock Slide",
+    "move_type": "Rock",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Tri Attack",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictMultiStatus": {
+            "status_1": "Paralysis",
+            "status_2": "Freeze",
+            "status_3": "Burn"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Super Fang",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Slash",
+    "move_type": "Normal",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Triple Kick",
+    "move_type": "Fighting",
+    "power": 10,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHitAcc": {
+            "max":3,
+            "increment": 10
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thief",
+    "move_type": "Dark",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Flame Wheel",
+    "move_type": "Fire",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Snore",
+    "move_type": "Normal",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Curse",
+    "move_type": "Ghost",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Flail",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Aeroblast",
+    "move_type": "Flying",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Cotton Spore",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Reversal",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Spite",
+    "move_type": "Ghost",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Powder Snow",
+    "move_type": "Ice",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Protect",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+    {
+      "effect": "Protect",
+      "chance": 100,
+      "target": "User"
+    }
+    ]
+  },
+  {
+    "name": "Mach Punch",
+    "move_type": "Fighting",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Scary Face",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Sweet Kiss",
+    "move_type": "Fairy",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 75,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Belly Drum",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 6
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Sludge Bomb",
+    "move_type": "Poison",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mud-Slap",
+    "move_type": "Ground",
+    "power": 20,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Spikes",
+    "move_type": "Ground",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Zap Cannon",
+    "move_type": "Electric",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 50,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Icy Wind",
+    "move_type": "Ice",
+    "power": 55,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Detect",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Outrage",
+    "move_type": "Dragon",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sandstorm",
+    "move_type": "Rock",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Giga Drain",
+    "move_type": "Grass",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Endure",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Charm",
+    "move_type": "Fairy",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Swagger",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 85,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Milk Drink",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Spark",
+    "move_type": "Electric",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fury Cutter",
+    "move_type": "Bug",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Steel Wing",
+    "move_type": "Steel",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 10,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Attract",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Infatuation"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Heal Bell",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Sacred Fire",
+    "move_type": "Fire",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dynamic Punch",
+    "move_type": "Fighting",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 50,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Megahorn",
+    "move_type": "Bug",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Dragon Breath",
+    "move_type": "Dragon",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Rapid Spin",
+    "move_type": "Normal",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Sweet Scent",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Eva",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Iron Tail",
+    "move_type": "Steel",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 75,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Metal Claw",
+    "move_type": "Steel",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 35,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 10,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Cross Chop",
+    "move_type": "Fighting",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Twister",
+    "move_type": "Dragon",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Rain Dance",
+    "move_type": "Water",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Sunny Day",
+    "move_type": "Fire",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Crunch",
+    "move_type": "Dark",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Extreme Speed",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 2,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Ancient Power",
+    "move_type": "Rock",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeAllStats": {
+            "stages": 1
+          }
+        },
+        "chance": 10,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Shadow Ball",
+    "move_type": "Ghost",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Rock Smash",
+    "move_type": "Fighting",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Whirlpool",
+    "move_type": "Water",
+    "power": 35,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "Whirlpool, trap and chip"
+  },
+  {
+    "name": "Fake Out",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 3,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Heat Wave",
+    "move_type": "Fire",
+    "power": 95,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Torment",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Torment"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Flatter",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Will-O-Wisp",
+    "move_type": "Fire",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 85,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Memento",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Facade",
+    "move_type": "Normal",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Charge",
+    "move_type": "Electric",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Trick",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Superpower",
+    "move_type": "Fighting",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Brick Break",
+    "move_type": "Fighting",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Yawn",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
           "InflictStatusVol": {
             "status": {
               "Drowsy": {
@@ -61,18 +3411,174 @@
     ]
   },
   {
-    "name": "Recover",
+    "name": "Knock Off",
+    "move_type": "Dark",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Endeavor",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Eruption",
+    "move_type": "Fire",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dive",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Luster Purge",
+    "move_type": "Psychic",
+    "power": 95,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mist Ball",
+    "move_type": "Psychic",
+    "power": 95,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Feather Dance",
+    "move_type": "Flying",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Teeter Dance",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Blaze Kick",
+    "move_type": "Fire",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Slack Off",
     "move_type": "Normal",
     "power": 0,
     "split": "Status",
     "accuracy": 101,
-    "max_pp": 20,
+    "max_pp": 5,
     "priority": 0,
     "contact": false,
-    "protect": false,
     "effect_list": [
       {
-        "effect":{
+        "effect": {
           "HealHp": {
             "fraction": 2
           }
@@ -81,5 +3587,6782 @@
         "target": "User"
       }
     ]
+  },
+  {
+    "name": "Hyper Voice",
+    "move_type": "Normal",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Poison Fang",
+    "move_type": "Poison",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Toxic"
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Crush Claw",
+    "move_type": "Normal",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Blast Burn",
+    "move_type": "Fire",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Hydro Cannon",
+    "move_type": "Water",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Meteor Mash",
+    "move_type": "Steel",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 20,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Astonish",
+    "move_type": "Ghost",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fake Tears",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Air Cutter",
+    "move_type": "Flying",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Overheat",
+    "move_type": "Fire",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Rock Tomb",
+    "move_type": "Rock",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Metal Sound",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 85,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Tickle",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Cosmic Power",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Water Spout",
+    "move_type": "Water",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Shadow Punch",
+    "move_type": "Ghost",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Extrasensory",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Sand Tomb",
+    "move_type": "Ground",
+    "power": 35,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "Sand Tomb, trap and chip"
+  },
+  {
+    "name": "Sheer Cold",
+    "move_type": "Ice",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 30,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Muddy Water",
+    "move_type": "Water",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Aerial Ace",
+    "move_type": "Flying",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Iron Defense",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Howl",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Claw",
+    "move_type": "Dragon",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Frenzy Plant",
+    "move_type": "Grass",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Bulk Up",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Bounce",
+    "move_type": "Flying",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mud Shot",
+    "move_type": "Ground",
+    "power": 55,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Poison Tail",
+    "move_type": "Poison",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Volt Tackle",
+    "move_type": "Electric",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Magical Leaf",
+    "move_type": "Grass",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Water Sport",
+    "move_type": "Water",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Calm Mind",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Leaf Blade",
+    "move_type": "Grass",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Dragon Dance",
+    "move_type": "Dragon",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Shock Wave",
+    "move_type": "Electric",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Water Pulse",
+    "move_type": "Water",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Psycho Boost",
+    "move_type": "Psychic",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Roost",
+    "move_type": "Flying",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Gravity",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Hammer Arm",
+    "move_type": "Fighting",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Gyro Ball",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Brine",
+    "move_type": "Water",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Feint",
+    "move_type": "Normal",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 2,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Tailwind",
+    "move_type": "Flying",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Acupressure",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "U-turn",
+    "move_type": "Bug",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Close Combat",
+    "move_type": "Fighting",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Payback",
+    "move_type": "Dark",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Last Resort",
+    "move_type": "Normal",
+    "power": 140,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sucker Punch",
+    "move_type": "Dark",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Toxic Spikes",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Flare Blitz",
+    "move_type": "Fire",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Force Palm",
+    "move_type": "Fighting",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Aura Sphere",
+    "move_type": "Fighting",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Rock Polish",
+    "move_type": "Rock",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Poison Jab",
+    "move_type": "Poison",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dark Pulse",
+    "move_type": "Dark",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Night Slash",
+    "move_type": "Dark",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Aqua Tail",
+    "move_type": "Water",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Seed Bomb",
+    "move_type": "Grass",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Air Slash",
+    "move_type": "Flying",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "X-Scissor",
+    "move_type": "Bug",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Bug Buzz",
+    "move_type": "Bug",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Pulse",
+    "move_type": "Dragon",
+    "power": 85,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dragon Rush",
+    "move_type": "Dragon",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 75,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Power Gem",
+    "move_type": "Rock",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Drain Punch",
+    "move_type": "Fighting",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Vacuum Wave",
+    "move_type": "Fighting",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Focus Blast",
+    "move_type": "Fighting",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 70,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Energy Ball",
+    "move_type": "Grass",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Brave Bird",
+    "move_type": "Flying",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Earth Power",
+    "move_type": "Ground",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Switcheroo",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Giga Impact",
+    "move_type": "Normal",
+    "power": 150,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Nasty Plot",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Bullet Punch",
+    "move_type": "Steel",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Ice Shard",
+    "move_type": "Ice",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Shadow Claw",
+    "move_type": "Ghost",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Thunder Fang",
+    "move_type": "Electric",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ice Fang",
+    "move_type": "Ice",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fire Fang",
+    "move_type": "Fire",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Shadow Sneak",
+    "move_type": "Ghost",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Psycho Cut",
+    "move_type": "Psychic",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Zen Headbutt",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Flash Cannon",
+    "move_type": "Steel",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Defog",
+    "move_type": "Flying",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Eva",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Trick Room",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Draco Meteor",
+    "move_type": "Dragon",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Discharge",
+    "move_type": "Electric",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Lava Plume",
+    "move_type": "Fire",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Leaf Storm",
+    "move_type": "Grass",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Power Whip",
+    "move_type": "Grass",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Rock Wrecker",
+    "move_type": "Rock",
+    "power": 150,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Cross Poison",
+    "move_type": "Poison",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Gunk Shot",
+    "move_type": "Poison",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Iron Head",
+    "move_type": "Steel",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Stone Edge",
+    "move_type": "Rock",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Stealth Rock",
+    "move_type": "Rock",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Judgment",
+    "move_type": "Normal",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Charge Beam",
+    "move_type": "Electric",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 70,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Wood Hammer",
+    "move_type": "Grass",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Aqua Jet",
+    "move_type": "Water",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Attack Order",
+    "move_type": "Bug",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Defend Order",
+    "move_type": "Bug",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Head Smash",
+    "move_type": "Rock",
+    "power": 150,
+    "split": "Physical",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Double Hit",
+    "move_type": "Normal",
+    "power": 35,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Roar of Time",
+    "move_type": "Dragon",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Spacial Rend",
+    "move_type": "Dragon",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Crush Grip",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Magma Storm",
+    "move_type": "Fire",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 75,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "Magma storm. trap and chip"
+  },
+  {
+    "name": "Dark Void",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 50,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Seed Flare",
+    "move_type": "Grass",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -2
+          }
+        },
+        "chance": 40,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Shadow Force",
+    "move_type": "Ghost",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Hone Claws",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Wonder Room",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Psyshock",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Venoshock",
+    "move_type": "Poison",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Magic Room",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Smack Down",
+    "move_type": "Rock",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Storm Throw",
+    "move_type": "Fighting",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sludge Wave",
+    "move_type": "Poison",
+    "power": 95,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Quiver Dance",
+    "move_type": "Bug",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Electro Ball",
+    "move_type": "Electric",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Flame Charge",
+    "move_type": "Fire",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Coil",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Low Sweep",
+    "move_type": "Fighting",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Acid Spray",
+    "move_type": "Poison",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Foul Play",
+    "move_type": "Dark",
+    "power": 95,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Round",
+    "move_type": "Normal",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Echoed Voice",
+    "move_type": "Normal",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Clear Smog",
+    "move_type": "Poison",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Stored Power",
+    "move_type": "Psychic",
+    "power": 20,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Quick Guard",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 3,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Scald",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Shell Smash",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Hex",
+    "move_type": "Ghost",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Shift Gear",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Circle Throw",
+    "move_type": "Fighting",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": -6,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Incinerate",
+    "move_type": "Fire",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Acrobatics",
+    "move_type": "Flying",
+    "power": 55,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Final Gambit",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Inferno",
+    "move_type": "Fire",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 50,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Volt Switch",
+    "move_type": "Electric",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Struggle Bug",
+    "move_type": "Bug",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Bulldoze",
+    "move_type": "Ground",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Frost Breath",
+    "move_type": "Ice",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dragon Tail",
+    "move_type": "Dragon",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": -6,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Work Up",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Electroweb",
+    "move_type": "Electric",
+    "power": 55,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Wild Charge",
+    "move_type": "Electric",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 4
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Drill Run",
+    "move_type": "Ground",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Horn Leech",
+    "move_type": "Grass",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Sacred Sword",
+    "move_type": "Fighting",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Razor Shell",
+    "move_type": "Water",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Cotton Guard",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Night Daze",
+    "move_type": "Dark",
+    "power": 85,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Acc",
+            "stages": -1
+          }
+        },
+        "chance": 40,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Psystrike",
+    "move_type": "Psychic",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Hurricane",
+    "move_type": "Flying",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 70,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Relic Song",
+    "move_type": "Normal",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Sleep"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Secret Sword",
+    "move_type": "Fighting",
+    "power": 85,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Glaciate",
+    "move_type": "Ice",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Bolt Strike",
+    "move_type": "Electric",
+    "power": 130,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Blue Flare",
+    "move_type": "Fire",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fiery Dance",
+    "move_type": "Fire",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 50,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Freeze Shock",
+    "move_type": "Ice",
+    "power": 140,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ice Burn",
+    "move_type": "Ice",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Snarl",
+    "move_type": "Dark",
+    "power": 55,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Icicle Crash",
+    "move_type": "Ice",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fusion Flare",
+    "move_type": "Fire",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Fusion Bolt",
+    "move_type": "Electric",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Flying Press",
+    "move_type": "Fighting",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Fell Stinger",
+    "move_type": "Bug",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 25,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Phantom Force",
+    "move_type": "Ghost",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Noble Roar",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Parabolic Charge",
+    "move_type": "Electric",
+    "power": 65,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Petal Blizzard",
+    "move_type": "Grass",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Freeze-Dry",
+    "move_type": "Ice",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Disarming Voice",
+    "move_type": "Fairy",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Topsy-Turvy",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Draining Kiss",
+    "move_type": "Fairy",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [],
+    "comment": "Draining kiss is 75 procent"
+  },
+  {
+    "name": "Play Rough",
+    "move_type": "Fairy",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fairy Wind",
+    "move_type": "Fairy",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Moonblast",
+    "move_type": "Fairy",
+    "power": 95,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Boomburst",
+    "move_type": "Normal",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "King's Shield",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Play Nice",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Confide",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Diamond Storm",
+    "move_type": "Rock",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 50,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Steam Eruption",
+    "move_type": "Water",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Hyperspace Hole",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Mystical Fire",
+    "move_type": "Fire",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Spiky Shield",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Eerie Impulse",
+    "move_type": "Electric",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Geomancy",
+    "move_type": "Fairy",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Magnetic Flux",
+    "move_type": "Electric",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Dazzling Gleam",
+    "move_type": "Fairy",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Baby-Doll Eyes",
+    "move_type": "Fairy",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 30,
+    "priority": 1,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Nuzzle",
+    "move_type": "Electric",
+    "power": 20,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Infestation",
+    "move_type": "Bug",
+    "power": 20,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [],
+    "comment": "infestation, trap and chip"
+  },
+  {
+    "name": "Power-Up Punch",
+    "move_type": "Fighting",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Oblivion Wing",
+    "move_type": "Flying",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "oblivion wing is 75 procent"
+  },
+  {
+    "name": "Thousand Arrows",
+    "move_type": "Ground",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Thousand Waves",
+    "move_type": "Ground",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Land's Wrath",
+    "move_type": "Ground",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Light of Ruin",
+    "move_type": "Fairy",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Origin Pulse",
+    "move_type": "Water",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Precipice Blades",
+    "move_type": "Ground",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dragon Ascent",
+    "move_type": "Flying",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Hyperspace Fury",
+    "move_type": "Dark",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Shore Up",
+    "move_type": "Ground",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "First Impression",
+    "move_type": "Bug",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 2,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Baneful Bunker",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Spirit Shackle",
+    "move_type": "Ghost",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Darkest Lariat",
+    "move_type": "Dark",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sparkling Aria",
+    "move_type": "Water",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Ice Hammer",
+    "move_type": "Ice",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "High Horsepower",
+    "move_type": "Ground",
+    "power": 95,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Strength Sap",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Solar Blade",
+    "move_type": "Grass",
+    "power": 125,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Leafage",
+    "move_type": "Grass",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Toxic Thread",
+    "move_type": "Poison",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Throat Chop",
+    "move_type": "Dark",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Pollen Puff",
+    "move_type": "Bug",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Lunge",
+    "move_type": "Bug",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fire Lash",
+    "move_type": "Fire",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Power Trip",
+    "move_type": "Dark",
+    "power": 20,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Smart Strike",
+    "move_type": "Steel",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Revelation Dance",
+    "move_type": "Normal",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Core Enforcer",
+    "move_type": "Dragon",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Trop Kick",
+    "move_type": "Grass",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Beak Blast",
+    "move_type": "Flying",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": -3,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Clanging Scales",
+    "move_type": "Dragon",
+    "power": 110,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Hammer",
+    "move_type": "Dragon",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Brutal Swing",
+    "move_type": "Dark",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Fleur Cannon",
+    "move_type": "Fairy",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Psychic Fangs",
+    "move_type": "Psychic",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Stomping Tantrum",
+    "move_type": "Ground",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Shadow Bone",
+    "move_type": "Ghost",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Accelerock",
+    "move_type": "Rock",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Liquidation",
+    "move_type": "Water",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Prismatic Laser",
+    "move_type": "Psychic",
+    "power": 160,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Spectral Thief",
+    "move_type": "Ghost",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Sunsteel Strike",
+    "move_type": "Steel",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Moongeist Beam",
+    "move_type": "Ghost",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Tearful Look",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Zing Zap",
+    "move_type": "Electric",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Nature's Madness",
+    "move_type": "Fairy",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Multi-Attack",
+    "move_type": "Normal",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Mind Blown",
+    "move_type": "Fire",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Plasma Fists",
+    "move_type": "Electric",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Photon Geyser",
+    "move_type": "Psychic",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Double Iron Bash",
+    "move_type": "Steel",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dynamax Cannon",
+    "move_type": "Dragon",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Snipe Shot",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Jaw Lock",
+    "move_type": "Dark",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "No Retreat",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Tar Shot",
+    "move_type": "Rock",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Darts",
+    "move_type": "Dragon",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Bolt Beak",
+    "move_type": "Electric",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Fishious Rend",
+    "move_type": "Water",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Clangorous Soul",
+    "move_type": "Dragon",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Body Press",
+    "move_type": "Fighting",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Drum Beating",
+    "move_type": "Grass",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Snap Trap",
+    "move_type": "Grass",
+    "power": 35,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [],
+    "comment": "snap trap, trap and chip"
+  },
+  {
+    "name": "Pyro Ball",
+    "move_type": "Fire",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Behemoth Blade",
+    "move_type": "Steel",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Behemoth Bash",
+    "move_type": "Steel",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Aura Wheel",
+    "move_type": "Electric",
+    "power": 110,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Breaking Swipe",
+    "move_type": "Dragon",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Branch Poke",
+    "move_type": "Grass",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 40,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Overdrive",
+    "move_type": "Electric",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Apple Acid",
+    "move_type": "Grass",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Grav Apple",
+    "move_type": "Grass",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Spirit Break",
+    "move_type": "Fairy",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Strange Steam",
+    "move_type": "Fairy",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Life Dew",
+    "move_type": "Water",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 4
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Obstruct",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "False Surrender",
+    "move_type": "Dark",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Meteor Assault",
+    "move_type": "Fighting",
+    "power": 150,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Eternabeam",
+    "move_type": "Dragon",
+    "power": 160,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Steel Beam",
+    "move_type": "Steel",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Expanding Force",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Steel Roller",
+    "move_type": "Steel",
+    "power": 130,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Meteor Beam",
+    "move_type": "Rock",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Shell Side Arm",
+    "move_type": "Poison",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Misty Explosion",
+    "move_type": "Fairy",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Grassy Glide",
+    "move_type": "Grass",
+    "power": 55,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Rising Voltage",
+    "move_type": "Electric",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Skitter Smack",
+    "move_type": "Bug",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Poltergeist",
+    "move_type": "Ghost",
+    "power": 110,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Flip Turn",
+    "move_type": "Water",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Triple Axel",
+    "move_type": "Ice",
+    "power": 20,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHitAcc": {
+            "max":3,
+            "increment": 20
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Dual Wingbeat",
+    "move_type": "Flying",
+    "power": 40,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Scorching Sands",
+    "move_type": "Ground",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Jungle Healing",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": "HealStatuses",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Wicked Blow",
+    "move_type": "Dark",
+    "power": 75,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Surging Strikes",
+    "move_type": "Water",
+    "power": 25,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunder Cage",
+    "move_type": "Electric",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [],
+    "comment": "thunder cage, trap and chip"
+  },
+  {
+    "name": "Dragon Energy",
+    "move_type": "Dragon",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Freezing Glare",
+    "move_type": "Psychic",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Freeze"
+          }
+        },
+        "chance": 10,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fiery Wrath",
+    "move_type": "Dark",
+    "power": 90,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Thunderous Kick",
+    "move_type": "Fighting",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Glacial Lance",
+    "move_type": "Ice",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Astral Barrage",
+    "move_type": "Ghost",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Eerie Spell",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Dire Claw",
+    "move_type": "Poison",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictMultiStatus": {
+            "status_1": "Poison",
+            "status_2": "Paralysis",
+            "status_3": "Sleep"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Psyshield Bash",
+    "move_type": "Psychic",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Stone Axe",
+    "move_type": "Rock",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Springtide Storm",
+    "move_type": "Fairy",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 80,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mystical Power",
+    "move_type": "Psychic",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Raging Fury",
+    "move_type": "Fire",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Wave Crash",
+    "move_type": "Water",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilMove": {
+            "fraction": 3
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Chloroblast",
+    "move_type": "Grass",
+    "power": 150,
+    "split": "Special",
+    "accuracy": 95,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Mountain Gale",
+    "move_type": "Ice",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 85,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Victory Dance",
+    "move_type": "Fighting",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Headlong Rush",
+    "move_type": "Ground",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Barb Barrage",
+    "move_type": "Poison",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Esper Wing",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Bitter Malice",
+    "move_type": "Ghost",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Shelter",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Triple Arrows",
+    "move_type": "Fighting",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": "Flinch"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Infernal Parade",
+    "move_type": "Ghost",
+    "power": 60,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ceaseless Edge",
+    "move_type": "Dark",
+    "power": 65,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Bleakwind Storm",
+    "move_type": "Flying",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 80,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Wildbolt Storm",
+    "move_type": "Electric",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 80,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Paralysis"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Sandsear Storm",
+    "move_type": "Ground",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 80,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Lunar Blessing",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": "HealStatuses",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Take Heart",
+    "move_type": "Psychic",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Tera Blast",
+    "move_type": "Normal",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Silk Trap",
+    "move_type": "Bug",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Axe Kick",
+    "move_type": "Fighting",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatusVol": {
+            "status": {
+              "Confusion": {
+                "turns": 5
+              }
+            }
+          }
+        },
+        "chance": 30,
+        "target": "Opponent"
+      }
+    ],
+    "comment": "confusion"
+  },
+  {
+    "name": "Last Respects",
+    "move_type": "Ghost",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Lumina Crash",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Jet Punch",
+    "move_type": "Water",
+    "power": 60,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 1,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Spicy Extract",
+    "move_type": "Grass",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Spin Out",
+    "move_type": "Steel",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Population Bomb",
+    "move_type": "Normal",
+    "power": 20,
+    "split": "Physical",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHitAcc": {
+            "max":10,
+            "increment": 0
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Ice Spinner",
+    "move_type": "Ice",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Glaive Rush",
+    "move_type": "Dragon",
+    "power": 120,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Triple Dive",
+    "move_type": "Water",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Mortal Spin",
+    "move_type": "Poison",
+    "power": 30,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Poison"
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Fillet Away",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "RecoilHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Kowtow Cleave",
+    "move_type": "Dark",
+    "power": 85,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Flower Trick",
+    "move_type": "Grass",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Torch Song",
+    "move_type": "Fire",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Aqua Step",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Raging Bull",
+    "move_type": "Normal",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Make It Rain",
+    "move_type": "Steel",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spa",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Psyblade",
+    "move_type": "Psychic",
+    "power": 80,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Hydro Steam",
+    "move_type": "Water",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Ruination",
+    "move_type": "Dark",
+    "power": 0,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Collision Course",
+    "move_type": "Fighting",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Electro Drift",
+    "move_type": "Electric",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Tidy Up",
+    "move_type": "Normal",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Snowscape",
+    "move_type": "Ice",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Pounce",
+    "move_type": "Bug",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Trailblaze",
+    "move_type": "Grass",
+    "power": 50,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spe",
+            "stages": 1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Chilling Water",
+    "move_type": "Water",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Atk",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Hyper Drill",
+    "move_type": "Normal",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Twin Beam",
+    "move_type": "Psychic",
+    "power": 40,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Armor Cannon",
+    "move_type": "Fire",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Def",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": {
+          "ChangeStat": {
+            "stat": "Spd",
+            "stages": -1
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Bitter Blade",
+    "move_type": "Fire",
+    "power": 90,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": [
+      {
+        "effect": {
+          "HealHp": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Gigaton Hammer",
+    "move_type": "Steel",
+    "power": 160,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Aqua Cutter",
+    "move_type": "Water",
+    "power": 70,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 20,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Blood Moon",
+    "move_type": "Normal",
+    "power": 140,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Matcha Gotcha",
+    "move_type": "Grass",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 90,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Burn"
+          }
+        },
+        "chance": 20,
+        "target": "Opponent"
+      },
+      {
+        "effect": {
+          "HealMove": {
+            "fraction": 2
+          }
+        },
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Ivy Cudgel",
+    "move_type": "Grass",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Electro Shot",
+    "move_type": "Electric",
+    "power": 130,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Tera Starstorm",
+    "move_type": "Normal",
+    "power": 120,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Fickle Beam",
+    "move_type": "Dragon",
+    "power": 80,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Burning Bulwark",
+    "move_type": "Fire",
+    "power": 0,
+    "split": "Status",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 4,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
+    ]
+  },
+  {
+    "name": "Thunderclap",
+    "move_type": "Electric",
+    "power": 70,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 1,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Mighty Cleave",
+    "move_type": "Rock",
+    "power": 95,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Tachyon Cutter",
+    "move_type": "Steel",
+    "power": 50,
+    "split": "Special",
+    "accuracy": 101,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "MultiHit": {
+            "min": 2,
+            "max": 2
+          }
+        },
+        "chance": 100,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Hard Press",
+    "move_type": "Steel",
+    "power": 0,
+    "split": "Physical",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Supercell Slam",
+    "move_type": "Electric",
+    "power": 100,
+    "split": "Physical",
+    "accuracy": 95,
+    "max_pp": 15,
+    "priority": 0,
+    "contact": true,
+    "effect_list": []
+  },
+  {
+    "name": "Psychic Noise",
+    "move_type": "Psychic",
+    "power": 75,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
+  },
+  {
+    "name": "Malignant Chain",
+    "move_type": "Poison",
+    "power": 100,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 5,
+    "priority": 0,
+    "contact": false,
+    "effect_list": [
+      {
+        "effect": {
+          "InflictStatus": {
+            "status": "Toxic"
+          }
+        },
+        "chance": 50,
+        "target": "Opponent"
+      }
+    ]
+  },
+  {
+    "name": "Nihil Light",
+    "move_type": "Dragon",
+    "power": 200,
+    "split": "Special",
+    "accuracy": 100,
+    "max_pp": 10,
+    "priority": 0,
+    "contact": false,
+    "effect_list": []
   }
 ]

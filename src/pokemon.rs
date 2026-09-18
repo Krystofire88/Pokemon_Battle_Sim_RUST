@@ -167,7 +167,10 @@ impl Pokemon {
         poke_println!("{} / {}", self.hp, self.max_hp);
         poke_println!("");
     }
-    pub fn heal(&mut self, fraction: u8) {
+    pub fn heal(&mut self, health: u16) {
+        self.hp = self.hp.saturating_add(health as u32);
+    }
+    pub fn heal_fract(&mut self, fraction: u8) {
         let heal = (self.max_hp as f64 / fraction as f64).floor() as u16;
         self.hp = self.hp.saturating_add(heal as u32);
         if self.hp > self.max_hp {

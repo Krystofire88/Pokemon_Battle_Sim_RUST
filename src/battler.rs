@@ -295,6 +295,7 @@ impl Battler {
                 pokemon_atk,
                 pokemon_def,
                 &mut self.field,
+                is_opponent_side_a,
                 &mut self.rng,
                 move_index,
             );
@@ -328,6 +329,7 @@ impl Battler {
                     pokemon_atk,
                     pokemon_def,
                     &mut self.field,
+                    is_opponent_side_a,
                     &mut self.rng,
                     move_index,
                 );
@@ -346,6 +348,11 @@ impl Battler {
                 } else if pokemon_atk.move_set[move_index].has_recoil_move() > 0 {
                     pokemon_atk.take_damage(
                         (damage as f64 / pokemon_atk.move_set[move_index].has_recoil_move() as f64)
+                            .floor() as u16,
+                    );
+                } else if pokemon_atk.move_set[move_index].has_heal_move() > 0 {
+                    pokemon_atk.heal(
+                        (damage as f64 / pokemon_atk.move_set[move_index].has_heal_move() as f64)
                             .floor() as u16,
                     );
                 }
@@ -371,6 +378,7 @@ impl Battler {
         pokemon_atk: &mut Pokemon,
         pokemon_def: &mut Pokemon,
         field: &mut Field,
+        is_opponent_side_a: bool,
         rng: &mut ThreadRng,
         move_index: usize,
     ) {
@@ -387,6 +395,7 @@ impl Battler {
                     active_pokemon_atk,
                     pokemon_atk,
                     field,
+                    is_opponent_side_a,
                     rng,
                 );
             }
@@ -398,6 +407,7 @@ impl Battler {
                     active_pokemon_def,
                     pokemon_def,
                     field,
+                    is_opponent_side_a,
                     rng,
                 );
             }
@@ -408,23 +418,51 @@ impl Battler {
         active_pokemon: &mut ActivePokemon,
         pokemon: &mut Pokemon,
         field: &mut Field,
+        is_opponent_side_a: bool,
         rng: &mut ThreadRng,
     ) {
         match effect {
             Effect::ChangeStat { stat, stages } => active_pokemon.change_stat(stat, stages),
+            Effect::ChangeAllStats { stages } => {
+                for stat in [Stat::Atk, Stat::Def, Stat::Spa, Stat::Spd, Stat::Spe] {
+                    active_pokemon.change_stat(stat, stages)
+                }
+            }
             Effect::InflictStatus { status } => {
                 if status == Status::Toxic {
                     active_pokemon.apply_toxic();
                 }
                 pokemon.inflict_status(status, field, false, rng)
             } // remove false when move REST is intorduced
+            Effect::InflictMultiStatus {
+                status_1,
+                status_2,
+                status_3,
+            } => {
+                let roll = rng.gen_range(0..=2);
+                if roll == 0 {
+                    pokemon.inflict_status(status_1, field, false, rng)
+                } else if roll == 1 {
+                    pokemon.inflict_status(status_2, field, false, rng)
+                } else {
+                    pokemon.inflict_status(status_3, field, false, rng)
+                }
+            }
             Effect::InflictStatusVol { status } => {
                 active_pokemon.inflict_status(status, field, pokemon.get_status())
             }
-            Effect::HealHp { fraction } => pokemon.heal(fraction),
+            Effect::HealHp { fraction } => pokemon.heal_fract(fraction),
             Effect::Protect => active_pokemon.protect(rng),
             Effect::Weather { weather } => field.set_weather(weather),
             Effect::Terrain { terrain } => field.set_terrain(terrain),
+            Effect::FieldSetter { effect } => field.set_field_conditions(effect),
+            Effect::FieldSideSetter { effect } => {
+                if is_opponent_side_a {
+                    field.field_side_a.set_field_side_effects(effect);
+                } else {
+                    field.field_side_b.set_field_side_effects(effect);
+                }
+            }
             _ => (),
         };
     }

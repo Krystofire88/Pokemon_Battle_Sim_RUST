@@ -1,5 +1,3 @@
-use std::io::SeekFrom;
-
 use crate::enums::*;
 use crate::field::Field;
 use rand::Rng;

@@ -1,5 +1,4 @@
 use crate::active_pkmn::ActivePokemon;
-use crate::enums::Split::Physical;
 use crate::enums::*;
 use crate::field::*;
 use crate::helper::*;

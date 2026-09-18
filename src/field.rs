@@ -1,6 +1,5 @@
-use std::rc::Weak;
-
 use crate::enums::*;
+use crate::move_effects::*;
 
 #[derive(Clone)]
 pub struct FieldSide {
@@ -79,11 +78,50 @@ impl FieldSide {
     pub fn sticky_web(&mut self) {
         self.sticky_web = true
     }
-    pub fn add_spikes(&mut self) {
+    pub fn set_field_side_effects(&mut self, effect: FieldSideEffect) {
+        match effect {
+            FieldSideEffect::StealthRock => self.stealth_rock = true,
+            FieldSideEffect::SharpSteel => self.sharp_steel = true,
+            FieldSideEffect::StickyWeb => self.sticky_web = true,
+            FieldSideEffect::Spikes => self.add_spikes(),
+            FieldSideEffect::ToxicSpikes => self.add_toxic_spikes(),
+            FieldSideEffect::Reflect => {
+                if self.reflect_timer == 0 {
+                    self.reflect_timer = 5;
+                }
+            }
+            FieldSideEffect::LightScreen => {
+                if self.light_screen_timer == 0 {
+                    self.light_screen_timer = 5;
+                }
+            }
+            FieldSideEffect::AuroraVeil => {
+                if self.aurora_veil_timer == 0 {
+                    self.aurora_veil_timer = 5;
+                }
+            }
+            FieldSideEffect::Tailwind => {
+                if self.tailwind_timer == 0 {
+                    self.tailwind_timer = 5;
+                }
+            }
+            FieldSideEffect::Mist => {
+                if self.mist_timer == 0 {
+                    self.mist_timer = 5;
+                }
+            }
+            FieldSideEffect::Safeguard => {
+                if self.safeguard_timer == 0 {
+                    self.safeguard_timer = 5;
+                }
+            }
+        }
+    }
+    fn add_spikes(&mut self) {
         self.spikes += 1;
         self.spikes = self.spikes.clamp(0, 3);
     }
-    pub fn add_toxic_spikes(&mut self) {
+    fn add_toxic_spikes(&mut self) {
         self.toxic_spikes += 1;
         self.toxic_spikes = self.toxic_spikes.clamp(0, 2);
     }
@@ -173,6 +211,30 @@ impl Field {
     pub fn clear_terrain(&mut self) {
         if self.terrain != Terrain::None {
             self.terrain = Terrain::None
+        }
+    }
+    pub fn set_field_conditions(&mut self, effect: FieldEffect) {
+        match effect {
+            FieldEffect::Gravity => {
+                if self.gravity_timer == 0 {
+                    self.gravity_timer = 5;
+                }
+            }
+            FieldEffect::TrickRoom => {
+                if self.trick_room_timer == 0 {
+                    self.trick_room_timer = 5;
+                }
+            }
+            FieldEffect::WonderRoom => {
+                if self.wonder_room_timer == 0 {
+                    self.wonder_room_timer = 5;
+                }
+            }
+            FieldEffect::MagicRoom => {
+                if self.magic_room_timer == 0 {
+                    self.magic_room_timer = 5;
+                }
+            }
         }
     }
 }

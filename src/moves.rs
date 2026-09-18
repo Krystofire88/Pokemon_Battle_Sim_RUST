@@ -16,7 +16,6 @@ pub struct MoveBase {
     max_pp: u8,
     priority: i8,
     contact: bool,
-    protect: bool,
     effect_list: Vec<MoveEffect>,
 }
 impl MoveBase {
@@ -29,7 +28,6 @@ impl MoveBase {
         max_pp: u8,
         priority: i8,
         contact: bool,
-        protect: bool,
         effect_list: Vec<MoveEffect>,
     ) -> Self {
         Self {
@@ -41,7 +39,6 @@ impl MoveBase {
             max_pp,
             priority,
             contact,
-            protect,
             effect_list,
         }
     }
@@ -168,6 +165,14 @@ impl Move {
     pub fn has_recoil_move(&self) -> u8 {
         for i in ALL_MOVES_VEC[self.move_id].get_effects() {
             if let Effect::RecoilMove { fraction } = i.get_effect() {
+                return fraction;
+            }
+        }
+        0
+    }
+    pub fn has_heal_move(&self) -> u8 {
+        for i in ALL_MOVES_VEC[self.move_id].get_effects() {
+            if let Effect::HealMove { fraction } = i.get_effect() {
                 return fraction;
             }
         }
