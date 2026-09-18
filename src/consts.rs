@@ -6,30 +6,6 @@ use std::sync::LazyLock;
 
 pub const CANNOT_MISS: u8 = 101;
 
-pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
-    let species: Vec<Species> =
-        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllPokemon.json").unwrap())
-            .unwrap();
-
-    species
-        .into_iter()
-        .enumerate()
-        .map(|(i, s)| (s.get_name().to_string(), i))
-        .collect()
-});
-
-pub static ALL_MOVES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
-    let moves: Vec<MoveBase> =
-        serde_json::from_str(&fs::read_to_string("src/Pokemon_Jsons/AllMoves.json").unwrap())
-            .unwrap();
-
-    moves
-        .into_iter()
-        .enumerate()
-        .map(|(i, m)| (m.get_name().to_string(), i))
-        .collect()
-});
-
 pub static ALL_SPECIES_VEC: LazyLock<Vec<Species>> = LazyLock::new(|| {
     let data = fs::read_to_string("src/Pokemon_Jsons/AllPokemon.json")
         .expect("Could not read AllPokemon.json");
@@ -38,10 +14,26 @@ pub static ALL_SPECIES_VEC: LazyLock<Vec<Species>> = LazyLock::new(|| {
 });
 
 pub static ALL_MOVES_VEC: LazyLock<Vec<MoveBase>> = LazyLock::new(|| {
-    let data = fs::read_to_string("src/Pokemon_Jsons/AllMoves.json")
+    let data = fs::read_to_string("src/Pokemon_Jsons/AllMoves_fixed.json")
         .expect("Could not read AllMoves.json");
 
     serde_json::from_str(&data).expect("Invalid Moves JSON")
+});
+
+pub static ALL_SPECIES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
+    ALL_SPECIES_VEC
+        .iter()
+        .enumerate()
+        .map(|(i, s)| (s.get_name().to_string(), i))
+        .collect()
+});
+
+pub static ALL_MOVES: LazyLock<HashMap<String, usize>> = LazyLock::new(|| {
+    ALL_MOVES_VEC
+        .iter()
+        .enumerate()
+        .map(|(i, m)| (m.get_name().to_string(), i))
+        .collect()
 });
 
 pub const TYPE_CHART: [[f64; 18]; 18] = [
