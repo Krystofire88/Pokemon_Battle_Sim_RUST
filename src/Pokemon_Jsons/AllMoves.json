@@ -1581,7 +1581,7 @@
     "power": 0,
     "split": "Status",
     "accuracy": 101,
-    "max_pp": 10,
+    "max_pp": 30,
     "priority": 0,
     "contact": false,
     "effect_list": []
@@ -1603,7 +1603,7 @@
     "power": 0,
     "split": "Status",
     "accuracy": 101,
-    "max_pp": 10,
+    "max_pp": 20,
     "priority": 0,
     "contact": false,
     "effect_list": []
@@ -5149,7 +5149,7 @@
     "split": "Status",
     "accuracy": 101,
     "max_pp": 5,
-    "priority": 0,
+    "priority": -7,
     "contact": false,
     "effect_list": []
   },
@@ -8807,7 +8807,7 @@
       {
         "effect": {
           "HealHp": {
-            "fraction": 2
+            "fraction": 4
           }
         },
         "chance": 100,
@@ -9448,7 +9448,7 @@
       {
         "effect": {
           "HealHp": {
-            "fraction": 2
+            "fraction": 4
           }
         },
         "chance": 100,
@@ -9488,6 +9488,11 @@
             "stages": 1
           }
         },
+        "chance": 100,
+        "target": "User"
+      },
+      {
+        "effect": "HealStatuses",
         "chance": 100,
         "target": "User"
       }
