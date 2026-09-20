@@ -174,9 +174,15 @@ impl Field {
 
         if self.weather_timer > 0 {
             self.weather_timer -= 1;
+            if self.weather_timer == 0 {
+                self.clear_weather();
+            }
         }
         if self.terrain_timer > 0 {
             self.terrain_timer -= 1;
+            if self.terrain_timer == 0 {
+                self.clear_terrain();
+            }
         }
         if self.gravity_timer > 0 {
             self.gravity_timer -= 1;

@@ -4,7 +4,6 @@ use crate::enums::*;
 use crate::field::*;
 use crate::item::Item;
 use crate::moves::Move;
-use crate::poke_println;
 use rand::Rng;
 use rand::rngs::ThreadRng;
 use rand::seq::SliceRandom;
@@ -172,11 +171,11 @@ impl Pokemon {
         }
     }
     pub fn get_info(&self) {
-        println!("");
+        println!();
         println!("{}", self.get_nickname());
         println!("{}", self.level);
         println!("{} / {}", self.hp, self.max_hp);
-        println!("");
+        println!();
     }
     pub fn heal(&mut self, health: u16) {
         self.hp = self.hp.saturating_add(health as u32);
