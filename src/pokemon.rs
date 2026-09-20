@@ -7,6 +7,7 @@ use crate::moves::Move;
 use crate::poke_println;
 use rand::Rng;
 use rand::rngs::ThreadRng;
+use rand::seq::SliceRandom;
 
 #[derive(Clone)]
 pub struct Pokemon {
@@ -101,6 +102,16 @@ impl Pokemon {
         pk
     }
     pub fn new_easy(species_id: usize, level: u8, rng: &mut ThreadRng) -> Self {
+        let mut total_evs: u16 = 510;
+        let mut evs: Vec<u8> = Vec::new();
+
+        for _ in 0..6 {
+            let chunk = rng.gen_range(0..=252.min(total_evs));
+            evs.push(chunk as u8);
+            total_evs -= chunk;
+        }
+        evs.shuffle(rng);
+
         let mut pk = Self {
             species_id,
             nickname: "Placeholder".to_string(),
@@ -111,17 +122,17 @@ impl Pokemon {
             ability: rng.gen_range(0..=3),
             non_volatile_status: Status::None,
             hp_iv: rng.gen_range(0..=31),
-            hp_ev: rng.gen_range(0..=88),
+            hp_ev: evs[0],
             atk_iv: rng.gen_range(0..=31),
-            atk_ev: rng.gen_range(0..=88),
+            atk_ev: evs[1],
             def_iv: rng.gen_range(0..=31),
-            def_ev: rng.gen_range(0..=88),
+            def_ev: evs[2],
             spa_iv: rng.gen_range(0..=31),
-            spa_ev: rng.gen_range(0..=88),
+            spa_ev: evs[3],
             spd_iv: rng.gen_range(0..=31),
-            spd_ev: rng.gen_range(0..=88),
+            spd_ev: evs[4],
             spe_iv: rng.gen_range(0..=31),
-            spe_ev: rng.gen_range(0..=88),
+            spe_ev: evs[5],
             nature: Nature::Serious,
             held_item: Item {},
             gmax: false,
@@ -361,5 +372,32 @@ impl Pokemon {
     }
     pub fn lower_sleep_counter(&mut self) {
         self.sleep_counter -= 1
+    }
+    pub fn validate_evs_ivs(&self) -> bool {
+        let ev_total: u16 = self.hp_ev as u16
+            + self.atk_ev as u16
+            + self.def_ev as u16
+            + self.spa_ev as u16
+            + self.spd_ev as u16
+            + self.spe_ev as u16;
+
+        if ev_total > 510 {
+            return false;
+        }
+
+        for iv in [
+            self.hp_iv,
+            self.atk_iv,
+            self.def_iv,
+            self.spa_iv,
+            self.spd_iv,
+            self.spe_iv,
+        ] {
+            if iv > 31 {
+                return false;
+            }
+        }
+
+        true
     }
 }

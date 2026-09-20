@@ -45,9 +45,9 @@ impl Battler {
     }
     fn is_valid_pokemon(&self, pokemon: &Pokemon) -> bool {
         if pokemon.get_species_name() == "r#3Q$[V9}aG2%uZx!oT&m4`W<^L|jY]8I@sA*B1?c(E)F+" {
-            // placholder pokemon for dex offset is invalid in gameplay
+            // placeholder pokemon for dex offset is invalid in gameplay
             false
-        } else if pokemon.get_level() > 100 {
+        } else if pokemon.get_level() > 100 || !pokemon.validate_evs_ivs() {
             false
         } else {
             !pokemon.move_set.is_empty()
