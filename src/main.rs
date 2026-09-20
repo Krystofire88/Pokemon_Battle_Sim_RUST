@@ -17,7 +17,7 @@ use moves::*;
 use pokemon::Pokemon;
 
 fn main() {
-    poke_println!("Welcome to pokemon battle sim");
+    println!("Welcome to pokemon battle sim");
     let mut rng = rand::thread_rng(); // init global rng for later seeding
 
     let mut pika = Pokemon::new_easy(*ALL_SPECIES.get("Pikachu").unwrap(), 50, &mut rng);
