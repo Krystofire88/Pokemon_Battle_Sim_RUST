@@ -8,7 +8,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
-
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -20,6 +20,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -31,6 +32,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -42,6 +44,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -53,6 +56,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -61,7 +65,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -74,6 +78,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -82,7 +87,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -95,6 +100,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -103,7 +109,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -116,6 +122,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -127,6 +134,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -138,6 +146,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -149,6 +158,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -171,6 +181,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -182,6 +193,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -193,6 +205,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -204,6 +217,7 @@
     "max_pp": 20,
     "priority": -6,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -215,6 +229,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -226,8 +241,8 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
-    "effect_list": [],
-    "comment": "Bind, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Slam",
@@ -238,6 +253,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -249,6 +265,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -260,6 +277,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -268,7 +286,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -281,6 +299,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -290,7 +309,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -303,6 +322,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -314,6 +334,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -323,7 +344,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -336,6 +357,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -344,7 +366,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -357,6 +379,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -368,6 +391,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -379,6 +403,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -390,6 +415,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -398,7 +424,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -411,8 +437,8 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
-    "effect_list": [],
-    "comment": "Wrap, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Take Down",
@@ -423,6 +449,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -444,6 +471,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "RandomFoe",
     "effect_list": []
   },
   {
@@ -455,6 +483,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -476,6 +505,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -485,7 +515,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -498,6 +528,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -506,7 +537,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -519,6 +550,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -528,7 +560,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -541,6 +573,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -549,7 +582,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -562,6 +595,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -571,7 +605,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -584,6 +618,7 @@
     "max_pp": 20,
     "priority": -6,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -595,6 +630,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -603,7 +639,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -616,6 +652,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -628,10 +665,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion seems wierd with the time"
+    ]
   },
   {
     "name": "Acid",
@@ -642,6 +678,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -651,7 +688,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -664,6 +701,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -672,7 +710,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -685,6 +723,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -693,7 +732,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -706,6 +745,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "AllySide",
     "effect_list": []
   },
   {
@@ -717,6 +757,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -728,6 +769,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -739,6 +781,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -750,6 +793,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -758,7 +802,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -771,6 +815,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -779,7 +824,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -792,6 +837,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -804,10 +850,9 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confsion seems ierd to impleemnt"
+    ]
   },
   {
     "name": "Bubble Beam",
@@ -818,6 +863,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -827,7 +873,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -840,6 +886,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -849,7 +896,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -862,6 +909,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -873,6 +921,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -884,6 +933,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -895,6 +945,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -906,6 +957,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -917,6 +969,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -938,6 +991,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -959,6 +1013,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -991,6 +1046,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -1002,6 +1058,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1013,6 +1070,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1021,7 +1079,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1034,6 +1092,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1042,7 +1101,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1055,6 +1114,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1063,7 +1123,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1076,6 +1136,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "RandomFoe",
     "effect_list": []
   },
   {
@@ -1087,6 +1148,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -1096,7 +1158,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1109,8 +1171,8 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "Fire spin, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Thunder Shock",
@@ -1121,6 +1183,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1129,7 +1192,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1142,6 +1205,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1150,7 +1214,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1163,6 +1227,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1171,7 +1236,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1184,6 +1249,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1192,7 +1258,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1205,6 +1271,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1216,6 +1283,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -1227,6 +1295,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1238,6 +1307,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1249,6 +1319,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1257,7 +1328,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1270,6 +1341,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1282,10 +1354,9 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Psychic",
@@ -1296,6 +1367,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1305,7 +1377,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1318,6 +1390,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1326,7 +1399,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1339,6 +1412,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1361,6 +1435,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1372,6 +1447,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1383,6 +1459,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1392,7 +1469,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1405,6 +1482,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1427,6 +1505,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1448,6 +1527,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1470,6 +1550,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1492,6 +1573,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1501,7 +1583,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1514,6 +1596,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1526,10 +1609,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Withdraw",
@@ -1540,6 +1622,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1562,6 +1645,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1584,6 +1668,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "AllySide",
     "effect_list": []
   },
   {
@@ -1595,6 +1680,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -1606,6 +1692,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AllySide",
     "effect_list": []
   },
   {
@@ -1617,6 +1704,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": []
   },
   {
@@ -1628,6 +1716,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -1649,6 +1738,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1657,7 +1747,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1670,6 +1760,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1678,7 +1769,7 @@
           }
         },
         "chance": 40,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1691,6 +1782,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1699,7 +1791,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1712,6 +1804,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1720,7 +1813,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1733,6 +1826,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1741,7 +1835,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1754,6 +1848,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -1765,6 +1860,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -1776,6 +1872,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1798,6 +1895,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1807,7 +1905,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1820,6 +1918,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -1841,6 +1940,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1862,6 +1962,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1870,7 +1971,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1883,6 +1984,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1904,6 +2006,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -1912,7 +2015,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1925,6 +2028,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1946,6 +2050,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -1954,7 +2059,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1967,6 +2072,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -1975,7 +2081,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -1988,6 +2094,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": []
   },
   {
@@ -1999,6 +2106,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -2021,6 +2129,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2032,6 +2141,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -2053,6 +2163,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2062,7 +2173,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -2075,6 +2186,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -2105,6 +2217,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -2113,7 +2226,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2126,6 +2239,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2136,7 +2250,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2149,6 +2263,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2160,6 +2275,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2171,16 +2287,17 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
           "MultiHitAcc": {
-            "max":3,
+            "max": 3,
             "increment": 10
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -2193,6 +2310,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2204,6 +2322,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2212,7 +2331,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2225,6 +2344,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2233,7 +2353,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2246,6 +2366,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "Varies",
     "effect_list": [
       {
         "effect": {
@@ -2288,6 +2409,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2299,6 +2421,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -2310,6 +2433,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -2319,7 +2443,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2332,6 +2456,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2343,6 +2468,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2354,6 +2480,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -2362,7 +2489,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2375,12 +2502,13 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
-    {
-      "effect": "Protect",
-      "chance": 100,
-      "target": "User"
-    }
+      {
+        "effect": "Protect",
+        "chance": 100,
+        "target": "User"
+      }
     ]
   },
   {
@@ -2392,6 +2520,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2403,6 +2532,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2412,7 +2542,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2425,6 +2555,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2437,10 +2568,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Belly Drum",
@@ -2451,6 +2581,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -2482,6 +2613,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2490,7 +2622,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2503,6 +2635,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2512,7 +2645,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2525,6 +2658,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "FoeSide",
     "effect_list": []
   },
   {
@@ -2536,6 +2670,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2544,7 +2679,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2557,6 +2692,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -2566,7 +2702,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2579,6 +2715,7 @@
     "max_pp": 5,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -2596,6 +2733,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "RandomFoe",
     "effect_list": []
   },
   {
@@ -2607,6 +2745,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -2618,6 +2757,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2639,6 +2779,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": []
   },
   {
@@ -2650,6 +2791,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2659,7 +2801,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2672,6 +2814,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2681,7 +2824,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -2694,10 +2837,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Milk Drink",
@@ -2708,6 +2850,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -2729,6 +2872,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2737,7 +2881,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2750,6 +2894,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2761,6 +2906,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2783,6 +2929,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2791,7 +2938,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2804,6 +2951,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "Party",
     "effect_list": []
   },
   {
@@ -2815,6 +2963,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2823,7 +2972,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2836,6 +2985,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2848,10 +2998,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Megahorn",
@@ -2862,6 +3011,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2873,6 +3023,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2881,7 +3032,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2894,6 +3045,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2916,6 +3068,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -2925,7 +3078,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -2938,6 +3091,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2947,7 +3101,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -2960,6 +3114,7 @@
     "max_pp": 35,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -2982,6 +3137,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -2993,6 +3149,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -3001,7 +3158,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3014,6 +3171,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -3025,6 +3183,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -3036,6 +3195,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3045,7 +3205,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3058,6 +3218,7 @@
     "max_pp": 5,
     "priority": 2,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3069,6 +3230,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3090,6 +3252,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3099,7 +3262,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3112,6 +3275,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3121,7 +3285,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3134,8 +3298,8 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "Whirlpool, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Fake Out",
@@ -3146,6 +3310,7 @@
     "max_pp": 10,
     "priority": 3,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3154,7 +3319,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3167,6 +3332,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -3175,7 +3341,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3188,6 +3354,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3196,7 +3363,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3209,6 +3376,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3218,7 +3386,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -3231,10 +3399,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Will-O-Wisp",
@@ -3245,6 +3412,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3253,7 +3421,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3266,6 +3434,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3275,7 +3444,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -3285,7 +3454,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -3307,6 +3476,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3318,6 +3488,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -3340,6 +3511,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3351,6 +3523,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3383,6 +3556,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3394,6 +3568,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3406,7 +3581,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3419,6 +3594,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3430,6 +3606,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3441,6 +3618,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -3452,6 +3630,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3463,6 +3642,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3472,7 +3652,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3485,6 +3665,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3494,7 +3675,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3507,6 +3688,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3516,7 +3698,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3529,6 +3711,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -3541,10 +3724,9 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Blaze Kick",
@@ -3555,6 +3737,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3563,7 +3746,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3576,6 +3759,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -3597,6 +3781,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -3608,6 +3793,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3616,7 +3802,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3629,6 +3815,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3638,7 +3825,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3651,6 +3838,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3662,6 +3850,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3673,6 +3862,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3695,6 +3885,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3703,7 +3894,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3716,6 +3907,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3725,7 +3917,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3738,6 +3930,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -3749,6 +3942,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3771,6 +3965,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3780,7 +3975,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3793,6 +3988,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3802,7 +3998,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3815,6 +4011,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3824,7 +4021,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -3834,7 +4031,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3847,6 +4044,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -3879,6 +4077,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -3890,6 +4089,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3901,6 +4101,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -3909,7 +4110,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3922,8 +4123,8 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "Sand Tomb, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Sheer Cold",
@@ -3934,6 +4135,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -3945,6 +4147,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -3954,7 +4157,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -3967,6 +4170,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -3978,6 +4182,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4000,6 +4205,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAlliesAndSelf",
     "effect_list": [
       {
         "effect": {
@@ -4022,6 +4228,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4033,6 +4240,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4044,6 +4252,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4076,6 +4285,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -4084,7 +4294,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4097,6 +4307,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4106,7 +4317,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4119,6 +4330,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4127,7 +4339,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4140,6 +4352,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4148,7 +4361,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -4170,6 +4383,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4181,6 +4395,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -4192,6 +4407,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4224,6 +4440,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4235,6 +4452,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4267,6 +4485,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4278,6 +4497,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -4290,10 +4510,9 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Psycho Boost",
@@ -4304,6 +4523,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4326,6 +4546,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4347,6 +4568,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -4358,6 +4580,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4380,6 +4603,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4391,6 +4615,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4402,6 +4627,7 @@
     "max_pp": 10,
     "priority": 2,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4413,6 +4639,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AllySide",
     "effect_list": []
   },
   {
@@ -4424,6 +4651,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "SelfAllyPick",
     "effect_list": []
   },
   {
@@ -4435,6 +4663,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4446,6 +4675,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4478,6 +4708,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4489,6 +4720,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4500,6 +4732,7 @@
     "max_pp": 5,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4511,6 +4744,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "FoeSide",
     "effect_list": []
   },
   {
@@ -4522,6 +4756,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4530,7 +4765,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -4552,6 +4787,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4560,7 +4796,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4573,6 +4809,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -4584,6 +4821,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4606,6 +4844,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4614,7 +4853,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4627,6 +4866,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -4635,7 +4875,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4648,6 +4888,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4659,6 +4900,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4670,6 +4912,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4681,6 +4924,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -4689,7 +4933,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4702,6 +4946,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4713,6 +4958,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4722,7 +4968,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4735,6 +4981,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -4746,6 +4993,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4754,7 +5002,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4767,6 +5015,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4778,6 +5027,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4799,6 +5049,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4810,6 +5061,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4819,7 +5071,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4832,6 +5084,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4841,7 +5094,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4854,6 +5107,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -4875,6 +5129,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4884,7 +5139,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -4897,6 +5152,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4908,6 +5164,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4919,6 +5176,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -4941,6 +5199,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4952,6 +5211,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4963,6 +5223,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -4974,6 +5235,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -4982,7 +5244,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -4991,7 +5253,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5004,6 +5266,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5012,7 +5275,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -5021,7 +5284,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5034,6 +5297,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5042,7 +5306,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -5051,7 +5315,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5064,6 +5328,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5075,6 +5340,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5086,6 +5352,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5094,7 +5361,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5107,6 +5374,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5116,7 +5384,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5129,6 +5397,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5138,7 +5407,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5151,6 +5420,7 @@
     "max_pp": 5,
     "priority": -7,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -5162,6 +5432,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5184,6 +5455,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -5192,7 +5464,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5205,6 +5477,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -5213,7 +5486,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5226,6 +5499,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5248,6 +5522,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5259,6 +5534,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5270,6 +5546,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5278,7 +5555,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5291,6 +5568,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5299,7 +5577,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5312,6 +5590,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5320,7 +5599,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5333,6 +5612,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5344,6 +5624,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "FoeSide",
     "effect_list": []
   },
   {
@@ -5355,6 +5636,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5366,6 +5648,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5388,6 +5671,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5409,6 +5693,7 @@
     "max_pp": 20,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5420,6 +5705,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5431,6 +5717,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -5463,6 +5750,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5484,6 +5772,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5493,7 +5782,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -5506,6 +5795,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5517,6 +5807,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5528,6 +5819,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5539,8 +5831,8 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "Magma storm. trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Dark Void",
@@ -5551,6 +5843,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -5559,7 +5852,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5572,6 +5865,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5581,7 +5875,7 @@
           }
         },
         "chance": 40,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5594,6 +5888,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5605,6 +5900,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -5637,6 +5933,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -5648,6 +5945,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5659,6 +5957,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5670,6 +5969,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -5681,6 +5981,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5692,6 +5993,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5703,6 +6005,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -5711,7 +6014,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5724,6 +6027,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -5766,6 +6070,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5777,6 +6082,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5799,6 +6105,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -5841,6 +6148,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5850,7 +6158,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5863,6 +6171,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5872,7 +6181,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5885,6 +6194,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5896,6 +6206,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5907,6 +6218,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5918,6 +6230,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5929,6 +6242,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -5940,6 +6254,7 @@
     "max_pp": 15,
     "priority": 3,
     "contact": false,
+    "target": "AllySide",
     "effect_list": [
       {
         "effect": "Protect",
@@ -5957,6 +6272,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -5965,7 +6281,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -5978,6 +6294,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -6040,6 +6357,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6051,6 +6369,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -6083,6 +6402,7 @@
     "max_pp": 10,
     "priority": -6,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6094,6 +6414,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -6105,6 +6426,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -6116,6 +6438,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6127,6 +6450,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6135,7 +6459,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6148,6 +6472,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6159,6 +6484,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6168,7 +6494,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6181,6 +6507,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -6190,7 +6517,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6203,6 +6530,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6214,6 +6542,7 @@
     "max_pp": 10,
     "priority": -6,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6225,6 +6554,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -6257,6 +6587,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6266,7 +6597,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6279,6 +6610,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6300,6 +6632,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6311,6 +6644,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6332,6 +6666,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6343,6 +6678,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6352,7 +6688,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6365,6 +6701,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -6387,6 +6724,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6396,7 +6734,7 @@
           }
         },
         "chance": 40,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6409,6 +6747,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6420,6 +6759,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -6432,10 +6772,9 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Relic Song",
@@ -6446,6 +6785,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6454,7 +6794,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6467,6 +6807,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6478,6 +6819,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6487,7 +6829,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6500,6 +6842,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6508,7 +6851,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6521,6 +6864,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6529,7 +6873,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6542,6 +6886,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6564,6 +6909,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6572,7 +6918,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6585,6 +6931,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6593,7 +6940,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6606,6 +6953,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6615,7 +6963,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6628,6 +6976,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6636,7 +6985,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6649,6 +6998,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6660,6 +7010,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6671,6 +7022,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": []
   },
   {
@@ -6682,6 +7034,7 @@
     "max_pp": 25,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6693,6 +7046,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6704,6 +7058,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6713,7 +7068,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -6723,7 +7078,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6736,6 +7091,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -6757,6 +7113,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -6768,6 +7125,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6776,7 +7134,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6789,6 +7147,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -6800,6 +7159,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6811,8 +7171,8 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
-    "effect_list": [],
-    "comment": "Draining kiss is 75 procent"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Play Rough",
@@ -6823,6 +7183,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6832,7 +7193,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6845,6 +7206,7 @@
     "max_pp": 30,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -6856,6 +7218,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6865,7 +7228,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6878,6 +7241,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -6889,6 +7253,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -6906,6 +7271,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6915,7 +7281,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6928,6 +7294,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6937,7 +7304,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6950,6 +7317,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -6972,6 +7340,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -6980,7 +7349,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -6993,6 +7362,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7004,6 +7374,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7013,7 +7384,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7026,6 +7397,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -7043,6 +7415,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7052,7 +7425,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7065,6 +7438,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -7107,6 +7481,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "Party",
     "effect_list": [
       {
         "effect": {
@@ -7139,6 +7514,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7150,6 +7526,7 @@
     "max_pp": 30,
     "priority": 1,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7159,7 +7536,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7172,6 +7549,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7180,7 +7558,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7193,8 +7571,8 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
-    "effect_list": [],
-    "comment": "infestation, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Power-Up Punch",
@@ -7205,6 +7583,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7227,8 +7606,8 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "oblivion wing is 75 procent"
+    "target": "AnyPick",
+    "effect_list": []
   },
   {
     "name": "Thousand Arrows",
@@ -7239,6 +7618,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7250,6 +7630,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7261,6 +7642,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7272,6 +7654,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7293,6 +7676,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7304,6 +7688,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7315,6 +7700,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "AnyPick",
     "effect_list": [
       {
         "effect": {
@@ -7347,6 +7733,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7369,6 +7756,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -7390,6 +7778,7 @@
     "max_pp": 10,
     "priority": 2,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7401,6 +7790,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -7418,6 +7808,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7429,6 +7820,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7440,6 +7832,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -7451,6 +7844,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7473,6 +7867,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7484,6 +7879,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7495,6 +7891,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7506,6 +7903,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7517,6 +7915,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7525,7 +7924,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -7535,7 +7934,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7548,6 +7947,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7559,6 +7959,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7570,6 +7971,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7579,7 +7981,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7592,6 +7994,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7601,7 +8004,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7614,6 +8017,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7625,6 +8029,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7636,6 +8041,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7647,6 +8053,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -7658,6 +8065,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7667,7 +8075,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7680,6 +8088,7 @@
     "max_pp": 15,
     "priority": -3,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7691,6 +8100,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -7713,6 +8123,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7724,6 +8135,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "AdjacentAll",
     "effect_list": []
   },
   {
@@ -7735,6 +8147,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7757,6 +8170,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7768,6 +8182,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7779,6 +8194,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7788,7 +8204,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7801,6 +8217,7 @@
     "max_pp": 20,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7812,6 +8229,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7821,7 +8239,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7834,6 +8252,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7845,6 +8264,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7856,6 +8276,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7867,6 +8288,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7878,6 +8300,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7887,7 +8310,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -7897,7 +8320,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7910,6 +8333,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -7918,7 +8342,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -7931,6 +8355,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7942,6 +8367,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7953,6 +8379,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -7974,6 +8401,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7985,6 +8413,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -7996,6 +8425,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8005,7 +8435,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       },
       {
         "effect": {
@@ -8014,7 +8444,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8027,6 +8457,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8038,6 +8469,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8049,6 +8481,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8060,6 +8493,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -8122,6 +8556,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8131,7 +8566,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8144,6 +8579,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8153,7 +8589,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -8166,6 +8602,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8177,6 +8614,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8188,6 +8626,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -8259,6 +8698,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8270,6 +8710,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8279,7 +8720,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8292,8 +8733,8 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
-    "effect_list": [],
-    "comment": "snap trap, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Pyro Ball",
@@ -8304,6 +8745,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8312,7 +8754,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8325,6 +8767,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8336,6 +8779,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8347,6 +8791,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8369,6 +8814,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -8378,7 +8824,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8391,6 +8837,7 @@
     "max_pp": 40,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8402,6 +8849,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -8413,6 +8861,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8422,7 +8871,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8435,6 +8884,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8444,7 +8894,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8457,6 +8907,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8466,7 +8917,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8479,6 +8930,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8491,10 +8943,9 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Life Dew",
@@ -8505,6 +8956,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAlliesAndSelf",
     "effect_list": [
       {
         "effect": {
@@ -8526,6 +8978,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -8543,6 +8996,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8554,6 +9008,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8565,6 +9020,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8576,6 +9032,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8597,6 +9054,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8608,6 +9066,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8619,6 +9078,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8630,6 +9090,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8638,7 +9099,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8651,6 +9112,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAll",
     "effect_list": [
       {
         "effect": {
@@ -8672,6 +9134,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8683,6 +9146,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8694,6 +9158,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8703,7 +9168,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8716,6 +9181,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8727,6 +9193,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8738,16 +9205,17 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
           "MultiHitAcc": {
-            "max":3,
+            "max": 3,
             "increment": 20
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -8760,6 +9228,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8769,7 +9238,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -8782,6 +9251,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8790,7 +9260,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8803,6 +9273,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAlliesAndSelf",
     "effect_list": [
       {
         "effect": {
@@ -8811,12 +9282,12 @@
           }
         },
         "chance": 100,
-        "target": "User"
+        "target": "UserParty"
       },
       {
         "effect": "HealStatuses",
         "chance": 100,
-        "target": "User"
+        "target": "UserParty"
       }
     ]
   },
@@ -8829,6 +9300,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8840,6 +9312,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8849,7 +9322,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -8862,8 +9335,8 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
-    "effect_list": [],
-    "comment": "thunder cage, trap and chip"
+    "target": "NormalPick",
+    "effect_list": []
   },
   {
     "name": "Dragon Energy",
@@ -8874,6 +9347,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -8885,6 +9359,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8893,7 +9368,7 @@
           }
         },
         "chance": 10,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8906,6 +9381,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -8914,7 +9390,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8927,6 +9403,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8936,7 +9413,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -8949,6 +9426,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -8960,6 +9438,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   },
   {
@@ -8971,6 +9450,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -8982,6 +9462,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -8992,7 +9473,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9005,6 +9486,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9027,6 +9509,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9038,6 +9521,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9047,7 +9531,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9060,6 +9544,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9082,6 +9567,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "RandomFoe",
     "effect_list": []
   },
   {
@@ -9093,6 +9579,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9114,6 +9601,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9135,6 +9623,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9143,7 +9632,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9156,6 +9645,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -9198,6 +9688,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9230,6 +9721,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9238,7 +9730,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9251,6 +9743,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9273,6 +9766,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9282,7 +9776,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9295,6 +9789,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -9317,6 +9812,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9325,7 +9821,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -9335,7 +9831,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9348,6 +9844,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9356,7 +9853,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9369,6 +9866,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9380,6 +9878,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9389,7 +9888,7 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9402,6 +9901,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9410,7 +9910,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9423,6 +9923,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9431,7 +9932,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9444,6 +9945,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentAlliesAndSelf",
     "effect_list": [
       {
         "effect": {
@@ -9452,12 +9954,12 @@
           }
         },
         "chance": 100,
-        "target": "User"
+        "target": "UserParty"
       },
       {
         "effect": "HealStatuses",
         "chance": 100,
-        "target": "User"
+        "target": "UserParty"
       }
     ]
   },
@@ -9470,6 +9972,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -9507,6 +10010,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9518,6 +10022,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -9535,6 +10040,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9547,10 +10053,9 @@
           }
         },
         "chance": 30,
-        "target": "Opponent"
+        "target": "Target"
       }
-    ],
-    "comment": "confusion"
+    ]
   },
   {
     "name": "Last Respects",
@@ -9561,6 +10066,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9572,6 +10078,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9581,7 +10088,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9594,6 +10101,7 @@
     "max_pp": 15,
     "priority": 1,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9605,6 +10113,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9614,7 +10123,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -9624,7 +10133,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9637,6 +10146,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9659,16 +10169,17 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
           "MultiHitAcc": {
-            "max":10,
+            "max": 10,
             "increment": 0
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -9681,6 +10192,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9692,6 +10204,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9703,6 +10216,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9712,7 +10226,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -9725,6 +10239,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9733,7 +10248,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -9746,6 +10261,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -9797,6 +10313,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9808,6 +10325,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9819,6 +10337,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9841,6 +10360,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -9863,6 +10383,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9874,6 +10395,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -9896,6 +10418,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9907,6 +10430,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9918,6 +10442,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9929,6 +10454,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9940,6 +10466,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -9951,6 +10478,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": {
@@ -9983,6 +10511,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "Field",
     "effect_list": []
   },
   {
@@ -9994,6 +10523,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10003,7 +10533,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -10016,6 +10546,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10038,6 +10569,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10047,7 +10579,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -10060,6 +10592,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10071,6 +10604,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10080,7 +10614,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -10093,6 +10627,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10125,6 +10660,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10146,6 +10682,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10157,6 +10694,7 @@
     "max_pp": 20,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10168,6 +10706,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10179,6 +10718,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": [
       {
         "effect": {
@@ -10187,7 +10727,7 @@
           }
         },
         "chance": 20,
-        "target": "Opponent"
+        "target": "Target"
       },
       {
         "effect": {
@@ -10209,6 +10749,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10220,6 +10761,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10231,6 +10773,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10242,6 +10785,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10253,6 +10797,7 @@
     "max_pp": 10,
     "priority": 4,
     "contact": false,
+    "target": "SelfTarget",
     "effect_list": [
       {
         "effect": "Protect",
@@ -10270,6 +10815,7 @@
     "max_pp": 5,
     "priority": 1,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10281,6 +10827,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10292,6 +10839,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10301,7 +10849,7 @@
           }
         },
         "chance": 100,
-        "target": "Opponent"
+        "target": "User"
       }
     ]
   },
@@ -10314,6 +10862,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10325,6 +10874,7 @@
     "max_pp": 15,
     "priority": 0,
     "contact": true,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10336,6 +10886,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": []
   },
   {
@@ -10347,6 +10898,7 @@
     "max_pp": 5,
     "priority": 0,
     "contact": false,
+    "target": "NormalPick",
     "effect_list": [
       {
         "effect": {
@@ -10355,7 +10907,7 @@
           }
         },
         "chance": 50,
-        "target": "Opponent"
+        "target": "Target"
       }
     ]
   },
@@ -10368,6 +10920,7 @@
     "max_pp": 10,
     "priority": 0,
     "contact": false,
+    "target": "AdjacentFoes",
     "effect_list": []
   }
 ]
